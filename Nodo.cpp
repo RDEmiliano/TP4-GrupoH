@@ -6,7 +6,7 @@
 
 template<class T>
 Nodo<T>::Nodo(T datoNuevo) {
-    siguiente = nullptr;
+    siguiente = 0; //CAMBIE NULLPTR PORQUE ME DABA ERROR
     dato = datoNuevo;
 
 }
@@ -14,7 +14,7 @@ Nodo<T>::Nodo(T datoNuevo) {
 template<class T>
 Nodo<T>::~Nodo() {
     delete dato;
-    siguiente = nullptr;
+    siguiente = 0;//CAMBIE NULLPTR PORQUE ME DABA ERROR
 }
 
 template<class T>
