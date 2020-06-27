@@ -2,10 +2,13 @@
 // Created by emiliano on 26/6/20.
 //
 
-#include "Nodo.h"
+//#include "Nodo.h"
 
 template<class T>
 Nodo<T>::Nodo(T datoNuevo) {
+    if (MOSTRAR){
+        mostrarExtra("Constructor NODO", (int)this);
+    }
     siguiente = 0; //CAMBIE NULLPTR PORQUE ME DABA ERROR
     dato = datoNuevo;
 
@@ -15,6 +18,9 @@ template<class T>
 Nodo<T>::~Nodo() {
     delete dato;
     siguiente = 0;//CAMBIE NULLPTR PORQUE ME DABA ERROR
+    if (MOSTRAR){
+        mostrarExtra("Destructor NODO", (int)this);
+    }
 }
 
 template<class T>

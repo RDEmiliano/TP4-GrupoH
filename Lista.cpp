@@ -6,6 +6,9 @@
 
 template<class T>
 Lista<T>::Lista() {
+    if (MOSTRAR){
+        mostrarExtra("Constructor LISTA <sin parametros>", (int)this);
+    }
     primero = 0;
     tam = 0;
 }
@@ -14,6 +17,9 @@ template<class T>
 Lista<T>::~Lista<T>() {
     while (!(listaVacia()))
         eliminarDato(1);
+    if (MOSTRAR){
+        mostrarExtra("Destructor MENU", (int)this);
+    }
 }
 
 template<class T>
