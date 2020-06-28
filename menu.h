@@ -10,6 +10,7 @@ private:
     //CAMBIAR STRING POR CLASE PELICULA!!!!!
     Lista<string>* pelisVistas;
     Lista<string>* pelisNoVistas;
+    Lista<string>* pelisRecomendadas; // hay que ver como liberar memoria
 public:
     Menu();
     //CAMBIAR STRING POR CLASE PELICULA!!!!!
