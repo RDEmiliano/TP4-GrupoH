@@ -23,7 +23,7 @@ class Nodo{
         Nodo<T> * obtenerSiguiente();
 };
 
-
+template<class T>
 Nodo<T>::Nodo(T datoNuevo) {
     if (MOSTRAR_MEMORIA){
         std::cout << "Destructor NODO (" << (int)this << std::endl;
@@ -33,6 +33,7 @@ Nodo<T>::Nodo(T datoNuevo) {
 
 }
 
+template<class T>
 Nodo<T>::~Nodo() {
     delete dato;
     siguiente = 0;//CAMBIE NULLPTR PORQUE ME DABA ERROR
@@ -41,16 +42,17 @@ Nodo<T>::~Nodo() {
     }
 }
 
-
+template<class T>
 T Nodo<T>::obtenerDato() {
     return dato;
 }
 
-
+template<class T>
 void Nodo<T>::asignarSiguiente(Nodo<T> *ps) {
     siguiente = ps;
 }
 
+template<class T>
 Nodo<T> * Nodo<T>::obtenerSiguiente() {
     return siguiente;
 }

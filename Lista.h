@@ -31,6 +31,7 @@ class Lista{
 
 
 
+template<class T>
 Lista<T>::Lista() {
     if (MOSTRAR_MEMORIA){
         std::cout << "Constructor LISTA (" << (int)this << ")" << std::endl;
@@ -39,6 +40,7 @@ Lista<T>::Lista() {
     tam = 0;
 }
 
+template<class T>
 Lista<T>::~Lista<T>() {
     while (!(listaVacia()))
         eliminarDato(1);
@@ -47,11 +49,12 @@ Lista<T>::~Lista<T>() {
     }
 }
 
-
+template<class T>
 bool Lista<T>::listaVacia() {
     return ( primero == 0);
 }
 
+template<class T>
 void Lista<T>::insertar(T d, unsigned int pos) {
     Nodo<T> * nuevo = new Nodo<T>(d);
     if (pos == 1){
@@ -64,12 +67,13 @@ void Lista<T>::insertar(T d, unsigned int pos) {
     }
 }
 
+template<class T>
 T Lista<T>::obtenerDato(unsigned int pos) {
     Nodo<T> * paux = obtenerNodo(pos);
     return paux -> obtenerDato();
 }
 
-
+template<class T>
 void Lista<T>::eliminarDato(unsigned pos) {
     Nodo<T> * borrar = primero;
     if (pos == 1){
@@ -83,11 +87,12 @@ void Lista<T>::eliminarDato(unsigned pos) {
     tam--;
 }
 
-
+template<class T>
 unsigned Lista<T>::obtenerTamanio() {
     return tam;
 }
 
+template<class T>
 Nodo<T> * Lista<T>::obtenerNodo(unsigned int pos) {
     Nodo<T> * aux = primero;
     unsigned i = 1;
