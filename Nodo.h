@@ -13,7 +13,7 @@ template<class T>
 
 class Nodo{
     private:
-        T* dato; // PUSE * XQ ME DABA ERROR EL DESTRUCTOR
+        T dato; // PUSE * XQ ME DABA ERROR EL DESTRUCTOR... AHORA LE SAQUE EL *..
         Nodo<T> * siguiente;
     public:
         Nodo(T datoNuevo);
@@ -26,16 +26,18 @@ class Nodo{
 template<class T>
 Nodo<T>::Nodo(T datoNuevo) {
     if (MOSTRAR_MEMORIA){
-        std::cout << "Destructor NODO (" << (int)this << std::endl;
+        std::cout << "Constructor NODO (" << (int)this << ")" <<std::endl;
     }
     siguiente = 0; //CAMBIE NULLPTR PORQUE ME DABA ERROR
+    //AHORA ME TIRABA ERROR ESTO DE ABAJO, LO QUE HICE FUE QUITAR EL * DEL DATO DEL NODO, Y
+    //COMENTAR EL "DELETE DATO" DEL DESTRUCTOR
     dato = datoNuevo;
 
 }
 
 template<class T>
 Nodo<T>::~Nodo() {
-    delete dato;
+    //delete dato;
     siguiente = 0;//CAMBIE NULLPTR PORQUE ME DABA ERROR
     if (MOSTRAR_MEMORIA){
         std::cout << "Destructor NODO (" << (int)this << std::endl;

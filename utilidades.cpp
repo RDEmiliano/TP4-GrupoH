@@ -7,13 +7,13 @@ Utilidades::Utilidades(){
 void Utilidades::mostrarExtra(string texto, int numero){
     cout << texto << " (" << numero << ")"<< endl;
 }
-void Utilidades::llenarLista(Lista<string>* listaAllenar, string nombreArchivo){
+void Utilidades::llenarLista(Lista<Pelicula>* listaAllenar, string nombreArchivo){
     subrayar();
     cout << "Carga una lista con datos del archivo\n";
     subrayar();
     pausa();
 }
-void Utilidades::recomendar(Lista<string>* recomendadas, Lista<string>* vistas, Lista<string>* noVistas){
+void Utilidades::recomendar(Lista<Pelicula>* recomendadas, Lista<Pelicula>* vistas, Lista<Pelicula>* noVistas){
     subrayar();
     cout << "Carga lista de recomendados...\n";
     subrayar();

@@ -19,7 +19,9 @@ private:
     string director;
     double puntaje;
     Lista<string> actores;
-    int cantidadActores;
+    int cantidadActores;    // <- CREO QUE ESTO LO PODEMOS SACAR, Y USAMOS EL METODO DE LA
+                            // LISTA ACTORES, EJEMPLO PARA SABER LA CANTIDAD DE ACTORES
+                            // HACEMOS actores.obtenerTamanio()
 
     //Metodos
 public:
@@ -30,7 +32,10 @@ public:
     void asignarGenero(string genero);
     void asignarPuntaje(double puntaje);
     void asignarDirector(string director);
-    void nuevoActor(string actor, int posicion);
+    void nuevoActor(string actor, int posicion);    // Y aca tambien, en lugar de indicarle la
+                                                    // posicion podemos usar el obtenertamanio
+                                                    // de la lista y que se vayan insertando
+                                                    // al final cada actor.
 
     string obtenerNombre();
     string obtenerGenero();
@@ -38,6 +43,7 @@ public:
     double obtenerPuntaje();
     int obtenerCantidadActores(); // Este metodo y el atributo 'cantidad de Actores' pueden ser opcionales
                                   // dependiendo de como se maneje el archivo.
+                                  // Si ahi podemos poner que devuelva actores.obtenertamanio()
 
 
 

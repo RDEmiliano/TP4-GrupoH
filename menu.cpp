@@ -4,18 +4,18 @@ Menu::Menu(){
         mostrarExtra("Constructor MENU <sin parametros>", (int)this);
     }
 }
-Menu::Menu(Lista<string>* vistas, Lista<string>* noVistas){
+Menu::Menu(Lista<Pelicula>* vistas, Lista<Pelicula>* noVistas){
     if (MOSTRAR){
         mostrarExtra("Constructor MENU <con parametros>", (int)this);
     }
     pelisVistas = vistas;
     pelisNoVistas = noVistas;
-    pelisRecomendadas = new Lista<string>; // como liberar memoria??
+    pelisRecomendadas = new Lista<Pelicula>; // como liberar memoria??
 }
 void Menu::inicializar(string vistas, string noVistas){
-    llenarLista(pelisVistas, vistas);
-    llenarLista(pelisNoVistas, noVistas);
-    recomendar(pelisRecomendadas, pelisVistas, pelisNoVistas);
+    llenarLista(pelisVistas, vistas);                           //metodo en utilidades
+    llenarLista(pelisNoVistas, noVistas);                       //metodo en utilidades
+    recomendar(pelisRecomendadas, pelisVistas, pelisNoVistas);  //metodo en utilidades
 }
 Menu::~Menu(){
     delete pelisRecomendadas;

@@ -4,6 +4,7 @@
 #include<cstdlib>
 #include<fstream>
 #include "Lista.h"
+#include "Pelicula.h"
 
 const bool MOSTRAR = true;
 using namespace std;
@@ -15,8 +16,8 @@ public:
     void limpiarPantalla();
     void subrayar();
     void pausa();
-    void llenarLista(Lista<string>* listaAllenar, string nombreArchivo);
-    void recomendar(Lista<string>* recomendadas, Lista<string>* vistas, Lista<string>* noVistas);
+    void llenarLista(Lista<Pelicula>* listaAllenar, string nombreArchivo);
+    void recomendar(Lista<Pelicula>* recomendadas, Lista<Pelicula>* vistas, Lista<Pelicula>* noVistas);
     ~Utilidades();
 };
 

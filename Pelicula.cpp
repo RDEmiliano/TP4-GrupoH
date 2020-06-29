@@ -6,13 +6,18 @@
 
 //Constructor
 Pelicula::Pelicula() {
-
+    if (MOSTRAR_MEMORIA){
+        std::cout << "Constructor PELICULA (" << (int)this << ")" << std::endl;
+    }
     //cantidadActores = 0;
 
 }
 
 //Destructor
 Pelicula::~Pelicula() {
+    if (MOSTRAR_MEMORIA){
+        std::cout << "Destructor PELICULA (" << (int)this << ")" << std::endl;
+    }
 }
 
 void Pelicula::asignarNombre(string nombre) {
@@ -54,5 +59,5 @@ double Pelicula::obtenerPuntaje() {
 }
 
 string Pelicula::obtenerGenero() {
-    return genero
+    return genero;
 }

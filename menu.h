@@ -2,19 +2,20 @@
 #define MENU_H_INCLUDED
 //#include<iostream> YA LO DECLARE EN UTILIDADES.H IGUAL HABRIA QUE DEJARLO ACA?
 #include "Lista.h"
+#include "Pelicula.h"
 #include "utilidades.h"
 using namespace std;
 
 class Menu : public Utilidades{
 private:
     //CAMBIAR STRING POR CLASE PELICULA!!!!!
-    Lista<string>* pelisVistas;
-    Lista<string>* pelisNoVistas;
-    Lista<string>* pelisRecomendadas; // hay que ver como liberar memoria
+    Lista<Pelicula>* pelisVistas;
+    Lista<Pelicula>* pelisNoVistas;
+    Lista<Pelicula>* pelisRecomendadas; // hay que ver como liberar memoria
 public:
     Menu();
     //CAMBIAR STRING POR CLASE PELICULA!!!!!
-    Menu(Lista<string>* vistas, Lista<string>* noVistas);
+    Menu(Lista<Pelicula>* vistas, Lista<Pelicula>* noVistas);
     void inicializar(string vistas, string noVistas);
     ~Menu();
 };
