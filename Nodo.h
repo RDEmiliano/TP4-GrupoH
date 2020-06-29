@@ -2,8 +2,8 @@
 // Created by emiliano on 26/6/20.
 //
 
-#ifndef UNTITLED2_NODO_H
-#define UNTITLED2_NODO_H
+#ifndef TP4_GRUPOH__NODO_H
+#define TP4_GRUPOH__NODO_H
 
 #include<iostream>
 
@@ -57,4 +57,4 @@ Nodo<T> * Nodo<T>::obtenerSiguiente() {
     return siguiente;
 }
 
-#endif //UNTITLED2_NODO_H
+#endif //TP4_GRUPOH__NODO_H

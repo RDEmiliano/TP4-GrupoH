@@ -2,8 +2,8 @@
 // Created by emiliano on 26/6/20.
 //
 
-#ifndef UNTITLED2_LISTA_H
-#define UNTITLED2_LISTA_H
+#ifndef TP4_GRUPOH__LISTA_H
+#define TP4_GRUPOH__LISTA_H
 #include "Nodo.h"
 
 template<class T>
@@ -105,4 +105,4 @@ Nodo<T> * Lista<T>::obtenerNodo(unsigned int pos) {
 
 
 
-#endif //UNTITLED2_LISTA_H
+#endif //TP4_GRUPOH__LISTA_H
