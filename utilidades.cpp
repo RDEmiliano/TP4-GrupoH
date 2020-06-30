@@ -9,13 +9,13 @@ void Utilidades::mostrarExtra(string texto, int numero){
 }
 void Utilidades::llenarLista(Lista<Pelicula>* listaAllenar, string nombreArchivo){
     subrayar();
-    cout << "Carga una lista con datos del archivo\n";
+    cout << "\nCarga una lista con datos del archivo\n\n";
     subrayar();
     pausa();
 }
 void Utilidades::recomendar(Lista<Pelicula>* recomendadas, Lista<Pelicula>* vistas, Lista<Pelicula>* noVistas){
     subrayar();
-    cout << "Carga lista de recomendados...\n";
+    cout << "\nCarga lista de recomendados...\n\n";
     subrayar();
     pausa();
 }
@@ -32,6 +32,17 @@ void Utilidades::limpiarPantalla(){
         // Assume POSIX
         system ("clear");
     #endif
+}
+void Utilidades::menuPrincipal(){
+    cout << "1- Lista peliculas vistas." << endl;
+    cout << "2- Lista no peliculas vistas." << endl;
+    cout << "3- Recomendaciones." << endl;
+    cout << "0- Salir." << endl;
+    cout << endl;
+    cout << "Eleccion: ";
+}
+void Utilidades::despedida(){
+    cout << "\nFin del programa.\n" << endl;
 }
 void Utilidades::cabecera(){
     subrayar();

@@ -14,6 +14,8 @@ public:
     Utilidades();
     void mostrarExtra(string texto, int numero);
     void limpiarPantalla();
+    void menuPrincipal();
+    void despedida();
     void subrayar();
     void pausa();
     void cabecera();

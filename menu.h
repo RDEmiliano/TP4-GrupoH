@@ -18,6 +18,10 @@ public:
     Menu(Lista<Pelicula>* vistas, Lista<Pelicula>* noVistas);
     void inicializar(string vistas, string noVistas);
     int comenzar();
+    void peliculasVistas();
+    void peliculasNoVistas();
+    void peliculasRecomendadas();
+    void salir();
     ~Menu();
 };
 

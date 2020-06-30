@@ -20,37 +20,51 @@ void Menu::inicializar(string vistas, string noVistas){
 int Menu::comenzar(){
     int eleccion;
     do{
-        //limpiarPantalla();
-        cabecera();
-        cout << "1- Lista peliculas vistas." << endl;
-        cout << "2- Lista no peliculas vistas." << endl;
-        cout << "3- Recomendaciones." << endl;
-        cout << "0- Salir." << endl;
-        cout << endl;
-        cout << "Eleccion: ";
+        limpiarPantalla();
+        cabecera();         //en utilidades
+        menuPrincipal();    //en utilidades
         cin >> eleccion;
     }while(eleccion < 0 || eleccion > 3);
     cin.get();
     switch (eleccion){
         case 0:
-            cout << "Sale" << endl;
-            pausa();
+            salir();
             break;
         case 1:
-            cout << "Peliculas vistas" << endl;
-            pausa();
+            peliculasVistas();
             break;
         case 2:
-            cout << "Peliculas no vistas" << endl;
-            pausa();
+            peliculasNoVistas();
             break;
         case 3:
-            cout << "Recomendaciones" << endl;
-            pausa();
+            peliculasRecomendadas();
             break;
-        break;
     }
     return eleccion;
+}
+void Menu::salir(){
+    limpiarPantalla();
+    cabecera();
+    despedida();    //en utilidades
+    pausa();
+}
+void Menu::peliculasVistas(){
+    limpiarPantalla();
+    cabecera();
+    cout << "\nMOSTRAMOS LISTA PELICULAS VISTAS\n" << endl;
+    pausa();
+}
+void Menu::peliculasNoVistas(){
+    limpiarPantalla();
+    cabecera();
+    cout << "\nMOSTRAMOS LISTA PELICULAS NO VISTAS\n" << endl;
+    pausa();
+}
+void Menu::peliculasRecomendadas(){
+    limpiarPantalla();
+    cabecera();
+    cout << "\nMOSTRAMOS LISTA PELICULAS RECOMENDADAS\n" << endl;
+    pausa();
 }
 Menu::~Menu(){
     delete pelisRecomendadas;
