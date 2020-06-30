@@ -15,7 +15,10 @@ int main()
     Menu menu(ptrPelisVistas, ptrPelisNoVistas);
     menu.inicializar(PELIS_VISTAS, PELIS_NO_VISTAS);    //Esto esta en menu
 
-    cout << "Hello world!" << endl;
+    int eleccion = 0;
+    do{
+        eleccion = menu.comenzar();
+    }while(eleccion);
 
     delete ptrPelisVistas;
     delete ptrPelisNoVistas;

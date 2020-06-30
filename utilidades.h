@@ -16,6 +16,7 @@ public:
     void limpiarPantalla();
     void subrayar();
     void pausa();
+    void cabecera();
     void llenarLista(Lista<Pelicula>* listaAllenar, string nombreArchivo);
     void recomendar(Lista<Pelicula>* recomendadas, Lista<Pelicula>* vistas, Lista<Pelicula>* noVistas);
     ~Utilidades();

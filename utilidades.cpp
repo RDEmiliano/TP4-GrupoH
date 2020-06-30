@@ -33,6 +33,13 @@ void Utilidades::limpiarPantalla(){
         system ("clear");
     #endif
 }
+void Utilidades::cabecera(){
+    subrayar();
+    subrayar();
+    cout << "- TRABAJO PRACTICO Nro. 4 - GRUPO H -" << endl;
+    subrayar();
+    subrayar();
+}
 void Utilidades::pausa(){
     cout << "<Enter>";
     cin.get();

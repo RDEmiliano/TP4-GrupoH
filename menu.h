@@ -17,6 +17,7 @@ public:
     //CAMBIAR STRING POR CLASE PELICULA!!!!!
     Menu(Lista<Pelicula>* vistas, Lista<Pelicula>* noVistas);
     void inicializar(string vistas, string noVistas);
+    int comenzar();
     ~Menu();
 };
 
