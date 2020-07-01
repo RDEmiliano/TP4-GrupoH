@@ -25,9 +25,7 @@ class Nodo{
 
 template<class T>
 Nodo<T>::Nodo(T datoNuevo) {
-    if (MOSTRAR_MEMORIA){
-        std::cout << "Constructor NODO (" << (int)this << ")" <<std::endl;
-    }
+    if (MOSTRAR_MEMORIA) std::cout << "Constructor NODO (" << this << ")" << std::endl;
     siguiente = 0; //CAMBIE NULLPTR PORQUE ME DABA ERROR
     //AHORA ME TIRABA ERROR ESTO DE ABAJO, LO QUE HICE FUE QUITAR EL * DEL DATO DEL NODO, Y
     //COMENTAR EL "DELETE DATO" DEL DESTRUCTOR
@@ -39,9 +37,7 @@ template<class T>
 Nodo<T>::~Nodo() {
     //delete dato;
     siguiente = 0;//CAMBIE NULLPTR PORQUE ME DABA ERROR
-    if (MOSTRAR_MEMORIA){
-        std::cout << "Destructor NODO (" << (int)this << std::endl;
-    }
+    if (MOSTRAR_MEMORIA) std::cout << "Destructor NODO (" << this << ")" << std::endl;
 }
 
 template<class T>

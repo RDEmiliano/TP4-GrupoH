@@ -12,7 +12,6 @@ using namespace std;
 class Utilidades{
 public:
     Utilidades();
-    void mostrarExtra(string texto, int numero);
     void limpiarPantalla();
     void menuPrincipal();
     void despedida();

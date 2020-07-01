@@ -1,23 +1,18 @@
 #include "utilidades.h"
 Utilidades::Utilidades(){
-    if (MOSTRAR){
-        mostrarExtra("Constructor UTILIDADES", (int)this);
-    }
-}
-void Utilidades::mostrarExtra(string texto, int numero){
-    cout << texto << " (" << numero << ")"<< endl;
+    if (MOSTRAR) cout << "Constructor UTILIDADES (" << this << ")" << endl;
 }
 void Utilidades::llenarLista(Lista<Pelicula>* listaAllenar, string nombreArchivo){
     subrayar();
     cout << "\nCarga una lista con datos del archivo\n\n";
-    ifstream archivo(nombreArchivo);
+    ifstream archivo(nombreArchivo.c_str());
     Pelicula pelicula;
     string linea;
     int numLinea;
 
     if (!archivo.fail()){
         while(!archivo.eof()) {
-            
+
             numLinea = 0;
 
             do{
@@ -33,16 +28,16 @@ void Utilidades::llenarLista(Lista<Pelicula>* listaAllenar, string nombreArchivo
                    case 4: pelicula.asignarDirector(linea);
                         break;
                    case 5: pelicula.asignarActores(linea);
-                          
+
                         break;
                 }
             } while (( numLinea < 6 )&&(!archivo.eof()));
 
             listaAllenar->insertar(pelicula,1); // inserta en posicion 1.
         } ;
-        
+
         archivo.close();
-        
+
     } else {
         cout << "El archivo no se abrio correctamente" << endl;
     };
@@ -92,7 +87,5 @@ void Utilidades::pausa(){
     cin.get();
 }
 Utilidades::~Utilidades(){
-    if (MOSTRAR){
-        mostrarExtra("Destructor UTILIDADES", (int)this);
-    }
+    if (MOSTRAR) cout << "Destructor UTILIDADES (" << this << ")" << endl;
 }

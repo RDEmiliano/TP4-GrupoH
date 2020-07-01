@@ -1,13 +1,9 @@
 #include "menu.h"
 Menu::Menu(){
-    if (MOSTRAR){
-        mostrarExtra("Constructor MENU <sin parametros>", (int)this);
-    }
+    if (MOSTRAR) cout << "Constructor MENU (" << this << ")" << endl;
 }
 Menu::Menu(Lista<Pelicula>* vistas, Lista<Pelicula>* noVistas){
-    if (MOSTRAR){
-        mostrarExtra("Constructor MENU <con parametros>", (int)this);
-    }
+    if (MOSTRAR) cout << "Constructor MENU <con parametros> (" << this << ")" << endl;
     pelisVistas = vistas;
     pelisNoVistas = noVistas;
     pelisRecomendadas = new Lista<Pelicula>; // como liberar memoria??
@@ -20,7 +16,7 @@ void Menu::inicializar(string vistas, string noVistas){
 int Menu::comenzar(){
     int eleccion;
     do{
-        limpiarPantalla();
+        //limpiarPantalla();
         cabecera();         //en utilidades
         menuPrincipal();    //en utilidades
         cin >> eleccion;
@@ -43,13 +39,13 @@ int Menu::comenzar(){
     return eleccion;
 }
 void Menu::salir(){
-    limpiarPantalla();
+    //limpiarPantalla();
     cabecera();
     despedida();    //en utilidades
     pausa();
 }
 void Menu::peliculasVistas(){
-    limpiarPantalla();
+    //limpiarPantalla();
     cabecera();
     cout << "\nMOSTRAMOS LISTA PELICULAS VISTAS\n" << endl;
     for (int i=1 ; i<this->pelisVistas->obtenerTamanio()+1; i++){
@@ -65,7 +61,7 @@ void Menu::peliculasVistas(){
     pausa();
 }
 void Menu::peliculasNoVistas(){
-    limpiarPantalla();
+    //limpiarPantalla();
     cabecera();
     cout << "\nMOSTRAMOS LISTA PELICULAS NO VISTAS\n" << endl;
     for (int i=1 ; i<this->pelisNoVistas->obtenerTamanio()+1; i++){
@@ -81,14 +77,12 @@ void Menu::peliculasNoVistas(){
     pausa();
 }
 void Menu::peliculasRecomendadas(){
-    limpiarPantalla();
+    //limpiarPantalla();
     cabecera();
     cout << "\nMOSTRAMOS LISTA PELICULAS RECOMENDADAS\n" << endl;
     pausa();
 }
 Menu::~Menu(){
     delete pelisRecomendadas;
-    if (MOSTRAR){
-        mostrarExtra("Destructor MENU", (int)this);
-    }
+    if (MOSTRAR) cout << "Destructor MENU (" << this << ")" <<endl;
 }

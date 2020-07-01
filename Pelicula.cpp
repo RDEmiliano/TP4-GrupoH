@@ -6,18 +6,14 @@
 
 //Constructor
 Pelicula::Pelicula() {
-    if (MOSTRAR_MEMORIA){
-        std::cout << "Constructor PELICULA (" << (int)this << ")" << std::endl;
-    }
+    if (MOSTRAR_MEMORIA) cout << "Constructor PELICULA (" << this << ")" << endl;
     //cantidadActores = 0;
 
 }
 
 //Destructor
 Pelicula::~Pelicula() {
-    if (MOSTRAR_MEMORIA){
-        std::cout << "Destructor PELICULA (" << (int)this << ")" << std::endl;
-    }
+    if (MOSTRAR_MEMORIA) cout << "Destructor PELICULA (" << this << ")" << endl;
 }
 
 void Pelicula::asignarNombre(string nombre) {
@@ -33,17 +29,17 @@ void Pelicula::asignarGenero(string genero) {
 }
 
 void Pelicula::asignarPuntaje(string puntaje) {
-    this-> puntaje = stof(puntaje);
+//    this-> puntaje = stof(puntaje);
 }
 
 void Pelicula::asignarActores (string cadenaDeActores){
     istringstream isstream(cadenaDeActores);
     string tempStr;
     while(!isstream.eof()){
-       
+
         isstream >> tempStr;
        // this->actores.insertar(tempStr,1); // ACA TENDRIA QUE CARGAR LA LISTA DE ACTORES, PERO DA ERROR.
-       
+
     }
 }
 
