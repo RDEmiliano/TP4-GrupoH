@@ -65,6 +65,7 @@ void Lista<T>::insertar(T d, unsigned int pos) {
         nuevo -> asignarSiguiente(anterior -> obtenerSiguiente());
         anterior -> asignarSiguiente(nuevo);
     }
+    tam++;
 }
 
 template<class T>
