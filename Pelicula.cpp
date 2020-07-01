@@ -1,7 +1,7 @@
 //
 // Created by emiliano on 26/6/20.
 //
-
+#include <sstream>
 #include "Pelicula.h"
 
 //Constructor
@@ -32,8 +32,8 @@ void Pelicula::asignarGenero(string genero) {
     this -> genero = genero;
 }
 
-void Pelicula::asignarPuntaje(double puntaje) {
-    this -> puntaje = puntaje;
+void Pelicula::asignarPuntaje(string puntaje) {
+    this-> puntaje = stof(puntaje);
 }
 
 void Pelicula::asignarActores (string cadenaDeActores){

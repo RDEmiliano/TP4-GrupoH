@@ -30,7 +30,7 @@ public:
 
     void asignarNombre(string nombre);
     void asignarGenero(string genero);
-    void asignarPuntaje(double puntaje);
+    void asignarPuntaje(string puntaje);
     void asignarActores (string actores);
     void asignarDirector(string director);
     void nuevoActor(string actor, int posicion);    // Y aca tambien, en lugar de indicarle la
