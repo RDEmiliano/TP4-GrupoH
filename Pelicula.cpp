@@ -36,6 +36,17 @@ void Pelicula::asignarPuntaje(double puntaje) {
     this -> puntaje = puntaje;
 }
 
+void Pelicula::asignarActores (string cadenaDeActores){
+    istringstream isstream(cadenaDeActores);
+    string tempStr;
+    while(!isstream.eof()){
+       
+        isstream >> tempStr;
+       // this->actores.insertar(tempStr,1); // ACA TENDRIA QUE CARGAR LA LISTA DE ACTORES, PERO DA ERROR.
+       
+    }
+}
+
 void Pelicula::nuevoActor(string actor, int posicion) {
     actores.insertar(actor, posicion);
     cantidadActores++;

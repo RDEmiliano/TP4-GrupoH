@@ -10,6 +10,42 @@ void Utilidades::mostrarExtra(string texto, int numero){
 void Utilidades::llenarLista(Lista<Pelicula>* listaAllenar, string nombreArchivo){
     subrayar();
     cout << "\nCarga una lista con datos del archivo\n\n";
+    ifstream archivo(nombreArchivo);
+    Pelicula pelicula;
+    string linea;
+    int numLinea;
+
+    if (!archivo.fail()){
+        while(!archivo.eof()) {
+            
+            numLinea = 0;
+
+            do{
+               getline(archivo,linea);
+               numLinea++;
+               switch (numLinea) {
+                   case 1: pelicula.asignarNombre(linea);
+                        break;
+                   case 2: pelicula.asignarGenero(linea);
+                        break;
+                   case 3: pelicula.asignarPuntaje(linea);
+                        break;
+                   case 4: pelicula.asignarDirector(linea);
+                        break;
+                   case 5: pelicula.asignarActores(linea);
+                          
+                        break;
+                }
+            } while (( numLinea < 6 )&&(!archivo.eof()));
+
+            listaAllenar->insertar(pelicula,1); // inserta en posicion 1.
+        } ;
+        
+        archivo.close();
+        
+    } else {
+        cout << "El archivo no se abrio correctamente" << endl;
+    };
     subrayar();
     pausa();
 }

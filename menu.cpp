@@ -52,12 +52,32 @@ void Menu::peliculasVistas(){
     limpiarPantalla();
     cabecera();
     cout << "\nMOSTRAMOS LISTA PELICULAS VISTAS\n" << endl;
+    for (int i=1 ; i<this->pelisVistas->obtenerTamanio()+1; i++){
+        cout<<endl;
+        cout<< " Titulo: "<<this->pelisVistas->obtenerDato(i).obtenerNombre()<<endl;
+        cout<< " Genero: "<<this->pelisVistas->obtenerDato(i).obtenerGenero()<<endl;
+        cout<< " Puntaje: "<<this->pelisVistas->obtenerDato(i).obtenerPuntaje()<<endl;
+        cout<< " Director: "<<this->pelisVistas->obtenerDato(i).obtenerDirector()<<endl;
+        cout<< " Actores: "<<endl;
+        //this->pelisVistas->obtenerDato(i).mostrarActores()<<endl;
+    }
+    cout <<endl;
     pausa();
 }
 void Menu::peliculasNoVistas(){
     limpiarPantalla();
     cabecera();
     cout << "\nMOSTRAMOS LISTA PELICULAS NO VISTAS\n" << endl;
+    for (int i=1 ; i<this->pelisNoVistas->obtenerTamanio()+1; i++){
+        cout<<endl;
+        cout<< " Titulo: "<<this->pelisNoVistas->obtenerDato(i).obtenerNombre()<<endl;
+        cout<< " Genero: "<<this->pelisNoVistas->obtenerDato(i).obtenerGenero()<<endl;
+        cout<< " Puntaje: "<<this->pelisNoVistas->obtenerDato(i).obtenerPuntaje()<<endl;
+        cout<< " Director: "<<this->pelisNoVistas->obtenerDato(i).obtenerDirector()<<endl;
+        cout<< " Actores: "<<endl;
+        //this->pelisNoVistas->obtenerDato(i).mostrarActores()<<endl;
+    }
+    cout <<endl;
     pausa();
 }
 void Menu::peliculasRecomendadas(){
