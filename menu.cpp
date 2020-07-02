@@ -55,7 +55,7 @@ void Menu::peliculasVistas(){
         cout<< " Puntaje: "<<this->pelisVistas->obtenerDato(i).obtenerPuntaje()<<endl;
         cout<< " Director: "<<this->pelisVistas->obtenerDato(i).obtenerDirector()<<endl;
         cout<< " Actores: "<<endl;
-        //this->pelisVistas->obtenerDato(i).mostrarActores()<<endl;
+        this->pelisVistas->obtenerDato(i).obtenerActores();
     }
     cout <<endl;
     pausa();
@@ -71,7 +71,7 @@ void Menu::peliculasNoVistas(){
         cout<< " Puntaje: "<<this->pelisNoVistas->obtenerDato(i).obtenerPuntaje()<<endl;
         cout<< " Director: "<<this->pelisNoVistas->obtenerDato(i).obtenerDirector()<<endl;
         cout<< " Actores: "<<endl;
-        //this->pelisNoVistas->obtenerDato(i).mostrarActores()<<endl;
+        this->pelisNoVistas->obtenerDato(i).obtenerActores();
     }
     cout <<endl;
     pausa();
@@ -83,10 +83,10 @@ void Menu::peliculasRecomendadas(){
     pausa();
 }
 Menu::~Menu(){
-    //Puse la liberacion de memoria en este metodo para que esten juntos.
     delete pelisVistas;
     delete pelisNoVistas;
     delete pelisRecomendadas;
 
     if (MOSTRAR) cout << "Destructor MENU (" << this << ")" <<endl;
+
 }

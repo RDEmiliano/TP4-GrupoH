@@ -13,6 +13,7 @@ Pelicula::Pelicula() {
 
 //Destructor
 Pelicula::~Pelicula() {
+
     if (MOSTRAR_MEMORIA) cout << "Destructor PELICULA (" << this << ")" << endl;
 }
 
@@ -29,28 +30,17 @@ void Pelicula::asignarGenero(string genero) {
 }
 
 void Pelicula::asignarPuntaje(string puntaje) {
-   this-> puntaje = stof(puntaje);
+    this-> puntaje = stof(puntaje);
 }
 
 void Pelicula::asignarActores (string cadenaDeActores){
+    actores = new Lista<string>;
     istringstream isstream(cadenaDeActores);
     string tempStr;
     while(!isstream.eof()){
-
         isstream >> tempStr;
-       // this->actores.insertar(tempStr,1); // ACA TENDRIA QUE CARGAR LA LISTA DE ACTORES, PERO DA ERROR.
-
+        actores -> insertar(tempStr,1); // ACA TENDRIA QUE CARGAR LA LISTA DE ACTORES, PERO DA ERROR.
     }
-}
-
-void Pelicula::nuevoActor(string actor, int posicion) {
-    actores.insertar(actor, posicion);
-    cantidadActores++;
-}
-
-
-int Pelicula::obtenerCantidadActores() {
-    return cantidadActores;
 }
 
 string Pelicula::obtenerDirector() {
@@ -67,4 +57,11 @@ double Pelicula::obtenerPuntaje() {
 
 string Pelicula::obtenerGenero() {
     return genero;
+}
+
+void Pelicula::obtenerActores() {
+    for (int i = 1; i < actores->obtenerTamanio()+1; i++){
+        cout << i << "Actor: " << actores -> obtenerDato(i) << endl;
+    }
+    cout << endl;
 }
