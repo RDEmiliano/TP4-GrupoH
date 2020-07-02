@@ -45,6 +45,14 @@ void Utilidades::llenarLista(Lista<Pelicula*>* listaAllenar, string nombreArchiv
     pausa();
 }
 void Utilidades::recomendar(Lista<Pelicula*>* recomendadas, Lista<Pelicula*>* vistas, Lista<Pelicula*>* noVistas){
+    for(int i = 0; i < noVistas->obtenerTamanio(); i++){
+        if(noVistas->obtenerDato(i + 1)->obtenerPuntaje() > 6){
+            recomendadas->insertar(noVistas->obtenerDato(i + 1), 1);
+            cout << "\nPuntaje 7 o mayor...\n\n";
+        }else{
+            cout << "\nPuntaje 6 o menor hay que ver por otros motivos de recomendaciones...\n\n";
+        }
+    }
     subrayar();
     cout << "\nCarga lista de recomendados...\n\n";
     subrayar();
