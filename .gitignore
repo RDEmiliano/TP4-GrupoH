@@ -1,6 +1,6 @@
 *.cbp
 *.depend
 *.layout
-\bin
-\obj
+/bin/
+/obj/
 /Debug/
