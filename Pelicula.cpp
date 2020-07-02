@@ -29,7 +29,7 @@ void Pelicula::asignarGenero(string genero) {
 }
 
 void Pelicula::asignarPuntaje(string puntaje) {
-//    this-> puntaje = stof(puntaje);
+   this-> puntaje = stof(puntaje);
 }
 
 void Pelicula::asignarActores (string cadenaDeActores){

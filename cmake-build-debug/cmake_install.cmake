@@ -1,4 +1,4 @@
-# Install script for directory: /media/emiliano/Archivos/FIUBA/c++/Prueba/TP4-GrupoH
+# Install script for directory: /media/emiliano/Archivos/FIUBA/c++/PRUEBA2/TP4-GrupoH
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/media/emiliano/Archivos/FIUBA/c++/Prueba/TP4-GrupoH/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/media/emiliano/Archivos/FIUBA/c++/PRUEBA2/TP4-GrupoH/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

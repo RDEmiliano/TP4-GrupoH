@@ -1,7 +1,7 @@
 #ifndef UTILIDADES_H_INCLUDED
 #define UTILIDADES_H_INCLUDED
 #include<iostream>
-#include<cstdlib>
+#include<stdlib.h>
 #include<fstream>
 #include "Lista.h"
 #include "Pelicula.h"

@@ -44,10 +44,10 @@ RM = /snap/clion/114/bin/cmake/linux/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /media/emiliano/Archivos/FIUBA/c++/Prueba/TP4-GrupoH
+CMAKE_SOURCE_DIR = /media/emiliano/Archivos/FIUBA/c++/PRUEBA2/TP4-GrupoH
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /media/emiliano/Archivos/FIUBA/c++/Prueba/TP4-GrupoH/cmake-build-debug
+CMAKE_BINARY_DIR = /media/emiliano/Archivos/FIUBA/c++/PRUEBA2/TP4-GrupoH/cmake-build-debug
 
 #=============================================================================
 # Directory level rules for the build root directory

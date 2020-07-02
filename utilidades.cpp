@@ -28,7 +28,6 @@ void Utilidades::llenarLista(Lista<Pelicula>* listaAllenar, string nombreArchivo
                    case 4: pelicula.asignarDirector(linea);
                         break;
                    case 5: pelicula.asignarActores(linea);
-
                         break;
                 }
             } while (( numLinea < 6 )&&(!archivo.eof()));
