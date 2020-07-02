@@ -7,13 +7,18 @@
 //Constructor
 Pelicula::Pelicula() {
     if (MOSTRAR_MEMORIA) cout << "Constructor PELICULA (" << this << ")" << endl;
-    //cantidadActores = 0;
+    nombre = "";
+    genero = "";
+    director = "";
+    puntaje = 0.0;
+    actores = new Lista<string>; //recibe puntero
+    cantidadActores = 0;
 
 }
 
 //Destructor
 Pelicula::~Pelicula() {
-
+    delete actores; //AGREGUE
     if (MOSTRAR_MEMORIA) cout << "Destructor PELICULA (" << this << ")" << endl;
 }
 
@@ -34,7 +39,7 @@ void Pelicula::asignarPuntaje(string puntaje) {
 }
 
 void Pelicula::asignarActores (string cadenaDeActores){
-    actores = new Lista<string>;
+    //actores = new Lista<string>;
     istringstream isstream(cadenaDeActores);
     string tempStr;
     while(!isstream.eof()){

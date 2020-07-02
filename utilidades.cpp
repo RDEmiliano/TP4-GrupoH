@@ -2,16 +2,17 @@
 Utilidades::Utilidades(){
     if (MOSTRAR) cout << "Constructor UTILIDADES (" << this << ")" << endl;
 }
-void Utilidades::llenarLista(Lista<Pelicula>* listaAllenar, string nombreArchivo){
+void Utilidades::llenarLista(Lista<Pelicula*>* listaAllenar, string nombreArchivo){
     subrayar();
     cout << "\nCarga una lista con datos del archivo\n\n";
     ifstream archivo(nombreArchivo.c_str());
-    Pelicula pelicula;
     string linea;
     int numLinea;
 
     if (!archivo.fail()){
         while(!archivo.eof()) {
+
+            Pelicula* ptrPelicula = new Pelicula;
 
             numLinea = 0;
 
@@ -19,21 +20,20 @@ void Utilidades::llenarLista(Lista<Pelicula>* listaAllenar, string nombreArchivo
                getline(archivo,linea);
                numLinea++;
                switch (numLinea) {
-                   case 1: pelicula.asignarNombre(linea);
+                   case 1: ptrPelicula->asignarNombre(linea);
                         break;
-                   case 2: pelicula.asignarGenero(linea);
+                   case 2: ptrPelicula->asignarGenero(linea);
                         break;
-                   case 3: pelicula.asignarPuntaje(linea);
+                   case 3: ptrPelicula->asignarPuntaje(linea);
                         break;
-                   case 4: pelicula.asignarDirector(linea);
+                   case 4: ptrPelicula->asignarDirector(linea);
                         break;
-                   case 5: pelicula.asignarActores(linea);
+                   case 5: ptrPelicula->asignarActores(linea);
                         break;
                 }
             } while (( numLinea < 6 )&&(!archivo.eof()));
-
-            listaAllenar->insertar(pelicula,1); // inserta en posicion 1.
-        } ;
+            listaAllenar->insertar(ptrPelicula,1); // inserta en posicion 1.
+        };
 
         archivo.close();
 
@@ -43,7 +43,7 @@ void Utilidades::llenarLista(Lista<Pelicula>* listaAllenar, string nombreArchivo
     subrayar();
     pausa();
 }
-void Utilidades::recomendar(Lista<Pelicula>* recomendadas, Lista<Pelicula>* vistas, Lista<Pelicula>* noVistas){
+void Utilidades::recomendar(Lista<Pelicula*>* recomendadas, Lista<Pelicula*>* vistas, Lista<Pelicula*>* noVistas){
     subrayar();
     cout << "\nCarga lista de recomendados...\n\n";
     subrayar();

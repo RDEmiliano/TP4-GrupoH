@@ -2,11 +2,11 @@
 Menu::Menu(){
     if (MOSTRAR) cout << "Constructor MENU (" << this << ")" << endl;
 }
-Menu::Menu(Lista<Pelicula>* vistas, Lista<Pelicula>* noVistas){
+Menu::Menu(Lista<Pelicula*>* vistas, Lista<Pelicula*>* noVistas){
     if (MOSTRAR) cout << "Constructor MENU <con parametros> (" << this << ")" << endl;
     pelisVistas = vistas;
     pelisNoVistas = noVistas;
-    pelisRecomendadas = new Lista<Pelicula>; // como liberar memoria??
+    pelisRecomendadas = new Lista<Pelicula*>; // como liberar memoria??
 }
 void Menu::inicializar(string vistas, string noVistas){
     llenarLista(pelisVistas, vistas);                           //metodo en utilidades
@@ -50,12 +50,12 @@ void Menu::peliculasVistas(){
     cout << "\nMOSTRAMOS LISTA PELICULAS VISTAS\n" << endl;
     for (int i=1 ; i<this->pelisVistas->obtenerTamanio()+1; i++){
         cout<<endl;
-        cout<< " Titulo: "<<this->pelisVistas->obtenerDato(i).obtenerNombre()<<endl;
-        cout<< " Genero: "<<this->pelisVistas->obtenerDato(i).obtenerGenero()<<endl;
-        cout<< " Puntaje: "<<this->pelisVistas->obtenerDato(i).obtenerPuntaje()<<endl;
-        cout<< " Director: "<<this->pelisVistas->obtenerDato(i).obtenerDirector()<<endl;
+        cout<< " Titulo: "<<this->pelisVistas->obtenerDato(i)->obtenerNombre()<<endl;
+        cout<< " Genero: "<<this->pelisVistas->obtenerDato(i)->obtenerGenero()<<endl;
+        cout<< " Puntaje: "<<this->pelisVistas->obtenerDato(i)->obtenerPuntaje()<<endl;
+        cout<< " Director: "<<this->pelisVistas->obtenerDato(i)->obtenerDirector()<<endl;
         cout<< " Actores: "<<endl;
-        this->pelisVistas->obtenerDato(i).obtenerActores();
+        this->pelisVistas->obtenerDato(i)->obtenerActores();
     }
     cout <<endl;
     pausa();
@@ -66,12 +66,12 @@ void Menu::peliculasNoVistas(){
     cout << "\nMOSTRAMOS LISTA PELICULAS NO VISTAS\n" << endl;
     for (int i=1 ; i<this->pelisNoVistas->obtenerTamanio()+1; i++){
         cout<<endl;
-        cout<< " Titulo: "<<this->pelisNoVistas->obtenerDato(i).obtenerNombre()<<endl;
-        cout<< " Genero: "<<this->pelisNoVistas->obtenerDato(i).obtenerGenero()<<endl;
-        cout<< " Puntaje: "<<this->pelisNoVistas->obtenerDato(i).obtenerPuntaje()<<endl;
-        cout<< " Director: "<<this->pelisNoVistas->obtenerDato(i).obtenerDirector()<<endl;
+        cout<< " Titulo: "<<this->pelisNoVistas->obtenerDato(i)->obtenerNombre()<<endl;
+        cout<< " Genero: "<<this->pelisNoVistas->obtenerDato(i)->obtenerGenero()<<endl;
+        cout<< " Puntaje: "<<this->pelisNoVistas->obtenerDato(i)->obtenerPuntaje()<<endl;
+        cout<< " Director: "<<this->pelisNoVistas->obtenerDato(i)->obtenerDirector()<<endl;
         cout<< " Actores: "<<endl;
-        this->pelisNoVistas->obtenerDato(i).obtenerActores();
+        this->pelisNoVistas->obtenerDato(i)->obtenerActores();
     }
     cout <<endl;
     pausa();
@@ -83,8 +83,19 @@ void Menu::peliculasRecomendadas(){
     pausa();
 }
 Menu::~Menu(){
+    for (int i = 0; i < pelisVistas->obtenerTamanio(); i++){
+        cout << "borro ptrPeli dentro de PelisVistas: " << pelisVistas->obtenerDato(i+1)->obtenerNombre() << endl;
+        delete pelisVistas->obtenerDato(i+1);
+    }
+
     delete pelisVistas;
+
+    for (int i = 0; i < pelisNoVistas->obtenerTamanio(); i++){
+        cout << "borro ptrPeli dentro de PelisNoVistas: " << pelisNoVistas->obtenerDato(i+1)->obtenerNombre() << endl;
+        delete pelisNoVistas->obtenerDato(i+1);
+    }
     delete pelisNoVistas;
+
     delete pelisRecomendadas;
 
     if (MOSTRAR) cout << "Destructor MENU (" << this << ")" <<endl;

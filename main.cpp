@@ -7,10 +7,10 @@ const string PELIS_VISTAS = "peliculas_vistas.txt";
 const string PELIS_NO_VISTAS = "peliculas_no_vistas.txt";
 int main()
 {
-    Lista<Pelicula>* ptrPelisVistas;
-    Lista<Pelicula>* ptrPelisNoVistas;
-    ptrPelisVistas = new Lista<Pelicula>;
-    ptrPelisNoVistas = new Lista<Pelicula>;
+    Lista<Pelicula*>* ptrPelisVistas;
+    Lista<Pelicula*>* ptrPelisNoVistas;
+    ptrPelisVistas = new Lista<Pelicula*>;
+    ptrPelisNoVistas = new Lista<Pelicula*>;
 
     Menu menu(ptrPelisVistas, ptrPelisNoVistas);
     menu.inicializar(PELIS_VISTAS, PELIS_NO_VISTAS);    //Esto esta en menu
@@ -19,7 +19,6 @@ int main()
     do{
         eleccion = menu.comenzar();
     }while(eleccion);
-
 
     return 0;
 }
