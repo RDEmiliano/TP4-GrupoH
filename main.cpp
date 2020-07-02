@@ -20,7 +20,6 @@ int main()
         eleccion = menu.comenzar();
     }while(eleccion);
 
-    delete ptrPelisVistas;
-    delete ptrPelisNoVistas;
+
     return 0;
 }

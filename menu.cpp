@@ -83,6 +83,10 @@ void Menu::peliculasRecomendadas(){
     pausa();
 }
 Menu::~Menu(){
+    //Puse la liberacion de memoria en este metodo para que esten juntos.
+    delete pelisVistas;
+    delete pelisNoVistas;
     delete pelisRecomendadas;
+
     if (MOSTRAR) cout << "Destructor MENU (" << this << ")" <<endl;
 }
