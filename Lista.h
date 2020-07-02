@@ -1,7 +1,3 @@
-//
-// Created by emiliano on 26/6/20.
-//
-
 #ifndef TP4_GRUPOH__LISTA_H
 #define TP4_GRUPOH__LISTA_H
 #include "Nodo.h"

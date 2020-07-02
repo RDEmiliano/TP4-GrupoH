@@ -2,10 +2,11 @@
 Utilidades::Utilidades(){
     if (MOSTRAR) cout << "Constructor UTILIDADES (" << this << ")" << endl;
 }
+
 void Utilidades::llenarLista(Lista<Pelicula*>* listaAllenar, string nombreArchivo){
     subrayar();
     cout << "\nCarga una lista con datos del archivo\n\n";
-    ifstream archivo(nombreArchivo.c_str());
+    ifstream archivo(nombreArchivo);
     string linea;
     int numLinea;
 

@@ -1,2 +1,0 @@
-/media/emiliano/Archivos/FIUBA/c++/PRUEBA2/TP4-GrupoH/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/media/emiliano/Archivos/FIUBA/c++/PRUEBA2/TP4-GrupoH/cmake-build-debug/CMakeFiles/edit_cache.dir

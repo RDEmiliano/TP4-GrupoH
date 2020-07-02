@@ -1,6 +1,4 @@
-//
-// Created by emiliano on 26/6/20.
-//
+
 #include <sstream>
 #include "Pelicula.h"
 
@@ -12,7 +10,6 @@ Pelicula::Pelicula() {
     director = "";
     puntaje = 0.0;
     actores = new Lista<string>; //recibe puntero
-    cantidadActores = 0;
 
 }
 
@@ -39,7 +36,6 @@ void Pelicula::asignarPuntaje(string puntaje) {
 }
 
 void Pelicula::asignarActores (string cadenaDeActores){
-    //actores = new Lista<string>;
     istringstream isstream(cadenaDeActores);
     string tempStr;
     while(!isstream.eof()){

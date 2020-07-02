@@ -1,6 +1,6 @@
 #ifndef MENU_H_INCLUDED
 #define MENU_H_INCLUDED
-//#include<iostream> YA LO DECLARE EN UTILIDADES.H IGUAL HABRIA QUE DEJARLO ACA?
+
 #include "Lista.h"
 #include "Pelicula.h"
 #include "utilidades.h"
