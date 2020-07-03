@@ -109,7 +109,7 @@ void Menu::recomendar(Lista<Pelicula*>* recomendadas, Lista<Pelicula*>* vistas, 
     int cantPelisVistas = vistas -> obtenerTamanio();
     
     for (int i = 1; i < cantPelisNoVistas + 1; i++){
-        for (int j = 1; j < cantPelisVistas + 1; j++){
+        for (int j = 1; j < cantPelisVistas; j++){
             noVista = noVistas -> obtenerDato (i);
             vista = vistas -> obtenerDato (j);
 
