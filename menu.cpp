@@ -105,16 +105,38 @@ void Menu::peliculasRecomendadas(){
 
 void Menu::recomendar(){
     bool vioPeliculas = (pelisVistas->obtenerTamanio() > 0);
+    bool agregar = true;
     Lista<string>* ptrGeneros = 0;
     Lista<string>* ptrDirectores = 0;
     Lista<string>* ptrActores = 0;
     string aux;
+
     if(vioPeliculas){
         ptrGeneros = new Lista<string>;
         ptrDirectores = new Lista<string>;
         ptrActores = new Lista<string>;
         for(int i = 0; i < pelisVistas->obtenerTamanio(); i++){
             aux = pelisVistas->obtenerDato(i + 1)->obtenerGenero();
+            for(int j = 0; j < ptrGeneros->obtenerTamanio(); j++){
+                if(aux == ptrGeneros->obtenerDato(j + 1)){
+                    agregar = false;
+                }
+            }
+            if (agregar){
+                ptrGeneros->insertar(aux, 1);
+            }
+            agregar = true;
+            aux = pelisVistas->obtenerDato(i + 1)->obtenerDirector();
+            for(int j = 0; j < ptrDirectores->obtenerTamanio(); j++){
+                if(aux == ptrDirectores->obtenerDato(j + 1)){
+                    agregar = false;
+                }
+            }
+            if (agregar){
+                ptrDirectores->insertar(aux, 1);
+            }
+            //actores//
+            agregar = true;
 
         }
     }
@@ -123,7 +145,7 @@ void Menu::recomendar(){
             pelisRecomendadas->insertar(pelisNoVistas->obtenerDato(i + 1), 1);
         }else{
             if(vioPeliculas){
-
+                //ACA TENDRIA QUE VERIFICAR LO DEMAS
                 delete ptrGeneros;
                 delete ptrDirectores;
                 delete ptrActores;
