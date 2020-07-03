@@ -40,7 +40,7 @@ void Pelicula::asignarActores (string cadenaDeActores){
     string tempStr;
     while(!isstream.eof()){
         isstream >> tempStr;
-        actores -> insertar(tempStr,1); // ACA TENDRIA QUE CARGAR LA LISTA DE ACTORES, PERO DA ERROR.
+        actores -> insertar(tempStr,1);
     }
 }
 

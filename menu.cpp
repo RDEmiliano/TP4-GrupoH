@@ -54,7 +54,7 @@ void Menu::peliculasVistas(){
         cout<< " Genero: "<<this->pelisVistas->obtenerDato(i)->obtenerGenero()<<endl;
         cout<< " Puntaje: "<<this->pelisVistas->obtenerDato(i)->obtenerPuntaje()<<endl;
         cout<< " Director: "<<this->pelisVistas->obtenerDato(i)->obtenerDirector()<<endl;
-        cout<< " Actores: "<<endl;
+        cout<< " Actores: ";
         this->pelisVistas->obtenerDato(i)->obtenerActores();
     }
     cout <<endl;
@@ -70,7 +70,7 @@ void Menu::peliculasNoVistas(){
         cout<< " Genero: "<<this->pelisNoVistas->obtenerDato(i)->obtenerGenero()<<endl;
         cout<< " Puntaje: "<<this->pelisNoVistas->obtenerDato(i)->obtenerPuntaje()<<endl;
         cout<< " Director: "<<this->pelisNoVistas->obtenerDato(i)->obtenerDirector()<<endl;
-        cout<< " Actores: "<<endl;
+        cout<< " Actores: ";
         this->pelisNoVistas->obtenerDato(i)->obtenerActores();
     }
     cout <<endl;
@@ -113,16 +113,7 @@ void Menu::recomendar(Lista<Pelicula*>* recomendadas, Lista<Pelicula*>* vistas, 
             }
         }
     }
-
-    /*for(int i = 0; i < noVistas->obtenerTamanio(); i++){
-        if(noVistas->obtenerDato(i + 1)->obtenerPuntaje() > 6){
-            recomendadas->insertar(noVistas->obtenerDato(i + 1), 1);
-            cout << "\nPuntaje 7 o mayor...\n\n";
-        }else{
-            cout << "\nPuntaje 6 o menor hay que ver por otros motivos de recomendaciones...\n\n";
-        }
-    }
-    subrayar();*/
+    subrayar();
     cout << "\nCarga lista de recomendados...\n\n";
     subrayar();
     pausa();
