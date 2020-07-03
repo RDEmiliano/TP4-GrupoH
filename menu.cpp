@@ -6,18 +6,20 @@ Menu::Menu(Lista<Pelicula*>* vistas, Lista<Pelicula*>* noVistas,Lista<Pelicula*>
     if (MOSTRAR) cout << "Constructor MENU <con parametros> (" << this << ")" << endl;
     pelisVistas = vistas;
     pelisNoVistas = noVistas;
-    pelisRecomendadas = recomendadas; 
+    pelisRecomendadas = recomendadas;
 }
 
 void Menu::inicializar(string vistas, string noVistas){
-    bool pudoAbrir = true;
-    llenarLista(pelisNoVistas, noVistas,pudoAbrir);                       //metodo en utilidades
-    llenarLista(pelisVistas, vistas,pudoAbrir); 
-    if (pudoAbrir) {
+    llenarLista(pelisNoVistas, noVistas);                       //metodo en utilidades
+    llenarLista(pelisVistas, vistas);
+    recomendar();
+    /*
+    if (pelisVistas->obtenerTamanio()) {
        recomendar(pelisRecomendadas, pelisVistas, pelisNoVistas);  //metodo en Menu
     } else {
-            recomendar(pelisRecomendadas,pelisNoVistas); 
+        recomendar(pelisRecomendadas,pelisNoVistas);
       }
+    */
 }
 
 int Menu::comenzar(){
@@ -101,13 +103,44 @@ void Menu::peliculasRecomendadas(){
     pausa();
 }
 
-void Menu::recomendar(Lista<Pelicula*>* recomendadas, Lista<Pelicula*>* vistas, Lista<Pelicula*>* noVistas){
-    
+void Menu::recomendar(){
+    bool vioPeliculas = (pelisVistas->obtenerTamanio() > 0);
+    Lista<string>* ptrGeneros = 0;
+    Lista<string>* ptrDirectores = 0;
+    Lista<string>* ptrActores = 0;
+    string aux;
+    if(vioPeliculas){
+        ptrGeneros = new Lista<string>;
+        ptrDirectores = new Lista<string>;
+        ptrActores = new Lista<string>;
+        for(int i = 0; i < pelisVistas->obtenerTamanio(); i++){
+            aux = pelisVistas->obtenerDato(i + 1)->obtenerGenero();
+
+        }
+    }
+    for (unsigned i = 0; i < pelisNoVistas->obtenerTamanio(); i++){
+        if (pelisNoVistas->obtenerDato(i + 1)->obtenerPuntaje() >= PUNTAJE_MINIMO){
+            pelisRecomendadas->insertar(pelisNoVistas->obtenerDato(i + 1), 1);
+        }else{
+            if(vioPeliculas){
+
+                delete ptrGeneros;
+                delete ptrDirectores;
+                delete ptrActores;
+            }
+        }
+    }
+}
+
+/*
+
+
+
     Pelicula* vista;
     Pelicula* noVista;
     int cantPelisNoVistas = noVistas -> obtenerTamanio();
     int cantPelisVistas = vistas -> obtenerTamanio();
-    
+
     for (int i = 1; i < cantPelisNoVistas + 1; i++){
         for (int j = 1; j < cantPelisVistas; j++){
             noVista = noVistas -> obtenerDato (i);
@@ -134,13 +167,48 @@ void Menu::recomendar(Lista<Pelicula*>* recomendadas, Lista<Pelicula*>* noVistas
         }
     }
 }
+*/
+/*
+void Menu::recomendar(Lista<Pelicula*>* recomendadas, Lista<Pelicula*>* vistas, Lista<Pelicula*>* noVistas){
 
+    Pelicula* vista;
+    Pelicula* noVista;
+    int cantPelisNoVistas = noVistas -> obtenerTamanio();
+    int cantPelisVistas = vistas -> obtenerTamanio();
+
+    for (int i = 1; i < cantPelisNoVistas + 1; i++){
+        for (int j = 1; j < cantPelisVistas; j++){
+            noVista = noVistas -> obtenerDato (i);
+            vista = vistas -> obtenerDato (j);
+
+            if ( ( coincideGenero(noVista,vista) && (coincideDirector(noVista,vista) || coincideAlMenosUnActor(noVista,vista)) )
+                || tienePuntajeAdecuado(noVista) ){
+
+                agregarRecomendada (pelisRecomendadas,noVista);
+            }
+        }
+    }
+    subrayar();
+    cout << "\nCarga lista de recomendados...\n\n";
+    subrayar();
+    pausa();
+}
+
+void Menu::recomendar(Lista<Pelicula*>* recomendadas, Lista<Pelicula*>* noVistas){
+    int cantPelisNoVistas = noVistas -> obtenerTamanio();
+    for (int i = 1; i < cantPelisNoVistas + 1; i++){
+        if (noVistas -> obtenerDato(i) -> obtenerPuntaje() > PUNTAJE_MINIMO - 1){
+            recomendadas -> insertar(noVistas -> obtenerDato(i),1);
+        }
+    }
+}
+*/
 Menu::~Menu(){
+
     for (int i = 0; i < pelisVistas->obtenerTamanio(); i++){
         cout << "borro ptrPeli dentro de PelisVistas: " << pelisVistas->obtenerDato(i+1)->obtenerNombre() << endl;
         delete pelisVistas->obtenerDato(i+1);
     }
-
     delete pelisVistas;
 
     for (int i = 0; i < pelisNoVistas->obtenerTamanio(); i++){

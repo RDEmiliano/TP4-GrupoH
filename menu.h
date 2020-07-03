@@ -21,8 +21,9 @@ public:
     void peliculasVistas();
     void peliculasNoVistas();
     void peliculasRecomendadas();
-    void recomendar(Lista<Pelicula*>* recomendadas, Lista<Pelicula*>* vistas, Lista<Pelicula*>* noVistas);
-    void recomendar(Lista<Pelicula*>* recomendadas, Lista<Pelicula*>* noVistas);
+    void recomendar();
+    //void recomendar(Lista<Pelicula*>* recomendadas, Lista<Pelicula*>* vistas, Lista<Pelicula*>* noVistas);
+    //void recomendar(Lista<Pelicula*>* recomendadas, Lista<Pelicula*>* noVistas);
     void salir();
     ~Menu();
 };
