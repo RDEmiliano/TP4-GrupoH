@@ -7,25 +7,36 @@
 using namespace std;
 
 class Menu : public Utilidades{
+
 private:
+    bool arranque;
     //CAMBIAR STRING POR CLASE PELICULA!!!!!
     Lista<Pelicula*>* pelisVistas;
     Lista<Pelicula*>* pelisNoVistas;
     Lista<Pelicula*>* pelisRecomendadas; // hay que ver como liberar memoria
+
 public:
+
     Menu();
     //CAMBIAR STRING POR CLASE PELICULA!!!!!
     Menu(Lista<Pelicula*>* vistas, Lista<Pelicula*>* noVistas, Lista<Pelicula*>* recomendadas);
+
     void inicializar(string vistas, string noVistas);
     int comenzar();
+
     void peliculasVistas();
     void peliculasNoVistas();
     void peliculasRecomendadas();
     void recomendar();
     //void recomendar(Lista<Pelicula*>* recomendadas, Lista<Pelicula*>* vistas, Lista<Pelicula*>* noVistas);
     //void recomendar(Lista<Pelicula*>* recomendadas, Lista<Pelicula*>* noVistas);
+
+    bool obtenerArranque() const;
+    void definirArranque(bool estado);
+
     void salir();
     ~Menu();
+
 };
 
 

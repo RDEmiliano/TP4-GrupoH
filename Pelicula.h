@@ -29,13 +29,17 @@ public:
     void asignarDirector(string director);
 
 
+    string obtenerActorEn(int posicion);
     string obtenerNombre();
     string obtenerGenero();
     string obtenerDirector();
     double obtenerPuntaje();
-    void obtenerActores();
     Lista<string> * obtenerListaActores();
     int obtenerCantActores();
+
+
+    void mostrarActores();
+
 };
 
 

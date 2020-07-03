@@ -4,6 +4,7 @@
 
 //Constructor
 Pelicula::Pelicula() {
+
     if (MOSTRAR_MEMORIA) cout << "Constructor PELICULA (" << this << ")" << endl;
     nombre = "";
     genero = "";
@@ -36,6 +37,7 @@ void Pelicula::asignarPuntaje(string puntaje) {
 }
 
 void Pelicula::asignarActores (string cadenaDeActores){
+
     istringstream isstream(cadenaDeActores);
     string tempStr;
     while(!isstream.eof()){
@@ -60,16 +62,24 @@ string Pelicula::obtenerGenero() {
     return genero;
 }
 
-void Pelicula::obtenerActores() {
+string Pelicula::obtenerActorEn(int posicion) {
+    return actores -> obtenerDato(posicion);
+}
+
+Lista<string> * Pelicula::obtenerListaActores(){
+    return actores;
+}
+
+int Pelicula::obtenerCantActores(){
+    return (actores->obtenerTamanio());
+}
+
+
+void Pelicula::mostrarActores() {
     for (int i = 1; i < actores->obtenerTamanio()+1; i++){
         cout << actores -> obtenerDato(i) <<" - ";
     }
     cout << endl;
 }
 
-Lista<string> * Pelicula::obtenerListaActores(){
-    return actores;
-}
-int Pelicula::obtenerCantActores(){
-    return (actores->obtenerTamanio());
-}
+

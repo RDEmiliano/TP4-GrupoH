@@ -2,6 +2,7 @@
 Menu::Menu(){
     if (MOSTRAR) cout << "Constructor MENU (" << this << ")" << endl;
 }
+
 Menu::Menu(Lista<Pelicula*>* vistas, Lista<Pelicula*>* noVistas,Lista<Pelicula*>* recomendadas){
     if (MOSTRAR) cout << "Constructor MENU <con parametros> (" << this << ")" << endl;
     pelisVistas = vistas;
@@ -10,9 +11,53 @@ Menu::Menu(Lista<Pelicula*>* vistas, Lista<Pelicula*>* noVistas,Lista<Pelicula*>
 }
 
 void Menu::inicializar(string vistas, string noVistas){
-    llenarLista(pelisNoVistas, noVistas);                       //metodo en utilidades
-    llenarLista(pelisVistas, vistas);
-    recomendar();
+
+    ifstream archivoNoVistas;
+    ifstream archivoVistas;
+
+    try {
+        archivoNoVistas.open(noVistas);
+        archivoVistas.open(vistas);
+        if (!archivoNoVistas.fail())
+            if (!archivoVistas.fail())
+                throw 1;
+            else
+                throw 2;
+        else
+            throw 0;
+
+    } catch (int bandera){
+
+        switch (bandera) {
+            case 0: //No existe peliculas no vistas
+
+                definirArranque(false);
+                archivoNoVistas.close();
+                archivoVistas.close();
+                cout << "ERROR: No existe el archivo: " << noVistas << endl << endl;
+                salir();
+                break;
+            case 1: //Existen ambos archivos
+
+                definirArranque(true);
+                llenarLista(pelisNoVistas, noVistas);
+                llenarLista(pelisVistas, vistas);
+                //recomienda de manera normal
+                break;
+            case 2: //No existe peliculas vistas
+
+                definirArranque(true);
+                llenarLista(pelisNoVistas, noVistas);
+                //recomienda solo por puntaje
+                break;
+
+        }
+    }
+    //recomendar();
+
+                          //metodo en utilidades
+
+
     /*
     if (pelisVistas->obtenerTamanio()) {
        recomendar(pelisRecomendadas, pelisVistas, pelisNoVistas);  //metodo en Menu
@@ -22,37 +67,44 @@ void Menu::inicializar(string vistas, string noVistas){
     */
 }
 
-int Menu::comenzar(){
-    int eleccion;
-    do{
-        //limpiarPantalla();
-        cabecera();         //en utilidades
-        menuPrincipal();    //en utilidades
-        cin >> eleccion;
-    }while(eleccion < 0 || eleccion > 3);
-    cin.get();
-    switch (eleccion){
-        case 0:
-            salir();
-            break;
-        case 1:
-            peliculasVistas();
-            break;
-        case 2:
-            peliculasNoVistas();
-            break;
-        case 3:
-            peliculasRecomendadas();
-            break;
-    }
-    return eleccion;
+int Menu::comenzar() {
+    if (obtenerArranque()) {
+        int eleccion;
+
+        do{
+            //limpiarPantalla();
+            cabecera();         //en utilidades
+            menuPrincipal();    //en utilidades
+            cin >> eleccion;
+        }while(eleccion < 0 || eleccion > 3);
+
+        cin.get();
+        switch (eleccion){
+            case 0:
+                salir();
+                break;
+            case 1:
+                peliculasVistas();
+                break;
+            case 2:
+                peliculasNoVistas();
+                break;
+            case 3:
+                peliculasRecomendadas();
+                break;
+        }
+        return eleccion;
+    } else
+        return 0;
 }
+
 void Menu::salir(){
     //limpiarPantalla();
     cabecera();
     despedida();    //en utilidades
     pausa();
 }
+
 void Menu::peliculasVistas(){
     //limpiarPantalla();
     cabecera();
@@ -64,7 +116,7 @@ void Menu::peliculasVistas(){
         cout<< " Puntaje: "<<this->pelisVistas->obtenerDato(i)->obtenerPuntaje()<<endl;
         cout<< " Director: "<<this->pelisVistas->obtenerDato(i)->obtenerDirector()<<endl;
         cout<< " Actores: ";
-        this->pelisVistas->obtenerDato(i)->obtenerActores();
+        this->pelisVistas->obtenerDato(i)->mostrarActores();
     }
     cout <<endl;
     pausa();
@@ -80,7 +132,7 @@ void Menu::peliculasNoVistas(){
         cout<< " Puntaje: "<<this->pelisNoVistas->obtenerDato(i)->obtenerPuntaje()<<endl;
         cout<< " Director: "<<this->pelisNoVistas->obtenerDato(i)->obtenerDirector()<<endl;
         cout<< " Actores: ";
-        this->pelisNoVistas->obtenerDato(i)->obtenerActores();
+        this->pelisNoVistas->obtenerDato(i)->mostrarActores();
     }
     cout <<endl;
     pausa();
@@ -96,7 +148,7 @@ void Menu::peliculasRecomendadas(){
         cout<< " Puntaje: "<<this->pelisRecomendadas->obtenerDato(i)->obtenerPuntaje()<<endl;
         cout<< " Director: "<<this->pelisRecomendadas->obtenerDato(i)->obtenerDirector()<<endl;
         cout<< " Actores: ";
-        this->pelisRecomendadas->obtenerDato(i)->obtenerActores();
+        this->pelisRecomendadas->obtenerDato(i)->mostrarActores();
     }
     cout <<endl;
     cout << "LA LISTA TIENE TAMANIO "<< pelisRecomendadas-> obtenerTamanio()<<endl;
@@ -104,6 +156,7 @@ void Menu::peliculasRecomendadas(){
 }
 
 void Menu::recomendar(){
+
     bool vioPeliculas = (pelisVistas->obtenerTamanio() > 0);
     bool agregar = true;
     Lista<string>* ptrGeneros = 0;
@@ -153,6 +206,17 @@ void Menu::recomendar(){
         }
     }
 }
+
+
+bool Menu::obtenerArranque() const {
+    return arranque;
+}
+
+void Menu::definirArranque(bool estado){
+    this -> arranque = estado;
+}
+
+
 
 /*
 
