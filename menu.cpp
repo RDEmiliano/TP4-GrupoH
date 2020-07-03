@@ -42,12 +42,14 @@ void Menu::inicializar(string vistas, string noVistas){
                 definirArranque(true);
                 llenarLista(pelisNoVistas, noVistas);
                 llenarLista(pelisVistas, vistas);
+                recomendar();
                 //recomienda de manera normal
                 break;
             case 2: //No existe peliculas vistas
 
                 definirArranque(true);
                 llenarLista(pelisNoVistas, noVistas);
+                recomendar();
                 //recomienda solo por puntaje
                 break;
 
@@ -162,42 +164,106 @@ void Menu::recomendar(){
     Lista<string>* ptrGeneros = 0;
     Lista<string>* ptrDirectores = 0;
     Lista<string>* ptrActores = 0;
-    string aux;
+    string comparando;
+    string enLista;
 
     if(vioPeliculas){
+        subrayar();
+        cout << "Haciendo listas de generos, directores y actores vistos \n(solo si vio peliculas)\n";
+        subrayar();
         ptrGeneros = new Lista<string>;
         ptrDirectores = new Lista<string>;
         ptrActores = new Lista<string>;
-        for(int i = 0; i < pelisVistas->obtenerTamanio(); i++){
-            aux = pelisVistas->obtenerDato(i + 1)->obtenerGenero();
-            for(int j = 0; j < ptrGeneros->obtenerTamanio(); j++){
-                if(aux == ptrGeneros->obtenerDato(j + 1)){
-                    agregar = false;
-                }
-            }
-            if (agregar){
-                ptrGeneros->insertar(aux, 1);
-            }
-            agregar = true;
-            aux = pelisVistas->obtenerDato(i + 1)->obtenerDirector();
-            for(int j = 0; j < ptrDirectores->obtenerTamanio(); j++){
-                if(aux == ptrDirectores->obtenerDato(j + 1)){
-                    agregar = false;
-                }
-            }
-            if (agregar){
-                ptrDirectores->insertar(aux, 1);
-            }
-            //actores//
-            agregar = true;
 
+        for(int i = 0; i < pelisVistas->obtenerTamanio(); i++){
+            comparando = pelisVistas->obtenerDato(i + 1)->obtenerGenero();
+            for(int j = 0; j < ptrGeneros->obtenerTamanio(); j++){
+                enLista = ptrGeneros->obtenerDato(j + 1);
+                if(comparando == enLista){
+                    agregar = false;
+                }
+            }
+            if (agregar){
+                ptrGeneros->insertar(comparando, 1);
+            }
+            agregar = true;
+            comparando = pelisVistas->obtenerDato(i + 1)->obtenerDirector();
+            for(int j = 0; j < ptrDirectores->obtenerTamanio(); j++){
+                enLista = ptrDirectores->obtenerDato(j + 1);
+                if(comparando == enLista){
+                    agregar = false;
+                }
+            }
+            if (agregar){
+                ptrDirectores->insertar(comparando, 1);
+            }
+            for(int j = 0; j < pelisVistas->obtenerDato(i + 1)->obtenerCantActores(); j++){
+                agregar = true;
+                comparando = pelisVistas->obtenerDato(i + 1)->obtenerActorEn(j + 1);
+                for(int h = 0; h < ptrActores->obtenerTamanio(); h++){
+                    enLista = ptrActores->obtenerDato(h + 1);
+                    if(comparando == enLista){
+                        agregar = false;
+                    }
+                }
+                if (agregar){
+                    ptrActores->insertar(comparando, 1);
+                }
+            }
         }
+        subrayar();
+        cout<<"Listas para comparar: " << endl;
+        pausa();
+        cout<<"GENEROS VISTOS:" << endl;
+        for(int i = 0; i < ptrGeneros->obtenerTamanio(); i++){
+            cout << ptrGeneros->obtenerDato(i + 1) << endl;;
+        }
+        cout<<"DIRECTORES VISTOS:" << endl;
+        for(int i = 0; i < ptrDirectores->obtenerTamanio(); i++){
+            cout << ptrDirectores->obtenerDato(i + 1) << endl;
+        }
+        cout<<"ACTORES VISTOS:" << endl;
+        for(int i = 0; i < ptrActores->obtenerTamanio(); i++){
+            cout << ptrActores->obtenerDato(i + 1) << endl;
+        }
+        cout << endl;
     }
+
+    pausa();
+
     for (unsigned i = 0; i < pelisNoVistas->obtenerTamanio(); i++){
         if (pelisNoVistas->obtenerDato(i + 1)->obtenerPuntaje() >= PUNTAJE_MINIMO){
             pelisRecomendadas->insertar(pelisNoVistas->obtenerDato(i + 1), 1);
         }else{
             if(vioPeliculas){
+                string enLista;
+                string comparando;
+                bool agregado = false;
+                for (int i = 0; i < ptrGeneros->obtenerTamanio(); i++){
+                    enLista = ptrGeneros->obtenerDato(i + 1);
+                    comparando = pelisNoVistas->obtenerDato(i + 1)->obtenerGenero();
+                    if(comparando == enLista){
+                        int j = 0;
+                        int h = 0;
+                        string actorEnLista, actorComparado, direEnLista, direComparado;
+                        do{
+                            direEnLista = ptrDirectores->obtenerDato(j + 1);
+                            direComparado = pelisNoVistas->obtenerDato(i + 1)->obtenerDirector();
+                            do{
+                                actorEnLista = ptrActores->obtenerDato(h + 1);
+                                for(int k = 0; k < pelisNoVistas->obtenerDato(i + 1)->obtenerCantActores(); k++){
+                                    actorComparado = pelisNoVistas->obtenerDato(i + 1)->obtenerActorEn(k + 1);
+                                    if((direComparado == direEnLista) || (actorComparado == actorEnLista)){
+                                        pelisRecomendadas->insertar(pelisNoVistas->obtenerDato(i + 1), 1);
+                                        agregado = true;
+                                    }
+                                }
+                                h++;
+                            }while(h < ptrActores->obtenerTamanio() && agregado == false);
+                            j++;
+                        }while(j < ptrDirectores->obtenerTamanio() && agregado == false);
+                    }
+                }
                 //ACA TENDRIA QUE VERIFICAR LO DEMAS
                 delete ptrGeneros;
                 delete ptrDirectores;
