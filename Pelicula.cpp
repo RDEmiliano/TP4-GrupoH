@@ -62,7 +62,14 @@ string Pelicula::obtenerGenero() {
 
 void Pelicula::obtenerActores() {
     for (int i = 1; i < actores->obtenerTamanio()+1; i++){
-        cout << i << "Actor: " << actores -> obtenerDato(i) << endl;
+        cout << actores -> obtenerDato(i) <<" - ";
     }
     cout << endl;
+}
+
+Lista<string> * Pelicula::obtenerListaActores(){
+    return actores;
+}
+int Pelicula::obtenerCantActores(){
+    return (actores->obtenerTamanio());
 }

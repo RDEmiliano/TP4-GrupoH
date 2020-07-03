@@ -80,8 +80,54 @@ void Menu::peliculasRecomendadas(){
     //limpiarPantalla();
     cabecera();
     cout << "\nMOSTRAMOS LISTA PELICULAS RECOMENDADAS\n" << endl;
+    for (int i=1 ; i<this->pelisRecomendadas->obtenerTamanio()+1; i++){
+        cout<<endl;
+        cout<< " Titulo: "<<this->pelisRecomendadas->obtenerDato(i)->obtenerNombre()<<endl;
+        cout<< " Genero: "<<this->pelisRecomendadas->obtenerDato(i)->obtenerGenero()<<endl;
+        cout<< " Puntaje: "<<this->pelisRecomendadas->obtenerDato(i)->obtenerPuntaje()<<endl;
+        cout<< " Director: "<<this->pelisRecomendadas->obtenerDato(i)->obtenerDirector()<<endl;
+        cout<< " Actores: ";
+        this->pelisRecomendadas->obtenerDato(i)->obtenerActores();
+    }
+    cout <<endl;
+    cout << "LA LISTA TIENE TAMANIO "<< pelisRecomendadas-> obtenerTamanio()<<endl;
     pausa();
 }
+
+void Menu::recomendar(Lista<Pelicula*>* recomendadas, Lista<Pelicula*>* vistas, Lista<Pelicula*>* noVistas){
+    
+    Pelicula* vista;
+    Pelicula* noVista;
+    int cantPelisNoVistas = noVistas -> obtenerTamanio();
+    int cantPelisVistas = vistas -> obtenerTamanio();
+    
+    for (int i = 1; i < cantPelisNoVistas + 1; i++){
+        for (int j = 1; j < cantPelisVistas + 1; j++){
+            noVista = noVistas -> obtenerDato (i);
+            vista = vistas -> obtenerDato (j);
+
+            if ( ( coincideGenero(noVista,vista) && (coincideDirector(noVista,vista) || coincideAlMenosUnActor(noVista,vista)) )
+                || tienePuntajeAdecuado(noVista) ){
+
+                agregarRecomendada (pelisRecomendadas,noVista);
+            }
+        }
+    }
+
+    /*for(int i = 0; i < noVistas->obtenerTamanio(); i++){
+        if(noVistas->obtenerDato(i + 1)->obtenerPuntaje() > 6){
+            recomendadas->insertar(noVistas->obtenerDato(i + 1), 1);
+            cout << "\nPuntaje 7 o mayor...\n\n";
+        }else{
+            cout << "\nPuntaje 6 o menor hay que ver por otros motivos de recomendaciones...\n\n";
+        }
+    }
+    subrayar();*/
+    cout << "\nCarga lista de recomendados...\n\n";
+    subrayar();
+    pausa();
+}
+
 Menu::~Menu(){
     for (int i = 0; i < pelisVistas->obtenerTamanio(); i++){
         cout << "borro ptrPeli dentro de PelisVistas: " << pelisVistas->obtenerDato(i+1)->obtenerNombre() << endl;

@@ -34,6 +34,8 @@ public:
     string obtenerDirector();
     double obtenerPuntaje();
     void obtenerActores();
+    Lista<string> * obtenerListaActores();
+    int obtenerCantActores();
 };
 
 

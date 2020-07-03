@@ -44,7 +44,7 @@ void Utilidades::llenarLista(Lista<Pelicula*>* listaAllenar, string nombreArchiv
     subrayar();
     pausa();
 }
-void Utilidades::recomendar(Lista<Pelicula*>* recomendadas, Lista<Pelicula*>* vistas, Lista<Pelicula*>* noVistas){
+/*void Utilidades::recomendar(Lista<Pelicula*>* recomendadas, Lista<Pelicula*>* vistas, Lista<Pelicula*>* noVistas){
     for(int i = 0; i < noVistas->obtenerTamanio(); i++){
         if(noVistas->obtenerDato(i + 1)->obtenerPuntaje() > 6){
             recomendadas->insertar(noVistas->obtenerDato(i + 1), 1);
@@ -57,7 +57,48 @@ void Utilidades::recomendar(Lista<Pelicula*>* recomendadas, Lista<Pelicula*>* vi
     cout << "\nCarga lista de recomendados...\n\n";
     subrayar();
     pausa();
+}*/
+
+bool Utilidades::coincideGenero(Pelicula* noVista, Pelicula* vista){
+    return (noVista->obtenerGenero() == vista->obtenerGenero());
 }
+
+bool Utilidades::coincideDirector(Pelicula* noVista, Pelicula* vista){
+    return (noVista->obtenerDirector() == vista->obtenerDirector());
+}
+
+bool Utilidades::tienePuntajeAdecuado(Pelicula* pelicula){
+     return (pelicula->obtenerPuntaje() > PUNTAJE_MINIMO - 1);
+}
+
+bool Utilidades::coincideAlMenosUnActor(Pelicula* noVista, Pelicula* vista){
+    int cantActoresEnNoVista = noVista->obtenerCantActores();
+    int cantActoresEnVista = vista->obtenerCantActores();
+    int i = 1;
+    bool hayCoincidencia = false;
+
+    if (cantActoresEnNoVista < cantActoresEnVista){
+        while ((!hayCoincidencia) && (i < cantActoresEnNoVista)){
+            if (noVista->obtenerListaActores()->obtenerDato(i) == noVista->obtenerListaActores()->obtenerDato(i)){
+                hayCoincidencia = true;
+            }
+            i++;
+        }
+    } else {
+            while ((!hayCoincidencia) && (i < cantActoresEnVista)){
+               if (noVista->obtenerListaActores()->obtenerDato(i) == noVista->obtenerListaActores()->obtenerDato(i)){
+                   hayCoincidencia = true;
+                }
+               i++;
+            }
+    }
+    return hayCoincidencia;
+}
+
+void Utilidades::agregarRecomendada(Lista<Pelicula*>* pelisRecomendadas, Pelicula * pelicula){
+     pelisRecomendadas -> insertar (pelicula,1);
+}
+
 void Utilidades::subrayar(){
     for (int i = 0; i < 50; i++){
         cout << "-";
