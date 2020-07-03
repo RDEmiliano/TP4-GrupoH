@@ -2,17 +2,24 @@
 Menu::Menu(){
     if (MOSTRAR) cout << "Constructor MENU (" << this << ")" << endl;
 }
-Menu::Menu(Lista<Pelicula*>* vistas, Lista<Pelicula*>* noVistas){
+Menu::Menu(Lista<Pelicula*>* vistas, Lista<Pelicula*>* noVistas,Lista<Pelicula*>* recomendadas){
     if (MOSTRAR) cout << "Constructor MENU <con parametros> (" << this << ")" << endl;
     pelisVistas = vistas;
     pelisNoVistas = noVistas;
-    pelisRecomendadas = new Lista<Pelicula*>; // como liberar memoria??
+    pelisRecomendadas = recomendadas; 
 }
+
 void Menu::inicializar(string vistas, string noVistas){
-    llenarLista(pelisVistas, vistas);                           //metodo en utilidades
-    llenarLista(pelisNoVistas, noVistas);                       //metodo en utilidades
-    recomendar(pelisRecomendadas, pelisVistas, pelisNoVistas);  //metodo en utilidades
+    bool pudoAbrir = true;
+    llenarLista(pelisNoVistas, noVistas,pudoAbrir);                       //metodo en utilidades
+    llenarLista(pelisVistas, vistas,pudoAbrir); 
+    if (pudoAbrir) {
+       recomendar(pelisRecomendadas, pelisVistas, pelisNoVistas);  //metodo en Menu
+    } else {
+            recomendar(pelisRecomendadas,pelisNoVistas); 
+      }
 }
+
 int Menu::comenzar(){
     int eleccion;
     do{
@@ -117,6 +124,15 @@ void Menu::recomendar(Lista<Pelicula*>* recomendadas, Lista<Pelicula*>* vistas, 
     cout << "\nCarga lista de recomendados...\n\n";
     subrayar();
     pausa();
+}
+
+void Menu::recomendar(Lista<Pelicula*>* recomendadas, Lista<Pelicula*>* noVistas){
+    int cantPelisNoVistas = noVistas -> obtenerTamanio();
+    for (int i = 1; i < cantPelisNoVistas + 1; i++){
+        if (noVistas -> obtenerDato(i) -> obtenerPuntaje() > PUNTAJE_MINIMO - 1){
+            recomendadas -> insertar(noVistas -> obtenerDato(i),1);
+        }
+    }
 }
 
 Menu::~Menu(){

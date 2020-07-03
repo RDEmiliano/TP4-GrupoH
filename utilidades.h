@@ -19,7 +19,7 @@ public:
     void subrayar();
     void pausa();
     void cabecera();
-    void llenarLista(Lista<Pelicula*>* listaAllenar, string nombreArchivo);
+    void llenarLista(Lista<Pelicula*>* listaAllenar, string nombreArchivo,bool &pudoAbrir);
     bool coincideGenero(Pelicula* noVista, Pelicula* vista);
     bool coincideDirector(Pelicula* noVista, Pelicula* vista);
     bool tienePuntajeAdecuado(Pelicula* pelicula);

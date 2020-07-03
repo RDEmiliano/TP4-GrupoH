@@ -9,10 +9,12 @@ int main()
 {
     Lista<Pelicula*>* ptrPelisVistas;
     Lista<Pelicula*>* ptrPelisNoVistas;
+    Lista<Pelicula*>* ptrPelisRecomendadas;
     ptrPelisVistas = new Lista<Pelicula*>;
     ptrPelisNoVistas = new Lista<Pelicula*>;
+    ptrPelisRecomendadas = new Lista<Pelicula*>;
 
-    Menu menu(ptrPelisVistas, ptrPelisNoVistas);
+    Menu menu(ptrPelisVistas, ptrPelisNoVistas, ptrPelisRecomendadas);
     menu.inicializar(PELIS_VISTAS, PELIS_NO_VISTAS);    //Esto esta en menu
 
     int eleccion = 0;

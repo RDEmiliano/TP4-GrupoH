@@ -3,7 +3,7 @@ Utilidades::Utilidades(){
     if (MOSTRAR) cout << "Constructor UTILIDADES (" << this << ")" << endl;
 }
 
-void Utilidades::llenarLista(Lista<Pelicula*>* listaAllenar, string nombreArchivo){
+void Utilidades::llenarLista(Lista<Pelicula*>* listaAllenar, string nombreArchivo, bool &pudoAbrir){
     subrayar();
     cout << "\nCarga una lista con datos del archivo\n\n";
     ifstream archivo(nombreArchivo);
@@ -11,6 +11,7 @@ void Utilidades::llenarLista(Lista<Pelicula*>* listaAllenar, string nombreArchiv
     int numLinea;
 
     if (!archivo.fail()){
+        pudoAbrir = true;
         while(!archivo.eof()) {
 
             Pelicula* ptrPelicula = new Pelicula;
@@ -39,6 +40,7 @@ void Utilidades::llenarLista(Lista<Pelicula*>* listaAllenar, string nombreArchiv
         archivo.close();
 
     } else {
+        pudoAbrir = false;
         cout << "El archivo no se abrio correctamente" << endl;
     };
     subrayar();

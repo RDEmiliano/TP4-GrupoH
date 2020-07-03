@@ -15,13 +15,14 @@ private:
 public:
     Menu();
     //CAMBIAR STRING POR CLASE PELICULA!!!!!
-    Menu(Lista<Pelicula*>* vistas, Lista<Pelicula*>* noVistas);
+    Menu(Lista<Pelicula*>* vistas, Lista<Pelicula*>* noVistas, Lista<Pelicula*>* recomendadas);
     void inicializar(string vistas, string noVistas);
     int comenzar();
     void peliculasVistas();
     void peliculasNoVistas();
     void peliculasRecomendadas();
     void recomendar(Lista<Pelicula*>* recomendadas, Lista<Pelicula*>* vistas, Lista<Pelicula*>* noVistas);
+    void recomendar(Lista<Pelicula*>* recomendadas, Lista<Pelicula*>* noVistas);
     void salir();
     ~Menu();
 };
