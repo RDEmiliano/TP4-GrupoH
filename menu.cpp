@@ -183,6 +183,10 @@ void Menu::llenarListita(Lista<string>* listita, string comparado){
 }
 
 void Menu::recomendar_primera_version(Lista<Pelicula*>* recomendadas, Lista<Pelicula*>* vistas, Lista<Pelicula*>* noVistas){
+    subrayar();
+    cout << "\nCarga lista de recomendados...\n\n";
+    subrayar();
+    pausa();
     Pelicula* vista;
     Pelicula* noVista;
     int cantPelisNoVistas = noVistas -> obtenerTamanio();
@@ -207,10 +211,6 @@ void Menu::recomendar_primera_version(Lista<Pelicula*>* recomendadas, Lista<Peli
             }
         }
     }
-    subrayar();
-    cout << "\nCarga lista de recomendados...\n\n";
-    subrayar();
-    pausa();
 }
 void Menu::recomendar_primera_version(Lista<Pelicula*>* recomendadas, Lista<Pelicula*>* noVistas){
     int cantPelisNoVistas = noVistas -> obtenerTamanio();
@@ -257,6 +257,10 @@ void Menu::recomendar(Lista<Pelicula*>* recomendadas, Lista<Pelicula*>* noVistas
 */
 
 void Menu::recomendar_version_con_listas_auxiliares(){
+    subrayar();
+    cout << "\nCarga lista de recomendados...\n\n";
+    subrayar();
+    pausa();
 
     bool vioPeliculas = (pelisVistas->obtenerTamanio() > 0);
     string comparando;

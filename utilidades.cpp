@@ -60,9 +60,22 @@ bool Utilidades::tienePuntajeAdecuado(Pelicula* pelicula){
 bool Utilidades::coincideAlMenosUnActor(Pelicula* noVista, Pelicula* vista){
     int cantActoresEnNoVista = noVista->obtenerCantActores();
     int cantActoresEnVista = vista->obtenerCantActores();
-    int i = 1;
+    int i = 0;
+    int j = 0;
+    //int i = 1;
     bool hayCoincidencia = false;
 
+    while(!hayCoincidencia && i < cantActoresEnNoVista){
+        while(!hayCoincidencia && j < cantActoresEnVista){
+                if(noVista->obtenerActorEn(i + 1) == vista->obtenerActorEn(j + 1)){
+                    hayCoincidencia = true;
+                }
+            j++;
+        }
+        i++;
+    }
+
+    /*
     if (cantActoresEnNoVista < cantActoresEnVista){ //ACA NO SE SI HACE BIEN
         while ((!hayCoincidencia) && (i < cantActoresEnNoVista)){
             if (noVista->obtenerListaActores()->obtenerDato(i) == noVista->obtenerListaActores()->obtenerDato(i)){
@@ -78,6 +91,7 @@ bool Utilidades::coincideAlMenosUnActor(Pelicula* noVista, Pelicula* vista){
                i++;
             }
     }
+    */
     return hayCoincidencia;
 }
 
