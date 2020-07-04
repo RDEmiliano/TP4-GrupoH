@@ -1,6 +1,9 @@
 #include "menu.h"
 Menu::Menu(){
     if (MOSTRAR) cout << "Constructor MENU (" << this << ")" << endl;
+    pelisVistas = new Lista<Pelicula*>;
+    pelisNoVistas = new Lista<Pelicula*>;
+    pelisRecomendadas = new Lista<Pelicula*>;
 }
 
 Menu::Menu(Lista<Pelicula*>* vistas, Lista<Pelicula*>* noVistas,Lista<Pelicula*>* recomendadas){
@@ -265,12 +268,13 @@ void Menu::recomendar(){
                     }
                 }
                 //ACA TENDRIA QUE VERIFICAR LO DEMAS
-                delete ptrGeneros;
-                delete ptrDirectores;
-                delete ptrActores;
+                
             }
         }
     }
+    delete ptrGeneros;
+    delete ptrDirectores;
+    delete ptrActores;
 }
 
 
