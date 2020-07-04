@@ -27,8 +27,13 @@ public:
     void peliculasVistas();
     void peliculasNoVistas();
     void peliculasRecomendadas();
-    void recomendar();
+
+    void recomendar_primera_version(Lista<Pelicula*>* recomendadas, Lista<Pelicula*>* vistas, Lista<Pelicula*>* noVistas);
+    void recomendar_primera_version(Lista<Pelicula*>* recomendadas, Lista<Pelicula*>* noVistas);
+
+    void recomendar_version_con_listas_auxiliares();
     void llenarListita(Lista<string>* listita, string comparado);
+
     //void recomendar(Lista<Pelicula*>* recomendadas, Lista<Pelicula*>* vistas, Lista<Pelicula*>* noVistas);
     //void recomendar(Lista<Pelicula*>* recomendadas, Lista<Pelicula*>* noVistas);
 

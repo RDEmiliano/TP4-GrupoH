@@ -63,7 +63,7 @@ bool Utilidades::coincideAlMenosUnActor(Pelicula* noVista, Pelicula* vista){
     int i = 1;
     bool hayCoincidencia = false;
 
-    if (cantActoresEnNoVista < cantActoresEnVista){
+    if (cantActoresEnNoVista < cantActoresEnVista){ //ACA NO SE SI HACE BIEN
         while ((!hayCoincidencia) && (i < cantActoresEnNoVista)){
             if (noVista->obtenerListaActores()->obtenerDato(i) == noVista->obtenerListaActores()->obtenerDato(i)){
                 hayCoincidencia = true;
