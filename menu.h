@@ -28,6 +28,7 @@ public:
     void peliculasNoVistas();
     void peliculasRecomendadas();
     void recomendar();
+    void llenarListita(Lista<string>* listita, string comparado);
     //void recomendar(Lista<Pelicula*>* recomendadas, Lista<Pelicula*>* vistas, Lista<Pelicula*>* noVistas);
     //void recomendar(Lista<Pelicula*>* recomendadas, Lista<Pelicula*>* noVistas);
 
