@@ -330,6 +330,7 @@ void Menu::recomendar_version_con_listas_auxiliares(){
                                     }
                                     k++;
                                 }while(k < pelisNoVistas->obtenerDato(i + 1)->obtenerCantActores() && agregado == false);
+                                k = 0;
                                 /*
                                 for(int k = 0; k < pelisNoVistas->obtenerDato(i + 1)->obtenerCantActores(); k++){
                                     actorComparado = pelisNoVistas->obtenerDato(i + 1)->obtenerActorEn(k + 1);
@@ -341,6 +342,7 @@ void Menu::recomendar_version_con_listas_auxiliares(){
                                 */
                                 h++;
                             }while(h < ptrActores->obtenerTamanio() && agregado == false);
+                            h = 0;
                             j++;
                         }while(j < ptrDirectores->obtenerTamanio() && agregado == false);
                     }
