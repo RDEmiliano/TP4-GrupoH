@@ -15,3 +15,21 @@ Comedia
 3
 Dennis Dugan
 Adam_Sandler Al_Pacino Katie_Holmes
+
+PeliculaNOVista1
+Genero10
+9
+Director A
+Actor_A Actor_B Actor_C
+
+PeliculaNOVista2
+Genero20
+9
+Director B
+Actor_E Actor_F Actor_G
+
+PeliculaNOVista3
+Genero30
+10
+Director C
+Actor_H Actor_I Actor_J

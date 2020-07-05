@@ -9,3 +9,21 @@ Terror
 7
 Kevin Kolsch
 Jason_Clarke Amy_Seimetz  John_Lithgow
+
+PeliculaVista1
+Genero1
+9
+Director A
+Actor_A Actor_B Actor_C
+
+PeliculaVista2
+Genero2
+3
+Director B
+Actor_E Actor_F Actor_G
+
+PeliculaVista3
+Genero3
+10
+Director C
+Actor_H Actor_I Actor_J
