@@ -278,18 +278,7 @@ void Menu::recomendar_version_con_listas_auxiliares(){
         ptrDirectores = new Lista<string>;
         ptrActores = new Lista<string>;
 
-        for(int i = 0; i < pelisVistas->obtenerTamanio(); i++){
-            comparando = pelisVistas->obtenerDato(i + 1)->obtenerGenero();
-            llenarListita(ptrGeneros, comparando);
-
-            comparando = pelisVistas->obtenerDato(i + 1)->obtenerDirector();
-            llenarListita(ptrDirectores, comparando);
-
-            for(int j = 0; j < pelisVistas->obtenerDato(i + 1)->obtenerCantActores(); j++){
-                comparando = pelisVistas->obtenerDato(i + 1)->obtenerActorEn(j + 1);
-                llenarListita(ptrActores, comparando);
-            }
-        }
+        armarListitas(ptrGeneros, ptrDirectores, ptrActores);
         subrayar();
         cout<<"Listas para comparar: " << endl;
         subrayar();
@@ -322,15 +311,26 @@ void Menu::recomendar_version_con_listas_auxiliares(){
                 for (int i = 0; i < ptrGeneros->obtenerTamanio(); i++){
                     enLista = ptrGeneros->obtenerDato(i + 1);
                     comparando = pelisNoVistas->obtenerDato(i + 1)->obtenerGenero();
+
                     if(comparando == enLista){
                         int j = 0;
                         int h = 0;
+                        int k = 0;
                         string actorEnLista, actorComparado, direEnLista, direComparado;
                         do{
                             direEnLista = ptrDirectores->obtenerDato(j + 1);
                             direComparado = pelisNoVistas->obtenerDato(i + 1)->obtenerDirector();
                             do{
                                 actorEnLista = ptrActores->obtenerDato(h + 1);
+                                do{
+                                    actorComparado = pelisNoVistas->obtenerDato(i + 1)->obtenerActorEn(k + 1);
+                                    if((direComparado == direEnLista) || (actorComparado == actorEnLista)){
+                                        pelisRecomendadas->insertar(pelisNoVistas->obtenerDato(i + 1), 1);
+                                        agregado = true;
+                                    }
+                                    k++;
+                                }while(k < pelisNoVistas->obtenerDato(i + 1)->obtenerCantActores() && agregado == false);
+                                /*
                                 for(int k = 0; k < pelisNoVistas->obtenerDato(i + 1)->obtenerCantActores(); k++){
                                     actorComparado = pelisNoVistas->obtenerDato(i + 1)->obtenerActorEn(k + 1);
                                     if((direComparado == direEnLista) || (actorComparado == actorEnLista)){
@@ -338,6 +338,7 @@ void Menu::recomendar_version_con_listas_auxiliares(){
                                         agregado = true;
                                     }
                                 }
+                                */
                                 h++;
                             }while(h < ptrActores->obtenerTamanio() && agregado == false);
                             j++;
@@ -355,7 +356,19 @@ void Menu::recomendar_version_con_listas_auxiliares(){
         delete ptrActores;
     }
 }
-
+void Menu::armarListitas(Lista<string>* ptrGeneros, Lista<string>* ptrDirectores, Lista<string>* ptrActores){
+    string comparando;
+    for(int i = 0; i < pelisVistas->obtenerTamanio(); i++){
+        comparando = pelisVistas->obtenerDato(i + 1)->obtenerGenero();
+        llenarListita(ptrGeneros, comparando);
+        comparando = pelisVistas->obtenerDato(i + 1)->obtenerDirector();
+        llenarListita(ptrDirectores, comparando);
+        for(int j = 0; j < pelisVistas->obtenerDato(i + 1)->obtenerCantActores(); j++){
+            comparando = pelisVistas->obtenerDato(i + 1)->obtenerActorEn(j + 1);
+            llenarListita(ptrActores, comparando);
+        }
+    }
+}
 
 bool Menu::obtenerArranque() const {
     return arranque;

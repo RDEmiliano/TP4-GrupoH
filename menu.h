@@ -32,6 +32,7 @@ public:
     void recomendar_primera_version(Lista<Pelicula*>* recomendadas, Lista<Pelicula*>* noVistas);
 
     void recomendar_version_con_listas_auxiliares();
+    void armarListitas(Lista<string>* ptrGeneros, Lista<string>* ptrDirectores, Lista<string>* ptrActores);
     void llenarListita(Lista<string>* listita, string comparado);
 
     //void recomendar(Lista<Pelicula*>* recomendadas, Lista<Pelicula*>* vistas, Lista<Pelicula*>* noVistas);
