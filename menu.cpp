@@ -56,7 +56,7 @@ void Menu::inicializar(string vistas, string noVistas){
                 definirArranque(true);
                 llenarLista(pelisNoVistas, noVistas);
                 //recomienda solo por puntaje
-
+                recomendar_primera_version(pelisRecomendadas, pelisNoVistas);
                 //recomendar_version_con_listas_auxiliares();
 
                 break;
@@ -193,7 +193,7 @@ void Menu::recomendar_primera_version(Lista<Pelicula*>* recomendadas, Lista<Peli
     int cantPelisVistas = vistas -> obtenerTamanio();
 
     for (int i = 1; i < cantPelisNoVistas + 1; i++){
-        for (int j = 1; j < cantPelisVistas; j++){
+        for (int j = 1; j < cantPelisVistas + 1; j++){
             noVista = noVistas -> obtenerDato (i);
             vista = vistas -> obtenerDato (j);
 
@@ -212,6 +212,7 @@ void Menu::recomendar_primera_version(Lista<Pelicula*>* recomendadas, Lista<Peli
         }
     }
 }
+
 void Menu::recomendar_primera_version(Lista<Pelicula*>* recomendadas, Lista<Pelicula*>* noVistas){
     int cantPelisNoVistas = noVistas -> obtenerTamanio();
     for (int i = 1; i < cantPelisNoVistas + 1; i++){
