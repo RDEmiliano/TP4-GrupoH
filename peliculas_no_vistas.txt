@@ -17,19 +17,19 @@ Dennis Dugan
 Adam_Sandler Al_Pacino Katie_Holmes
 
 PeliculaNOVista1
-Genero10
-9
-Director A
-Actor_A Actor_B Actor_C
+Genero1
+2
+Director C
+Actor_AA Actor_BB Actor_CC
 
 PeliculaNOVista2
-Genero20
-9
-Director B
-Actor_E Actor_F Actor_G
+Genero2
+2
+Director E
+Actor_EE Actor_FF Actor_J
 
 PeliculaNOVista3
-Genero30
-10
-Director C
-Actor_H Actor_I Actor_J
+Genero3
+2
+Director F
+Actor_A Actor_II Actor_JJ

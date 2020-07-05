@@ -279,23 +279,9 @@ void Menu::recomendar_version_con_listas_auxiliares(){
         ptrDirectores = new Lista<string>;
         ptrActores = new Lista<string>;
 
-        armarListitas(ptrGeneros, ptrDirectores, ptrActores);
-        subrayar();
-        cout<<"Listas para comparar: " << endl;
-        subrayar();
-        pausa();
-        cout<<"GENEROS VISTOS:" << endl;
-        for(int i = 0; i < ptrGeneros->obtenerTamanio(); i++){
-            cout << "\t\t" << ptrGeneros->obtenerDato(i + 1) << endl;;
-        }
-        cout<<"DIRECTORES VISTOS:" << endl;
-        for(int i = 0; i < ptrDirectores->obtenerTamanio(); i++){
-            cout << "\t\t" << ptrDirectores->obtenerDato(i + 1) << endl;
-        }
-        cout<<"ACTORES VISTOS:" << endl;
-        for(int i = 0; i < ptrActores->obtenerTamanio(); i++){
-            cout << "\t\t" << ptrActores->obtenerDato(i + 1) << endl;
-        }
+        armarListitas(ptrGeneros, ptrDirectores, ptrActores);   // y las muestra pero es solo para control
+                                                                // luego eliminar
+
     }
 
     subrayar();
@@ -309,14 +295,14 @@ void Menu::recomendar_version_con_listas_auxiliares(){
                 string enLista;
                 string comparando;
                 bool agregado = false;
-                for (int i = 0; i < ptrGeneros->obtenerTamanio(); i++){
-                    enLista = ptrGeneros->obtenerDato(i + 1);
+                for (int m = 0; m < ptrGeneros->obtenerTamanio(); m++){
+                    enLista = ptrGeneros->obtenerDato(m + 1);
                     comparando = pelisNoVistas->obtenerDato(i + 1)->obtenerGenero();
 
                     if(comparando == enLista){
-                        int j = 0;
-                        int h = 0;
-                        int k = 0;
+                        int j = 0;//ptr directores
+                        int h = 0;//ptr actor
+                        int k = 0;//actor en peli no vista
                         string actorEnLista, actorComparado, direEnLista, direComparado;
                         do{
                             direEnLista = ptrDirectores->obtenerDato(j + 1);
@@ -332,15 +318,6 @@ void Menu::recomendar_version_con_listas_auxiliares(){
                                     k++;
                                 }while(k < pelisNoVistas->obtenerDato(i + 1)->obtenerCantActores() && agregado == false);
                                 k = 0;
-                                /*
-                                for(int k = 0; k < pelisNoVistas->obtenerDato(i + 1)->obtenerCantActores(); k++){
-                                    actorComparado = pelisNoVistas->obtenerDato(i + 1)->obtenerActorEn(k + 1);
-                                    if((direComparado == direEnLista) || (actorComparado == actorEnLista)){
-                                        pelisRecomendadas->insertar(pelisNoVistas->obtenerDato(i + 1), 1);
-                                        agregado = true;
-                                    }
-                                }
-                                */
                                 h++;
                             }while(h < ptrActores->obtenerTamanio() && agregado == false);
                             h = 0;
@@ -370,6 +347,22 @@ void Menu::armarListitas(Lista<string>* ptrGeneros, Lista<string>* ptrDirectores
             comparando = pelisVistas->obtenerDato(i + 1)->obtenerActorEn(j + 1);
             llenarListita(ptrActores, comparando);
         }
+    }
+    subrayar();
+    cout<<"Listas para comparar: " << endl;
+    subrayar();
+    pausa();
+    cout<<"GENEROS VISTOS:" << endl;
+    for(int i = 0; i < ptrGeneros->obtenerTamanio(); i++){
+        cout << "\t\t" << ptrGeneros->obtenerDato(i + 1) << endl;;
+    }
+    cout<<"DIRECTORES VISTOS:" << endl;
+    for(int i = 0; i < ptrDirectores->obtenerTamanio(); i++){
+        cout << "\t\t" << ptrDirectores->obtenerDato(i + 1) << endl;
+    }
+    cout<<"ACTORES VISTOS:" << endl;
+    for(int i = 0; i < ptrActores->obtenerTamanio(); i++){
+        cout << "\t\t" << ptrActores->obtenerDato(i + 1) << endl;
     }
 }
 
