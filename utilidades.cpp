@@ -1,4 +1,5 @@
 #include "utilidades.h"
+
 Utilidades::Utilidades(){
     if (MOSTRAR) cout << "Constructor UTILIDADES (" << this << ")" << endl;
 }
@@ -106,6 +107,7 @@ void Utilidades::subrayar(){
     }
     cout << endl;
 }
+
 void Utilidades::limpiarPantalla(){
     #ifdef _WIN32
         system ("cls");
@@ -114,6 +116,7 @@ void Utilidades::limpiarPantalla(){
         system ("clear");
     #endif
 }
+
 void Utilidades::menuPrincipal(){
     cout << "1- Lista peliculas vistas." << endl;
     cout << "2- Lista no peliculas vistas." << endl;
@@ -122,9 +125,11 @@ void Utilidades::menuPrincipal(){
     cout << endl;
     cout << "Eleccion: ";
 }
+
 void Utilidades::despedida(){
     cout << "\nFin del programa.\n" << endl;
 }
+
 void Utilidades::cabecera(){
     subrayar();
     subrayar();
@@ -132,10 +137,12 @@ void Utilidades::cabecera(){
     subrayar();
     subrayar();
 }
+
 void Utilidades::pausa(){
     cout << "<Enter>";
     cin.get();
 }
+
 Utilidades::~Utilidades(){
     if (MOSTRAR) cout << "Destructor UTILIDADES (" << this << ")" << endl;
 }

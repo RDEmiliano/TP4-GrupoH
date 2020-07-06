@@ -9,8 +9,8 @@ using namespace std;
 class Menu : public Utilidades{
 
 private:
+
     bool arranque;
-    //CAMBIAR STRING POR CLASE PELICULA!!!!!
     Lista<Pelicula*>* pelisVistas;
     Lista<Pelicula*>* pelisNoVistas;
     Lista<Pelicula*>* pelisRecomendadas; // hay que ver como liberar memoria
@@ -18,7 +18,7 @@ private:
 public:
 
     Menu();
-    //CAMBIAR STRING POR CLASE PELICULA!!!!!
+
     Menu(Lista<Pelicula*>* vistas, Lista<Pelicula*>* noVistas, Lista<Pelicula*>* recomendadas);
 
     void inicializar(string vistas, string noVistas);
@@ -28,8 +28,8 @@ public:
     void peliculasNoVistas();
     void peliculasRecomendadas();
 
-    void recomendar_primera_version(Lista<Pelicula*>* recomendadas, Lista<Pelicula*>* vistas, Lista<Pelicula*>* noVistas);
-    void recomendar_primera_version(Lista<Pelicula*>* recomendadas, Lista<Pelicula*>* noVistas);
+    void recomendar_primera_version(Lista<Pelicula*>* vistas, Lista<Pelicula*>* noVistas);
+    void recomendar_primera_version(Lista<Pelicula*>* noVistas);
 
     void recomendar_version_con_listas_auxiliares();
     void armarListitas(Lista<string>* ptrGeneros, Lista<string>* ptrDirectores, Lista<string>* ptrActores);

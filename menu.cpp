@@ -48,7 +48,7 @@ void Menu::inicializar(string vistas, string noVistas){
                 //recomienda de manera normal
 
                 //recomendar_version_con_listas_auxiliares();
-                recomendar_primera_version(pelisRecomendadas, pelisVistas, pelisNoVistas);
+                recomendar_primera_version(pelisVistas, pelisNoVistas);
 
                 break;
             case 2: //No existe peliculas vistas
@@ -56,7 +56,7 @@ void Menu::inicializar(string vistas, string noVistas){
                 definirArranque(true);
                 llenarLista(pelisNoVistas, noVistas);
                 //recomienda solo por puntaje
-                recomendar_primera_version(pelisRecomendadas, pelisNoVistas);
+                recomendar_primera_version(pelisNoVistas);
                 //recomendar_version_con_listas_auxiliares();
 
                 break;
@@ -65,7 +65,7 @@ void Menu::inicializar(string vistas, string noVistas){
     }
     //recomendar();
 
-                          //metodo en utilidades
+    //metodo en utilidades
 
 
     /*
@@ -182,7 +182,7 @@ void Menu::llenarListita(Lista<string>* listita, string comparado){
     }
 }
 
-void Menu::recomendar_primera_version(Lista<Pelicula*>* recomendadas, Lista<Pelicula*>* vistas, Lista<Pelicula*>* noVistas){
+void Menu::recomendar_primera_version(Lista<Pelicula*>* vistas, Lista<Pelicula*>* noVistas){
     subrayar();
     cout << "\nCarga lista de recomendados...\n\n";
     subrayar();
@@ -193,34 +193,38 @@ void Menu::recomendar_primera_version(Lista<Pelicula*>* recomendadas, Lista<Peli
     int cantPelisVistas = vistas -> obtenerTamanio();
 
     for (int i = 1; i < cantPelisNoVistas + 1; i++){
-        for (int j = 1; j < cantPelisVistas + 1; j++){
             noVista = noVistas -> obtenerDato (i);
-            vista = vistas -> obtenerDato (j);
-
-            if ( ( coincideGenero(noVista,vista) && (coincideDirector(noVista,vista) || coincideAlMenosUnActor(noVista,vista)) )
-                || tienePuntajeAdecuado(noVista) ){
-
+            if (tienePuntajeAdecuado(noVista)){
                 cout << "Agrego peli nueva." << endl;
                 cout << noVista->obtenerNombre() << endl;
-                cout << "Coincide genero: " << coincideGenero(noVista,vista) << endl;
-                cout << "Coincide Director: " << coincideDirector(noVista,vista) << endl;
-                cout << "Coincide algun actor: " << coincideAlMenosUnActor(noVista,vista) << endl;
                 cout << "Puntaje adecuado: " << tienePuntajeAdecuado(noVista) << endl;
                 pausa();
                 agregarRecomendada (pelisRecomendadas,noVista);
+            } else {
+                for (int j = 1; j < cantPelisVistas + 1; j++) {
+                    vista = vistas -> obtenerDato(j);
+                    if ((coincideGenero(noVista, vista) && ((coincideDirector(noVista, vista)) || coincideAlMenosUnActor(noVista, vista)))) {
+                        cout << "Agrego peli nueva." << endl;
+                        cout << noVista->obtenerNombre() << endl;
+                        cout << "Coincide genero: " << coincideGenero(noVista, vista) << endl;
+                        cout << "Coincide Director: " << coincideDirector(noVista, vista) << endl;
+                        cout << "Coincide algun actor: " << coincideAlMenosUnActor(noVista, vista) << endl;
+                        agregarRecomendada(pelisRecomendadas, noVista);
+                    }
+                }
             }
+        }
+    }
+
+void Menu::recomendar_primera_version(Lista<Pelicula*>* noVistas){
+    int cantPelisNoVistas = noVistas -> obtenerTamanio();
+    for (int i = 1; i < cantPelisNoVistas + 1; i++){
+        if (noVistas -> obtenerDato(i) -> obtenerPuntaje() > PUNTAJE_MINIMO - 1){
+            pelisRecomendadas -> insertar(noVistas -> obtenerDato(i),1);
         }
     }
 }
 
-void Menu::recomendar_primera_version(Lista<Pelicula*>* recomendadas, Lista<Pelicula*>* noVistas){
-    int cantPelisNoVistas = noVistas -> obtenerTamanio();
-    for (int i = 1; i < cantPelisNoVistas + 1; i++){
-        if (noVistas -> obtenerDato(i) -> obtenerPuntaje() > PUNTAJE_MINIMO - 1){
-            recomendadas -> insertar(noVistas -> obtenerDato(i),1);
-        }
-    }
-}
 /* //ORIGINAL 1RA VERSION////
 void Menu::recomendar(Lista<Pelicula*>* recomendadas, Lista<Pelicula*>* vistas, Lista<Pelicula*>* noVistas){
 
@@ -280,7 +284,7 @@ void Menu::recomendar_version_con_listas_auxiliares(){
         ptrActores = new Lista<string>;
 
         armarListitas(ptrGeneros, ptrDirectores, ptrActores);   // y las muestra pero es solo para control
-                                                                // luego eliminar
+        // luego eliminar
 
     }
 
@@ -293,7 +297,6 @@ void Menu::recomendar_version_con_listas_auxiliares(){
         }else{
             if(vioPeliculas){
                 string enLista;
-                string comparando;
                 bool agregado = false;
                 for (int m = 0; m < ptrGeneros->obtenerTamanio(); m++){
                     enLista = ptrGeneros->obtenerDato(m + 1);
