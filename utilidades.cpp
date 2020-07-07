@@ -76,24 +76,6 @@ bool Utilidades::coincideAlMenosUnActor(Pelicula* noVista, Pelicula* vista){
         j = 0;
         i++;
     }
-
-    /*
-    if (cantActoresEnNoVista < cantActoresEnVista){ //ACA NO SE SI HACE BIEN
-        while ((!hayCoincidencia) && (i < cantActoresEnNoVista)){
-            if (noVista->obtenerListaActores()->obtenerDato(i) == noVista->obtenerListaActores()->obtenerDato(i)){
-                hayCoincidencia = true;
-            }
-            i++;
-        }
-    } else {
-            while ((!hayCoincidencia) && (i < cantActoresEnVista)){
-               if (noVista->obtenerListaActores()->obtenerDato(i) == noVista->obtenerListaActores()->obtenerDato(i)){
-                   hayCoincidencia = true;
-                }
-               i++;
-            }
-    }
-    */
     return hayCoincidencia;
 }
 

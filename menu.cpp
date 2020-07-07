@@ -46,35 +46,21 @@ void Menu::inicializar(string vistas, string noVistas){
                 llenarLista(pelisNoVistas, noVistas);
                 llenarLista(pelisVistas, vistas);
                 //recomienda de manera normal
-
                 //recomendar_version_con_listas_auxiliares();
-                recomendar_primera_version(pelisVistas, pelisNoVistas);
+                //recomendar_primera_version(pelisVistas, pelisNoVistas);
+                recomendar(pelisVistas, pelisNoVistas);
 
                 break;
             case 2: //No existe peliculas vistas
 
                 definirArranque(true);
                 llenarLista(pelisNoVistas, noVistas);
-                //recomienda solo por puntaje
-                recomendar_primera_version(pelisNoVistas);
+                recomendar(pelisNoVistas); // Solo recomienda por puntaje
                 //recomendar_version_con_listas_auxiliares();
 
                 break;
-
         }
     }
-    //recomendar();
-
-    //metodo en utilidades
-
-
-    /*
-    if (pelisVistas->obtenerTamanio()) {
-       recomendar(pelisRecomendadas, pelisVistas, pelisNoVistas);  //metodo en Menu
-    } else {
-        recomendar(pelisRecomendadas,pelisNoVistas);
-      }
-    */
 }
 
 int Menu::comenzar() {
@@ -165,7 +151,7 @@ void Menu::peliculasRecomendadas(){
     pausa();
 }
 
-void Menu::llenarListita(Lista<string>* listita, string comparado){
+/*void Menu::llenarListita(Lista<string>* listita, string comparado){
     cout << "LLENANDO LISTITA" << endl;
     int lugar = 0;
     bool agregar = true;
@@ -180,9 +166,9 @@ void Menu::llenarListita(Lista<string>* listita, string comparado){
     if (agregar){
         listita->insertar(comparado, 1);
     }
-}
+}*/
 
-void Menu::recomendar_primera_version(Lista<Pelicula*>* vistas, Lista<Pelicula*>* noVistas){
+void Menu::recomendar(Lista<Pelicula*>* vistas, Lista<Pelicula*>* noVistas){
     subrayar();
     cout << "\nCarga lista de recomendados...\n\n";
     subrayar();
@@ -216,7 +202,7 @@ void Menu::recomendar_primera_version(Lista<Pelicula*>* vistas, Lista<Pelicula*>
         }
     }
 
-void Menu::recomendar_primera_version(Lista<Pelicula*>* noVistas){
+void Menu::recomendar(Lista<Pelicula*>* noVistas){
     int cantPelisNoVistas = noVistas -> obtenerTamanio();
     for (int i = 1; i < cantPelisNoVistas + 1; i++){
         if (noVistas -> obtenerDato(i) -> obtenerPuntaje() > PUNTAJE_MINIMO - 1){
@@ -260,7 +246,7 @@ void Menu::recomendar(Lista<Pelicula*>* recomendadas, Lista<Pelicula*>* noVistas
     }
 }
 */
-
+/*
 void Menu::recomendar_version_con_listas_auxiliares(){
     subrayar();
     cout << "\nCarga lista de recomendados...\n\n";
@@ -331,14 +317,13 @@ void Menu::recomendar_version_con_listas_auxiliares(){
             }
         }
     }
-    //PUSE DENTRO DEL IF XQ CREO SI NO VE PELICULAS LOS PUNTEROS ESTAN APUNTANDO A 0
-    //IGUALMENTE TENDRIAN QUE FUNCIONAR ESTOS DELETES DE SER ASI?
     if(vioPeliculas){
         delete ptrGeneros;
         delete ptrDirectores;
         delete ptrActores;
     }
 }
+
 void Menu::armarListitas(Lista<string>* ptrGeneros, Lista<string>* ptrDirectores, Lista<string>* ptrActores){
     string comparando;
     for(int i = 0; i < pelisVistas->obtenerTamanio(); i++){
@@ -367,7 +352,7 @@ void Menu::armarListitas(Lista<string>* ptrGeneros, Lista<string>* ptrDirectores
     for(int i = 0; i < ptrActores->obtenerTamanio(); i++){
         cout << "\t\t" << ptrActores->obtenerDato(i + 1) << endl;
     }
-}
+}*/
 
 bool Menu::obtenerArranque() const {
     return arranque;
