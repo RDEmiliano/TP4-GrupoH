@@ -3,6 +3,7 @@
 #include<iostream>
 #include<stdlib.h>
 #include<fstream>
+#include "pantalla.h"
 #include "Lista.h"
 #include "Pelicula.h"
 
@@ -10,21 +11,23 @@ const bool MOSTRAR = true;
 const int PUNTAJE_MINIMO = 7;
 using namespace std;
 
-class Utilidades{
+class Utilidades : public Pantalla{
     //Metodos
     public:
         //PRE: Ninguna
         //POST: Constructor de la clase.
         Utilidades(); //Constructor
         ~Utilidades(); //Destructor
+        /*
         void limpiarPantalla();
         void menuPrincipal();
         void despedida();
         void subrayar();
         void pausa();
         void cabecera();
+        */
         void mostrarListadoPeliculas(Lista<Pelicula*>* aMostrar);
-        void enmarcar(Pelicula*);
+        //void enmarcar(Pelicula*);
         //PRE: Ninguna
         //POST: Se carga la lista apuntada por el puntero listAllenar en base al archivo txt cuyo nombre o direccion ingresa por
         //      el parámetro nombreArchivo, en el caso de que este sea válido.

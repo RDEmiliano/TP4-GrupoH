@@ -99,7 +99,9 @@ void Menu::peliculasVistas(){
     //limpiarPantalla();
     cabecera();
     cout << "\nMOSTRAMOS LISTA PELICULAS VISTAS\n" << endl;
+
     mostrarListadoPeliculas(pelisVistas);
+
     for (int i=1 ; i<this->pelisVistas->obtenerTamanio()+1; i++){
         cout<<endl;
         cout<< " Titulo: "<<this->pelisVistas->obtenerDato(i)->obtenerNombre()<<endl;
@@ -117,6 +119,9 @@ void Menu::peliculasNoVistas(){
     //limpiarPantalla();
     cabecera();
     cout << "\nMOSTRAMOS LISTA PELICULAS NO VISTAS\n" << endl;
+
+    mostrarListadoPeliculas(pelisNoVistas);
+
     for (int i=1 ; i<this->pelisNoVistas->obtenerTamanio()+1; i++){
         cout<<endl;
         cout<< " Titulo: "<<this->pelisNoVistas->obtenerDato(i)->obtenerNombre()<<endl;
@@ -134,6 +139,9 @@ void Menu::peliculasRecomendadas(){
     //limpiarPantalla();
     cabecera();
     cout << "\nMOSTRAMOS LISTA PELICULAS RECOMENDADAS\n" << endl;
+
+    mostrarListadoPeliculas(pelisRecomendadas);
+
     for (int i=1 ; i<this->pelisRecomendadas->obtenerTamanio()+1; i++){
         cout<<endl;
         cout<< " Titulo: "<<this->pelisRecomendadas->obtenerDato(i)->obtenerNombre()<<endl;
