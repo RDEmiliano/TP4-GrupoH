@@ -45,19 +45,13 @@ void Menu::inicializar(string vistas, string noVistas){
                 definirArranque(true);
                 llenarLista(pelisNoVistas, noVistas);
                 llenarLista(pelisVistas, vistas);
-                //recomienda de manera normal
-                //recomendar_version_con_listas_auxiliares();
-                //recomendar_primera_version(pelisVistas, pelisNoVistas);
                 recomendar(pelisVistas, pelisNoVistas);
-
                 break;
             case 2: //No existe peliculas vistas
 
                 definirArranque(true);
                 llenarLista(pelisNoVistas, noVistas);
                 recomendar(pelisNoVistas); // Solo recomienda por puntaje
-                //recomendar_version_con_listas_auxiliares();
-
                 break;
         }
     }
@@ -117,6 +111,7 @@ void Menu::peliculasVistas(){
     cout <<endl;
     pausa();
 }
+
 void Menu::peliculasNoVistas(){
     //limpiarPantalla();
     cabecera();
@@ -133,6 +128,7 @@ void Menu::peliculasNoVistas(){
     cout <<endl;
     pausa();
 }
+
 void Menu::peliculasRecomendadas(){
     //limpiarPantalla();
     cabecera();
@@ -150,23 +146,6 @@ void Menu::peliculasRecomendadas(){
     cout << "LA LISTA TIENE TAMANIO "<< pelisRecomendadas-> obtenerTamanio()<<endl;
     pausa();
 }
-
-/*void Menu::llenarListita(Lista<string>* listita, string comparado){
-    cout << "LLENANDO LISTITA" << endl;
-    int lugar = 0;
-    bool agregar = true;
-    string enLista;
-    while(lugar < listita->obtenerTamanio() && agregar){
-        enLista = listita->obtenerDato(lugar + 1);
-        if(comparado == enLista){
-            agregar = false;
-        }
-        lugar++;
-    }
-    if (agregar){
-        listita->insertar(comparado, 1);
-    }
-}*/
 
 void Menu::recomendar(Lista<Pelicula*>* vistas, Lista<Pelicula*>* noVistas){
     subrayar();
@@ -210,6 +189,52 @@ void Menu::recomendar(Lista<Pelicula*>* noVistas){
         }
     }
 }
+
+bool Menu::obtenerArranque() const {
+    return arranque;
+}
+
+void Menu::definirArranque(bool estado){
+    this -> arranque = estado;
+}
+
+
+Menu::~Menu(){
+
+    for (int i = 0; i < pelisVistas->obtenerTamanio(); i++){
+        cout << "borro ptrPeli dentro de PelisVistas: " << pelisVistas->obtenerDato(i+1)->obtenerNombre() << endl;
+        delete pelisVistas->obtenerDato(i+1);
+    }
+    delete pelisVistas;
+
+    for (int i = 0; i < pelisNoVistas->obtenerTamanio(); i++){
+        cout << "borro ptrPeli dentro de PelisNoVistas: " << pelisNoVistas->obtenerDato(i+1)->obtenerNombre() << endl;
+        delete pelisNoVistas->obtenerDato(i+1);
+    }
+    delete pelisNoVistas;
+
+    delete pelisRecomendadas;
+
+    if (MOSTRAR) cout << "Destructor MENU (" << this << ")" <<endl;
+
+}
+
+/*void Menu::llenarListita(Lista<string>* listita, string comparado){
+    cout << "LLENANDO LISTITA" << endl;
+    int lugar = 0;
+    bool agregar = true;
+    string enLista;
+    while(lugar < listita->obtenerTamanio() && agregar){
+        enLista = listita->obtenerDato(lugar + 1);
+        if(comparado == enLista){
+            agregar = false;
+        }
+        lugar++;
+    }
+    if (agregar){
+        listita->insertar(comparado, 1);
+    }
+}*/
 
 /* //ORIGINAL 1RA VERSION////
 void Menu::recomendar(Lista<Pelicula*>* recomendadas, Lista<Pelicula*>* vistas, Lista<Pelicula*>* noVistas){
@@ -353,32 +378,3 @@ void Menu::armarListitas(Lista<string>* ptrGeneros, Lista<string>* ptrDirectores
         cout << "\t\t" << ptrActores->obtenerDato(i + 1) << endl;
     }
 }*/
-
-bool Menu::obtenerArranque() const {
-    return arranque;
-}
-
-void Menu::definirArranque(bool estado){
-    this -> arranque = estado;
-}
-
-
-Menu::~Menu(){
-
-    for (int i = 0; i < pelisVistas->obtenerTamanio(); i++){
-        cout << "borro ptrPeli dentro de PelisVistas: " << pelisVistas->obtenerDato(i+1)->obtenerNombre() << endl;
-        delete pelisVistas->obtenerDato(i+1);
-    }
-    delete pelisVistas;
-
-    for (int i = 0; i < pelisNoVistas->obtenerTamanio(); i++){
-        cout << "borro ptrPeli dentro de PelisNoVistas: " << pelisNoVistas->obtenerDato(i+1)->obtenerNombre() << endl;
-        delete pelisNoVistas->obtenerDato(i+1);
-    }
-    delete pelisNoVistas;
-
-    delete pelisRecomendadas;
-
-    if (MOSTRAR) cout << "Destructor MENU (" << this << ")" <<endl;
-
-}
