@@ -99,6 +99,7 @@ void Menu::peliculasVistas(){
     //limpiarPantalla();
     cabecera();
     cout << "\nMOSTRAMOS LISTA PELICULAS VISTAS\n" << endl;
+    mostrarListadoPeliculas(pelisVistas);
     for (int i=1 ; i<this->pelisVistas->obtenerTamanio()+1; i++){
         cout<<endl;
         cout<< " Titulo: "<<this->pelisVistas->obtenerDato(i)->obtenerNombre()<<endl;
