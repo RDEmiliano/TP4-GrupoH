@@ -82,6 +82,19 @@ bool Utilidades::coincideAlMenosUnActor(Pelicula* noVista, Pelicula* vista){
 void Utilidades::agregarRecomendada(Lista<Pelicula*>* pelisRecomendadas, Pelicula * pelicula){
      pelisRecomendadas -> insertar (pelicula,1);
 }
+
+void Utilidades::mostrarListadoPeliculas(Lista<Pelicula*>* aMostrar){
+    for (int i= 0; i < aMostrar->obtenerTamanio(); i++){
+        enmarcar(aMostrar->obtenerDato(i + 1));
+        cout << endl;
+        cout << endl;
+    }
+}
+
+Utilidades::~Utilidades(){
+    if (MOSTRAR) cout << "Destructor UTILIDADES (" << this << ")" << endl;
+}
+
 /*
 void Utilidades::subrayar(){
     for (int i = 0; i < 50; i++){
@@ -171,13 +184,6 @@ void Utilidades::enmarcar(Pelicula* aEnmarcar){
 
 }
 */
-void Utilidades::mostrarListadoPeliculas(Lista<Pelicula*>* aMostrar){
-    for (int i= 0; i < aMostrar->obtenerTamanio(); i++){
-        enmarcar(aMostrar->obtenerDato(i + 1));
-        cout << endl;
-        cout << endl;
-    }
-}
 /*
 void Utilidades::menuPrincipal(){
     cout << "1- Lista peliculas vistas." << endl;
@@ -205,6 +211,3 @@ void Utilidades::pausa(){
     cin.get();
 }
 */
-Utilidades::~Utilidades(){
-    if (MOSTRAR) cout << "Destructor UTILIDADES (" << this << ")" << endl;
-}

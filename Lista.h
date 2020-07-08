@@ -96,6 +96,4 @@ Nodo<T> * Lista<T>::obtenerNodo(unsigned int pos) {
     return aux;
 }
 
-
-
 #endif //TP4_GRUPOH__LISTA_H

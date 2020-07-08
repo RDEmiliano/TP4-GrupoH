@@ -24,6 +24,10 @@ public:
     //POST: Se crea un objeto de Clase Pelicula con los atributos incializados. Los atributos nombre,género y director se incializan como
     //      string vacío (""). El atributo puntaje en 0.0 y se solicita memoria dinámica para la lista del atributo actores.
     Pelicula();
+    
+    //Destructor de la clase Pelicula
+    //PRE: Debe estar creado el objeto clase Pelicula.
+    //POST: Se liberan los recursos solicitados para la lista de actores.
     ~Pelicula();
     
     //PRE: Ninguna

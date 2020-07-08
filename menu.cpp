@@ -187,8 +187,8 @@ void Menu::recomendar(Lista<Pelicula*>* vistas, Lista<Pelicula*>* noVistas){
                     }
                 }
             }
-        }
     }
+}
 
 void Menu::recomendar(Lista<Pelicula*>* noVistas){
     int cantPelisNoVistas = noVistas -> obtenerTamanio();

@@ -37,7 +37,6 @@ void Pelicula::asignarPuntaje(string puntaje) {
 }
 
 void Pelicula::asignarActores (string cadenaDeActores){
-
     istringstream isstream(cadenaDeActores);
     string tempStr;
     while(!isstream.eof()){
