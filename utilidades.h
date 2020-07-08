@@ -7,7 +7,6 @@
 #include "Lista.h"
 #include "Pelicula.h"
 
-const bool MOSTRAR = true;
 const int PUNTAJE_MINIMO = 7;
 using namespace std;
 

@@ -3,7 +3,7 @@
 
 #include<iostream>
 
-const bool MOSTRAR_MEMORIA = true;
+const bool MOSTRAR_MEMORIA = false;
 
 template<class T>
 

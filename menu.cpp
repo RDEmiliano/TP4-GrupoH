@@ -1,13 +1,13 @@
 #include "menu.h"
 Menu::Menu(){
-    if (MOSTRAR) cout << "Constructor MENU (" << this << ")" << endl;
+    if (MOSTRAR_MEMORIA) cout << "Constructor MENU (" << this << ")" << endl;
     pelisVistas = new Lista<Pelicula*>;
     pelisNoVistas = new Lista<Pelicula*>;
     pelisRecomendadas = new Lista<Pelicula*>;
 }
 
 Menu::Menu(Lista<Pelicula*>* vistas, Lista<Pelicula*>* noVistas,Lista<Pelicula*>* recomendadas){
-    if (MOSTRAR) cout << "Constructor MENU <con parametros> (" << this << ")" << endl;
+    if (MOSTRAR_MEMORIA) cout << "Constructor MENU <con parametros> (" << this << ")" << endl;
     pelisVistas = vistas;
     pelisNoVistas = noVistas;
     pelisRecomendadas = recomendadas;
@@ -142,6 +142,7 @@ void Menu::peliculasRecomendadas(){
 
     mostrarListadoPeliculas(pelisRecomendadas);
 
+    /*
     for (int i=1 ; i<this->pelisRecomendadas->obtenerTamanio()+1; i++){
         cout<<endl;
         cout<< " Titulo: "<<this->pelisRecomendadas->obtenerDato(i)->obtenerNombre()<<endl;
@@ -153,6 +154,8 @@ void Menu::peliculasRecomendadas(){
     }
     cout <<endl;
     cout << "LA LISTA TIENE TAMANIO "<< pelisRecomendadas-> obtenerTamanio()<<endl;
+    */
+
     pausa();
 }
 
@@ -211,20 +214,18 @@ void Menu::definirArranque(bool estado){
 Menu::~Menu(){
 
     for (int i = 0; i < pelisVistas->obtenerTamanio(); i++){
-        cout << "borro ptrPeli dentro de PelisVistas: " << pelisVistas->obtenerDato(i+1)->obtenerNombre() << endl;
         delete pelisVistas->obtenerDato(i+1);
     }
     delete pelisVistas;
 
     for (int i = 0; i < pelisNoVistas->obtenerTamanio(); i++){
-        cout << "borro ptrPeli dentro de PelisNoVistas: " << pelisNoVistas->obtenerDato(i+1)->obtenerNombre() << endl;
         delete pelisNoVistas->obtenerDato(i+1);
     }
     delete pelisNoVistas;
 
     delete pelisRecomendadas;
 
-    if (MOSTRAR) cout << "Destructor MENU (" << this << ")" <<endl;
+    if (MOSTRAR_MEMORIA) cout << "Destructor MENU (" << this << ")" <<endl;
 
 }
 

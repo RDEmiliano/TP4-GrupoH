@@ -26,7 +26,9 @@ private:
     void marcoMedio();
     void marcoVacio();
     void marcoAbajo();
-    void marcoSeparacion(string, string);
+    void marcoSeparacion(string texto1, string texto2);
+    void marcoSinSeparacion(string texto1, string texto2);
+    string quitarGuionBajo(string texto);
 };
 
 #endif // PANTALLA_H_INCLUDED

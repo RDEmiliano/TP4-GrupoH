@@ -1,7 +1,7 @@
 #include "utilidades.h"
 
 Utilidades::Utilidades(){
-    if (MOSTRAR) cout << "Constructor UTILIDADES (" << this << ")" << endl;
+    if (MOSTRAR_MEMORIA) cout << "Constructor UTILIDADES (" << this << ")" << endl;
 }
 
 void Utilidades::llenarLista(Lista<Pelicula*>* listaAllenar, string nombreArchivo){
@@ -89,10 +89,12 @@ void Utilidades::mostrarListadoPeliculas(Lista<Pelicula*>* aMostrar){
         cout << endl;
         cout << endl;
     }
+    cout << " " << aMostrar->obtenerTamanio() << " pelicula(s) en la lista.\n";
+    cout << endl;
 }
 
 Utilidades::~Utilidades(){
-    if (MOSTRAR) cout << "Destructor UTILIDADES (" << this << ")" << endl;
+    if (MOSTRAR_MEMORIA) cout << "Destructor UTILIDADES (" << this << ")" << endl;
 }
 
 /*
