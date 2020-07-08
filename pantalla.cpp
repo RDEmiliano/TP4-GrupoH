@@ -57,9 +57,11 @@ void Pantalla::enmarcar(Pelicula* aEnmarcar){
     string auxiliar;
     bool par;
     par = (actuan % 2 == 0);
+
     if(!par){
         actuan--;
     }
+
     while(iterador < actuan){
         sinGuionBajo = quitarGuionBajo(aEnmarcar->obtenerActorEn(iterador + 1));
         iterador++;
@@ -67,15 +69,18 @@ void Pantalla::enmarcar(Pelicula* aEnmarcar){
         marcoSinSeparacion(sinGuionBajo, auxiliar);
         iterador++;
     }
+
     if(!par){
         sinGuionBajo = quitarGuionBajo(aEnmarcar->obtenerActorEn(actuan + 1));
         marcoUnaLinea(sinGuionBajo);
     }
+
     marcoVacio();
     marcoAbajo();
 }
 
 void Pantalla::marcoSinSeparacion(string texto1, string texto2){
+
     int medio, margen1, margen2;
     medio = ANCHO_PANTALLA / 2;
     margen1 = medio - texto1.length() - 2;
@@ -93,6 +98,7 @@ void Pantalla::marcoSinSeparacion(string texto1, string texto2){
             cout << " ";
         }
     }
+
     cout << (char)186 << SOMBRA << endl;
 
 }
@@ -104,7 +110,9 @@ void Pantalla::marcoSeparacion(string texto1, string texto2){
     margen2 = medio + ((medio / 2) - (texto2.length() / 2));
     cout << " ";
     cout << (char)204;
+
     for(int i = 0; i < ANCHO_PANTALLA - 2; i++){
+
         if(i == medio){
             cout << (char)203;
         }else{
@@ -115,6 +123,7 @@ void Pantalla::marcoSeparacion(string texto1, string texto2){
 
     cout << " ";
     cout << (char)186;
+
     for(int i = 0; i < ANCHO_PANTALLA - 2; i++){
         if(i >= margen1 && (i - margen1) < texto1.length()){
             cout << texto1[i - margen1];
@@ -139,6 +148,7 @@ void Pantalla::marcoSeparacion(string texto1, string texto2){
     }
     cout << (char)185 << SOMBRA << endl;
 }
+
 void Pantalla::marcoArriba(){
     cout << " ";
     cout << (char)201;
@@ -147,6 +157,7 @@ void Pantalla::marcoArriba(){
     }
     cout << (char)187 << endl;
 }
+
 void Pantalla::marcoVacio(){
     cout << " ";
     cout << (char)186;
@@ -155,6 +166,7 @@ void Pantalla::marcoVacio(){
     }
     cout << (char)186 << SOMBRA  << endl;
 }
+
 void Pantalla::marcoAbajo(){
     cout << " ";
     cout << (char)200;
@@ -168,6 +180,7 @@ void Pantalla::marcoAbajo(){
     }
     cout << endl;
 }
+
 string Pantalla::quitarGuionBajo(string texto){
     for(int i = 0; i < texto.length(); i++){
         if(texto[i] == '_'){
@@ -176,6 +189,7 @@ string Pantalla::quitarGuionBajo(string texto){
     }
     return texto;
 }
+
 void Pantalla::marcoMedio(){
     cout << " ";
     cout << (char)204;
@@ -184,6 +198,7 @@ void Pantalla::marcoMedio(){
     }
     cout << (char)185 << SOMBRA  << endl;
 }
+
 void Pantalla::marcoUnaLinea(string linea){
     cout << " ";
     int centrado, margen;
