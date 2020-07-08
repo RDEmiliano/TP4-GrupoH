@@ -18,18 +18,18 @@ Adam_Sandler Al_Pacino Katie_Holmes
 
 PeliculaNOVista1
 Genero1
-2
+2.3
 Director C
 Actor_AA Actor_BB Actor_CC
 
 PeliculaNOVista2
 Genero2
-2
+2.9
 Director E
 Actor_EE Actor_FF Actor_J
 
 PeliculaNOVista3
 Genero3
-2
+2.5
 Director F
 Actor_A Actor_II Actor_JJ

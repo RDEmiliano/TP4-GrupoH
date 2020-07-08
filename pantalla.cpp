@@ -46,11 +46,60 @@ void Pantalla::enmarcar(Pelicula* aEnmarcar){
     marcoUnaLinea(aEnmarcar->obtenerNombre());
     marcoMedio();
     marcoUnaLinea("Direccion: " + aEnmarcar->obtenerDirector());
-    marcoMedio();
+    ostringstream puntaje;
+    puntaje << aEnmarcar->obtenerPuntaje();
+    marcoSeparacion("Genero: " + aEnmarcar->obtenerGenero(), "Puntuacion: " + puntaje.str());
+    marcoUnaLinea("< Actuan >");
+    marcoVacio();
+    for(int i=0; i < aEnmarcar->obtenerCantActores(); i++){
+        marcoUnaLinea(aEnmarcar->obtenerActorEn(i + 1));
+    }
     marcoVacio();
     marcoAbajo();
 }
 
+void Pantalla::marcoSeparacion(string texto1, string texto2){
+    int medio, margen1, margen2;
+    medio = ANCHO_PANTALLA / 2;
+    margen1 = (medio / 2) - (texto1.length() / 2);
+    margen2 = medio + ((medio / 2) - (texto2.length() / 2));
+    cout << " ";
+    cout << (char)204;
+    for(int i = 0; i < ANCHO_PANTALLA - 2; i++){
+        if(i == medio){
+            cout << (char)203;
+        }else{
+            cout << (char)205;
+        }
+    }
+    cout << (char)185 << SOMBRA << endl;
+
+    cout << " ";
+    cout << (char)186;
+    for(int i = 0; i < ANCHO_PANTALLA - 2; i++){
+        if(i >= margen1 && (i - margen1) < texto1.length()){
+            cout << texto1[i - margen1];
+        }else if(i >= margen2 && (i - margen2) < texto2.length()){
+            cout << texto2[i - margen2];
+        }else if(i == medio){
+            cout << (char)186;
+        }else{
+            cout << " ";
+        }
+    }
+    cout << (char)186 << SOMBRA << endl;
+
+    cout << " ";
+    cout << (char)204;
+    for(int i = 0; i < ANCHO_PANTALLA - 2; i++){
+        if(i == medio){
+            cout << (char)202;
+        }else{
+            cout << (char)205;
+        }
+    }
+    cout << (char)185 << SOMBRA << endl;
+}
 void Pantalla::marcoArriba(){
     cout << " ";
     cout << (char)201;

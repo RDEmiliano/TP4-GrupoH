@@ -2,6 +2,10 @@
 #define PANTALLA_H_INCLUDED
 #include<stdlib.h>
 #include<iostream>
+
+#include <sstream>
+#include <iomanip>
+
 #include "Pelicula.h"
 const int ANCHO_PANTALLA = 65;
 const char SOMBRA = 176;//[176, 177, 178, 219]
@@ -22,6 +26,7 @@ private:
     void marcoMedio();
     void marcoVacio();
     void marcoAbajo();
+    void marcoSeparacion(string, string);
 };
 
 #endif // PANTALLA_H_INCLUDED
