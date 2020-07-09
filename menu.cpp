@@ -63,28 +63,25 @@ void Menu::inicializar(string vistas, string noVistas){
 
 int Menu::comenzar() {
     if (obtenerArranque()) {
-        int eleccion;
-
+        char eleccion;
         do{
-            //limpiarPantalla();
+            limpiarPantalla();
             cabecera();         //en pantalla
             menuPrincipal();    //en pantalla
             cin >> eleccion;
-        }while(eleccion < 0 || eleccion > 3);
-
+        }while(eleccion < 48 || eleccion > 51);
         cin.get();
-
         switch (eleccion){
-            case 0:
+            case 48:
                 salir();
                 break;
-            case 1:
+            case 49:
                 peliculasVistas();
                 break;
-            case 2:
+            case 50:
                 peliculasNoVistas();
                 break;
-            case 3:
+            case 51:
                 peliculasRecomendadas();
                 break;
         }
@@ -94,69 +91,35 @@ int Menu::comenzar() {
 }
 
 void Menu::salir(){
-    //limpiarPantalla();
+    limpiarPantalla();
     cabecera();
     despedida();    //en pantalla
     pausa();
 }
 
 void Menu::peliculasVistas(){
-    //limpiarPantalla();
-    cabecera();
-    cout << "\nMOSTRAMOS LISTA PELICULAS VISTAS\n" << endl;
-
+    limpiarPantalla();
+    enmarcar("MOSTRAMOS LISTA PELICULAS VISTAS");
     mostrarListadoPeliculas(pelisVistas);
-
-    for (int i=1 ; i<this->pelisVistas->obtenerTamanio()+1; i++){
-        cout<<endl;
-        cout<< " Titulo: "<<this->pelisVistas->obtenerDato(i)->obtenerNombre()<<endl;
-        cout<< " Genero: "<<this->pelisVistas->obtenerDato(i)->obtenerGenero()<<endl;
-        cout<< " Puntaje: "<<this->pelisVistas->obtenerDato(i)->obtenerPuntaje()<<endl;
-        cout<< " Director: "<<this->pelisVistas->obtenerDato(i)->obtenerDirector()<<endl;
-        cout<< " Actores: ";
-        this->pelisVistas->obtenerDato(i)->mostrarActores();
-    }
-    cout <<endl;
     pausa();
 }
 
 void Menu::peliculasNoVistas(){
-
-    //limpiarPantalla();
-    cabecera();
-    cout << "\nMOSTRAMOS LISTA PELICULAS NO VISTAS\n" << endl;
-
+    limpiarPantalla();
+    enmarcar("MOSTRAMOS LISTA PELICULAS NO VISTAS");
     mostrarListadoPeliculas(pelisNoVistas);
-
-    for (int i=1 ; i<this->pelisNoVistas->obtenerTamanio()+1; i++){
-        cout<<endl;
-        cout<< " Titulo: "<<this->pelisNoVistas->obtenerDato(i)->obtenerNombre()<<endl;
-        cout<< " Genero: "<<this->pelisNoVistas->obtenerDato(i)->obtenerGenero()<<endl;
-        cout<< " Puntaje: "<<this->pelisNoVistas->obtenerDato(i)->obtenerPuntaje()<<endl;
-        cout<< " Director: "<<this->pelisNoVistas->obtenerDato(i)->obtenerDirector()<<endl;
-        cout<< " Actores: ";
-        this->pelisNoVistas->obtenerDato(i)->mostrarActores();
-    }
-    cout <<endl;
     pausa();
 }
 
 void Menu::peliculasRecomendadas(){
-
-    //limpiarPantalla();
-    cabecera();
-    cout << "\nMOSTRAMOS LISTA PELICULAS RECOMENDADAS\n" << endl;
+    limpiarPantalla();
+    enmarcar("MOSTRAMOS LISTA PELICULAS RECOMENDADAS");
     mostrarListadoPeliculas(pelisRecomendadas);
     pausa();
-
 }
 
 void Menu::recomendar(Lista<Pelicula*>* vistas, Lista<Pelicula*>* noVistas){
 
-    subrayar();
-    cout << "\nCarga lista de recomendados...\n\n";
-    subrayar();
-    pausa();
     Pelicula* vista;
     Pelicula* noVista;
     int cantPelisNoVistas = noVistas -> obtenerTamanio();
@@ -165,20 +128,11 @@ void Menu::recomendar(Lista<Pelicula*>* vistas, Lista<Pelicula*>* noVistas){
     for (int i = 1; i < cantPelisNoVistas + 1; i++){
             noVista = noVistas -> obtenerDato (i);
             if (tienePuntajeAdecuado(noVista)){
-                cout << "Agrego peli nueva." << endl;
-                cout << noVista->obtenerNombre() << endl;
-                cout << "Puntaje adecuado: " << tienePuntajeAdecuado(noVista) << endl;
-                pausa();
                 agregarRecomendada (pelisRecomendadas,noVista);
             } else {
                 for (int j = 1; j < cantPelisVistas + 1; j++) {
                     vista = vistas -> obtenerDato(j);
                     if ((coincideGenero(noVista, vista) && ((coincideDirector(noVista, vista)) || coincideAlMenosUnActor(noVista, vista)))) {
-                        cout << "Agrego peli nueva." << endl;
-                        cout << noVista->obtenerNombre() << endl;
-                        cout << "Coincide genero: " << coincideGenero(noVista, vista) << endl;
-                        cout << "Coincide Director: " << coincideDirector(noVista, vista) << endl;
-                        cout << "Coincide algun actor: " << coincideAlMenosUnActor(noVista, vista) << endl;
                         agregarRecomendada(pelisRecomendadas, noVista);
                     }
                 }
@@ -206,7 +160,6 @@ void Menu::definirArranque(bool estado){
 
 
 Menu::~Menu(){
-
     for (int i = 0; i < pelisVistas->obtenerTamanio(); i++){
         delete pelisVistas->obtenerDato(i+1);
     }
@@ -215,10 +168,9 @@ Menu::~Menu(){
     for (int i = 0; i < pelisNoVistas->obtenerTamanio(); i++){
         delete pelisNoVistas->obtenerDato(i+1);
     }
-
     delete pelisNoVistas;
+
     delete pelisRecomendadas;
 
     if (MOSTRAR_MEMORIA) cout << "Destructor MENU (" << this << ")" <<endl;
-
 }

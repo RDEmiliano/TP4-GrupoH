@@ -11,10 +11,10 @@ int main()
     Menu menu;
     menu.inicializar(PELIS_VISTAS, PELIS_NO_VISTAS);
 
-    int eleccion = 0;
+    char eleccion = 0;
     do{
         eleccion = menu.comenzar();
-    }while(eleccion);
+    }while(eleccion != 48);
 
     return 0;
 }

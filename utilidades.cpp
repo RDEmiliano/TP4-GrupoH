@@ -5,8 +5,6 @@ Utilidades::Utilidades(){
 }
 
 void Utilidades::llenarLista(Lista<Pelicula*>* listaAllenar, string nombreArchivo){
-    subrayar();
-    cout << "\nCarga una lista con datos del archivo\n\n";
     ifstream archivo(nombreArchivo);
     string linea;
     int numLinea;
@@ -42,8 +40,6 @@ void Utilidades::llenarLista(Lista<Pelicula*>* listaAllenar, string nombreArchiv
     } else {
         cout << "El archivo no se abrio correctamente" << endl;
     };
-    subrayar();
-    pausa();
 }
 
 bool Utilidades::coincideGenero(Pelicula* noVista, Pelicula* vista){
@@ -87,9 +83,14 @@ void Utilidades::mostrarListadoPeliculas(Lista<Pelicula*>* aMostrar){
     for (int i= 0; i < aMostrar->obtenerTamanio(); i++){
         enmarcar(aMostrar->obtenerDato(i + 1));
         cout << endl;
-        cout << endl;
     }
-    cout << " " << aMostrar->obtenerTamanio() << " pelicula(s) en la lista.\n";
+    ostringstream cantidad;
+    cantidad << aMostrar->obtenerTamanio();
+    if(aMostrar->obtenerTamanio() == 1){
+        enmarcar(cantidad.str() + " pelicula en la lista");
+    }else{
+        enmarcar(cantidad.str() + " peliculas en la lista");
+    }
     cout << endl;
 }
 

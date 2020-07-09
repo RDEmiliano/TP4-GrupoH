@@ -8,8 +8,8 @@
 
 #include "Pelicula.h"
 
-const int ANCHO_PANTALLA = 65;
-const char SOMBRA = 176;//[176, 177, 178, 219]
+const int ANCHO_PANTALLA = 50;
+const char SOMBRA = 219;//[176, 177, 178, 219]
 
 class Pantalla{
     public:
@@ -23,6 +23,7 @@ class Pantalla{
         void pausa();
         void cabecera();
         void enmarcar(Pelicula*);
+        void enmarcar(string);
 
     private:
 

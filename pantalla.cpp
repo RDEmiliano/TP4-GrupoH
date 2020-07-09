@@ -14,15 +14,16 @@ void Pantalla::limpiarPantalla(){
     #endif
 }
 void Pantalla::menuPrincipal(){
-    cout << "1- Lista peliculas vistas." << endl;
-    cout << "2- Lista no peliculas vistas." << endl;
-    cout << "3- Recomendaciones." << endl;
-    cout << "0- Salir." << endl;
     cout << endl;
-    cout << "Eleccion: ";
+    cout << "\t1- Lista peliculas vistas." << endl;
+    cout << "\t2- Lista no peliculas vistas." << endl;
+    cout << "\t3- Recomendaciones." << endl;
+    cout << "\t0- Salir." << endl;
+    cout << endl;
+    cout << "\tEleccion: ";
 }
 void Pantalla::despedida(){
-    cout << "\nFin del programa.\n" << endl;
+    enmarcar("FIN DEL PROGRAMA");
 }
 void Pantalla::subrayar(){
     for (int i = 0; i < 50; i++){
@@ -35,11 +36,25 @@ void Pantalla::pausa(){
     cin.get();
 }
 void Pantalla::cabecera(){
-    subrayar();
-    subrayar();
-    cout << "- TRABAJO PRACTICO Nro. 4 - GRUPO H -" << endl;
-    subrayar();
-    subrayar();
+    marcoArriba();
+    marcoUnaLinea("Trabajo Practico Nro. 4");
+    marcoSeparacion("Listas con listas", "Grupo H");
+    marcoUnaLinea("Recomendacion de peliculas");
+    marcoAbajo();
+}
+void Pantalla::enmarcar(string texto){
+    int margen, tamanio = texto.length();
+    margen = ((ANCHO_PANTALLA / 2) - (tamanio / 2));
+    for( int i = 0; i < margen; i++) cout << " ";
+    cout << (char)218;
+    for( int i = 0; i < tamanio; i++) cout << (char)196;
+    cout << (char)191 << endl;
+    for( int i = 0; i < margen; i++) cout << " ";
+    cout << (char)179 << texto << (char)179 << endl;
+    for( int i = 0; i < margen; i++) cout << " ";
+    cout << (char)192;
+    for( int i = 0; i < tamanio; i++) cout << (char)196;
+    cout << (char)217 << endl;
 }
 void Pantalla::enmarcar(Pelicula* aEnmarcar){
     marcoArriba();
@@ -49,19 +64,16 @@ void Pantalla::enmarcar(Pelicula* aEnmarcar){
     ostringstream puntaje;
     puntaje << aEnmarcar->obtenerPuntaje();
     marcoSeparacion("Genero: " + aEnmarcar->obtenerGenero(), "Puntuacion: " + puntaje.str());
-    marcoUnaLinea("< Actuan >");
-    marcoVacio();
+    marcoUnaLinea("<<< Actuan >>>");
     int iterador = 0;
     int actuan = aEnmarcar->obtenerCantActores();
     string sinGuionBajo;
     string auxiliar;
     bool par;
     par = (actuan % 2 == 0);
-
     if(!par){
         actuan--;
     }
-
     while(iterador < actuan){
         sinGuionBajo = quitarGuionBajo(aEnmarcar->obtenerActorEn(iterador + 1));
         iterador++;
@@ -69,13 +81,10 @@ void Pantalla::enmarcar(Pelicula* aEnmarcar){
         marcoSinSeparacion(sinGuionBajo, auxiliar);
         iterador++;
     }
-
     if(!par){
         sinGuionBajo = quitarGuionBajo(aEnmarcar->obtenerActorEn(actuan + 1));
         marcoUnaLinea(sinGuionBajo);
     }
-
-    marcoVacio();
     marcoAbajo();
 }
 
@@ -100,7 +109,6 @@ void Pantalla::marcoSinSeparacion(string texto1, string texto2){
     }
 
     cout << (char)186 << SOMBRA << endl;
-
 }
 
 void Pantalla::marcoSeparacion(string texto1, string texto2){
