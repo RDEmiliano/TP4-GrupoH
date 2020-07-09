@@ -99,8 +99,16 @@ void Menu::salir(){
 
 void Menu::peliculasVistas(){
     limpiarPantalla();
-    enmarcar("MOSTRAMOS LISTA PELICULAS VISTAS");
-    mostrarListadoPeliculas(pelisVistas);
+    if(pelisVistas->obtenerTamanio()){
+        enmarcar("MOSTRAMOS LISTA PELICULAS VISTAS");
+        mostrarListadoPeliculas(pelisVistas);
+    }else{
+        cabecera();
+        cout << "\n\n\n\n\n\n";
+        enmarcar("ATENCION!");
+        enmarcar("NO HAY DATOS DE PELICULAS QUE HAYA VISTO");
+        cout << "\n\n\n\n\n\n";
+    }
     pausa();
 }
 
@@ -113,8 +121,16 @@ void Menu::peliculasNoVistas(){
 
 void Menu::peliculasRecomendadas(){
     limpiarPantalla();
-    enmarcar("MOSTRAMOS LISTA PELICULAS RECOMENDADAS");
-    mostrarListadoPeliculas(pelisRecomendadas);
+    if(pelisRecomendadas->obtenerTamanio()){
+        enmarcar("MOSTRAMOS LISTA PELICULAS RECOMENDADAS");
+        mostrarListadoPeliculas(pelisRecomendadas);
+    }else{
+        cabecera();
+        cout << "\n\n\n\n\n\n";
+        enmarcar("ATENCION!");
+        enmarcar("NO HAY PELICULAS PARA RECOMENDAR");
+        cout << "\n\n\n\n\n\n";
+    }
     pausa();
 }
 
@@ -141,7 +157,6 @@ void Menu::recomendar(Lista<Pelicula*>* vistas, Lista<Pelicula*>* noVistas){
 }
 
 void Menu::recomendar(Lista<Pelicula*>* noVistas){
-
     int cantPelisNoVistas = noVistas -> obtenerTamanio();
     for (int i = 1; i < cantPelisNoVistas + 1; i++){
         if (noVistas -> obtenerDato(i) -> obtenerPuntaje() > PUNTAJE_MINIMO - 1){
@@ -160,13 +175,13 @@ void Menu::definirArranque(bool estado){
 
 
 Menu::~Menu(){
-    for (int i = 0; i < pelisVistas->obtenerTamanio(); i++){
-        delete pelisVistas->obtenerDato(i+1);
+    for (unsigned i = 0; i < pelisVistas->obtenerTamanio(); i++){
+        delete pelisVistas->obtenerDato(i + 1);
     }
     delete pelisVistas;
 
-    for (int i = 0; i < pelisNoVistas->obtenerTamanio(); i++){
-        delete pelisNoVistas->obtenerDato(i+1);
+    for (unsigned i = 0; i < pelisNoVistas->obtenerTamanio(); i++){
+        delete pelisNoVistas->obtenerDato(i + 1);
     }
     delete pelisNoVistas;
 
