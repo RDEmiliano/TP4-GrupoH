@@ -80,7 +80,7 @@ void Utilidades::agregarRecomendada(Lista<Pelicula*>* pelisRecomendadas, Pelicul
 }
 
 void Utilidades::mostrarListadoPeliculas(Lista<Pelicula*>* aMostrar){
-    for (int i= 0; i < aMostrar->obtenerTamanio(); i++){
+    for (unsigned i= 0; i < aMostrar->obtenerTamanio(); i++){
         enmarcar(aMostrar->obtenerDato(i + 1));
         cout << endl;
     }

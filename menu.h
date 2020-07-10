@@ -15,36 +15,48 @@ private:
     Lista<Pelicula*>* pelisRecomendadas;
 
 public:
-    // Constructor sin par√°metros de la clase Menu.
+    // Constructor sin par·metros de la clase Menu.
     //PRE: Ninguna
-    //POST: Se crea un objeto de Clase Menu. Se solicita memoria din√°mica para los tres atributos de la clase.
+    //POST: Se crea un objeto de Clase Menu. Se solicita memoria din·mica para los tres atributos de la clase.
     Menu();
 
+    //PRE:  vistas y noVistas son los nombres (y ruta de acceso) de los archivos que contienen los datos
+    //      con los cuales se llenaran las listas con que se trabajara en la clase.
+    //POST: Si existen ambos archivos se cargan a las listas, ademas carga lista de recomendados.
+    //      Si solo existe archivo de peliculas no vistas, solo carga esa lista, ademas carga
+    //      lista de recomendados.
+    //      Si no existe archivo de peliculas no vistas, avisa por pantalla de que el archivo no existe.
+    //      Y al no haber peliculas para poder recomendar termina la ejecucion de programa.
     void inicializar(string vistas, string noVistas);
+
+    //PRE:  Listas correctamente cargadas.
+    //      Opcion elegida debe ser mayor que 0.
+    //POST: Inicio de interfaz con usuario.
+    //      Se muestra una lista de opciones disponibles y se le pide que ingrese una.
     int comenzar();
-    
+
     //PRE: Debe estar creado e inicializado el objeto de clase Menu.
-    //POST: Muestra por pantalla el contenido de la lista peliculasVistas, detallando t√≠tulo, g√©nero, puntaje, director y actores.
-    //      Si la lista est√° vac√≠a no muestra nada.
+    //POST: Muestra por pantalla el contenido de la lista peliculasVistas, detallando tÌtulo, gÈnero, puntaje, director y actores.
+    //      Si la lista est· vacÌa no muestra nada.
     void peliculasVistas();
 
     //PRE: Debe estar creado e inicializado el objeto de clase Menu.
-    //POST: Muestra por pantalla el contenido de la lista peliculasNoVistas, detallando t√≠tulo, g√©nero, puntaje, director y actores.
-    //      Si la lista est√° vac√≠a no muestra nada.
+    //POST: Muestra por pantalla el contenido de la lista peliculasNoVistas, detallando tÌtulo, gÈnero, puntaje, director y actores.
+    //      Si la lista est· vacÌa no muestra nada.
     void peliculasNoVistas();
 
     //PRE: Debe estar creado e inicializado el objeto de clase Menu.
-    //POST: Muestra por pantalla el contenido de la lista peliculasRecomendadas, detallando t√≠tulo, g√©nero, puntaje, director y actores.
-    //      Si la lista est√° vac√≠a no muestra nada.
+    //POST: Muestra por pantalla el contenido de la lista peliculasRecomendadas, detallando tÌtulo, gÈnero, puntaje, director y actores.
+    //      Si la lista est· vacÌa no muestra nada.
     void peliculasRecomendadas();
-    
+
     //PRE: Deben existir los archivo de texto "peliculas_vistas.txt" y "peliculas_no_vistas.txt".
     //POST: Se carga la lista pelisRecomendadas en base al archivo de peliculas vistas, tomando en cuenta las condiciones solicitadas.
     void recomendar(Lista<Pelicula*>* vistas, Lista<Pelicula*>* noVistas);
 
     //PRE: Debe existir el archivo de texto "peliculas_no_vistas.txt".
-    //POST: Se carga la lista pelisRecomendadas en base al archivo de peliculas no vistas, tomando en cuenta solamente el puntaje mayor 
-    //      al m√≠nimo aceptado (constante: PUNTAJE_MINIMO, heredada de la clase Utilidades).
+    //POST: Se carga la lista pelisRecomendadas en base al archivo de peliculas no vistas, tomando en cuenta solamente el puntaje mayor
+    //      al mÌnimo aceptado (constante: PUNTAJE_MINIMO, heredada de la clase Utilidades).
     void recomendar(Lista<Pelicula*>* noVistas);
 
     //void recomendar_version_con_listas_auxiliares();
