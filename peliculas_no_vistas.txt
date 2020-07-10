@@ -1,12 +1,12 @@
 Mi obra maestra
 Comedia negra
-7
+8
 Gaston Duprat
-Luis_Brandoni Lucas_Aranda Ra�l_Ar�valo Mahmoud_Azim Daniela_Katz Guillermo_Francella Andrea_Frigerio
+Luis_Brandoni Lucas_Aranda Raúl_Arévalo Mahmoud_Azim Daniela_Katz Guillermo_Francella Andrea_Frigerio
 
 I, como Icaro
 Drama Suspenso
-7.6
+10
 Henri Verneuil
 Yves_Montand Michel_Albertini Roland_Amstutz Jean-Pierre_Bagot
 
@@ -16,20 +16,80 @@ Comedia
 Dennis Dugan
 Adam_Sandler Al_Pacino Katie_Holmes
 
-PeliculaNOVista1
-Genero1
-2.3
-Director C
-Actor_AA Actor_BB Actor_CC
+Ready Player One
+Ciencia Ficcion
+6.8
+Steven Spielberg
+Tye_Sheridan Olivia_Cooke Ben_Mendelsohn T.J.Miller
 
-PeliculaNOVista2
-Genero2
-2.9
-Director E
-Actor_EE Actor_F Actor_Ja
+Predator
+Ciencia Ficcion
+6.9
+John McTiernan
+Arnold_Schwarzenegger Shane_Black Carl_Weathers Jesse_Ventura Bill_Duke
 
-PeliculaNOVista3
-Genero3
-2.5
-Director F
-Actor_A Actor_II Actor_JJ
+Como entrenar a tu dragon
+Animacion
+7
+Dean DeBlois
+Jay_Baruchel America_Ferrera Craig_Ferguson Gerard_Butler
+
+El naufrago
+Drama
+6.5
+Robert Zemeckis
+Tom_Hanks Helen_Hunt Lari White
+
+Cinderella Man
+Drama
+6.9
+Ron Howard
+Russell_Crowe Renée_Zellweger Paul_Giamatti Craig_Bierko
+
+Saw
+Terror
+6
+James Wan
+Tobin_Bell Leigh_Whannell Shawnee_Smith
+
+Mentiroso, Mentiroso
+Comedia
+5.4
+Tom Shadyac
+Jim_Carrey Justin_Cooper Jennifer_Tilly
+
+Equilibrium
+Ciencia Ficcion
+6.5
+Kurt Wimmer
+Christian_Bale Emily_Watson Sean_Bean
+
+Intensa-mente
+Animacion
+8.1
+Pete Docter
+Amy_Poehler Phyllis_Smith Mindy_Kaling Bill_Hader
+
+Tres anuncios por un crimen
+Drama
+7.6
+Martin McDonagh
+Frances_McDormand Sam_Rockwell Woody_Harrelson
+
+Birdman
+Drama
+6.8
+Alejandro Gonzalez Iñarritu
+Michael_Keaton Edward_Norton Emma_Stone
+
+Parasitos
+Drama Comedia negra
+8
+Bong Joon-ho
+Cho_Yeo_Jeong Park_So‑dam Choi_Woo‑shik
+
+The Irishman
+Crimen Mafia
+7.3
+Martin Scorsese
+Robert_De_Niro Al_Pacino Joe_Pesci

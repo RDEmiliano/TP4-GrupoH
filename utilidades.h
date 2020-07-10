@@ -26,8 +26,8 @@ class Utilidades : public Pantalla{
         void cabecera();
         */
         void mostrarListadoPeliculas(Lista<Pelicula*>* aMostrar);
-        //void enmarcar(Pelicula*);
-        //PRE: Ninguna
+        
+        //PRE: El archivo txt debe finalizar con el ultimo caracter del ultimo nombre de actor, sin una linea vacía a continuación.
         //POST: Se carga la lista apuntada por el puntero listAllenar en base al archivo txt cuyo nombre o direccion ingresa por
         //      el parámetro nombreArchivo, en el caso de que este sea válido.
         void llenarLista(Lista<Pelicula*>* listaAllenar, string nombreArchivo);

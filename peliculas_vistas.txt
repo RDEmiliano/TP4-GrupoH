@@ -10,20 +10,44 @@ Terror
 Kevin Kolsch
 Jason_Clarke Amy_Seimetz  John_Lithgow
 
-PeliculaVista1
-Genero1
-9
-Director A
-Actor_A Actor_B Actor_C
+Minority Report
+Ciencia Ficcion
+8.5
+Steven Spielberg
+Tom_Cruise Colin_Farrell Samantha_Morton Max_von_Sydow
 
-PeliculaVista2
-Genero2
-3
-Director B
-Actor_E Actor_F Actor_G
+Terminator
+Ciencia Ficcion
+8.3
+James Cameron
+Arnold_Schwarzenegger Linda_Hamilton Michael Biehn Earl Boen
 
-PeliculaVista3
-Genero3
-10
-Director C
-Actor_H Actor_I Actor_J
+Philadelphia
+Drama
+7.9
+Jonathan_Demme
+Tom_Hanks Denzel_Washington Jason_Robards Antonio_Banderas
+
+Apolo 13
+Drama
+6.4
+Ron Howard
+Tom_Hanks Kevin_Bacon Bill_Paxton Gary_Sinise Ed_Harris
+
+El conjuro
+Terror
+6.4
+James Wan
+Vera_Farmiga Patrick_Wilson Ron_Livingston
+
+Ace Ventura
+Comedia
+6.7
+Tom Shadyac Steve Oedekerk
+Jim_Carrey Sean_Young Courteney_Cox
+
+Revenant: el renacido
+Drama
+7.3
+Alejandro Gonzalez Iñarritu
+Leonardo_DiCaprio Tom_Hardy Paul_Anderson
