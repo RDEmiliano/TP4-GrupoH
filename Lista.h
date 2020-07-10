@@ -11,17 +11,41 @@ class Lista{
 
     //Metodos
     public:
+        // PRE : -
+        // POST : construye una lista vacia
         Lista();
+
+        // PRE : lista creada
+        // POST : Libera todos los recursos de la lista
         ~Lista();
 
+        // PRE : lista creada
+        // POST : devuelve verdadero si la lista es vacia falso de lo contrario
         bool listaVacia();
+
+        // PRE : lista creada
+        // POST : agrega un dato en la posicion pos incrementa tam en 1
         void insertar(T d, unsigned pos);
+
+        // PRE : - lista creada y no vacia
+        // - 0 < pos <= tam
+        // POST : libera el nodo que esta en la posición pos se toma 1 como el primero
         void eliminarDato(unsigned pos);
 
+        // PRE : - lista creada y no vacia
+        // - 0 < pos <= tam
+        // POST : devuelve el dato que esta en la posicion pos se toma 1 como el primero
         T obtenerDato(unsigned pos);
+
+        // PRE : Lista creada
+        // POST : Devuelve tam ( cantidad de nodos de la lista )
         unsigned obtenerTamanio();
 
     private:
+
+        // Obtiene un puntero al nodo de la posicion pos
+        // PRE : 0 < pos <= tam
+        // POST : devuelve un puntero al nodo solicitado
         Nodo<T> * obtenerNodo (unsigned pos);
 };
 

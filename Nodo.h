@@ -12,10 +12,27 @@ class Nodo{
         T dato;
         Nodo<T> * siguiente;
     public:
+        //Constructor con parametro
+        // PRE : Ninguna
+        // POST : Crea un nodo con el dato d y el puntero a NULL
         Nodo(T datoNuevo);
+
+        // Destructor
+        // PRE : Nodo creado
+        // POST : No hace nada
         ~Nodo();
+
+        // PRE : nodo creado
+        // POST : devuelve el dato que contiene el nodo
         T obtenerDato();
+
+        // PRE : nodo creado
+        // POST : el puntero al siguiente nodo apuntará a ps
         void asignarSiguiente(Nodo<T> * ps);
+
+        // PRE : nodo creado
+        // POST : Devuelve el puntero al siguiente nodo
+        // Si es el último devuelve NULL
         Nodo<T> * obtenerSiguiente();
 };
 

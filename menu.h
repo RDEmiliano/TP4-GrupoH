@@ -20,8 +20,6 @@ public:
     //POST: Se crea un objeto de Clase Menu. Se solicita memoria dinámica para los tres atributos de la clase.
     Menu();
 
-    Menu(Lista<Pelicula*>* vistas, Lista<Pelicula*>* noVistas, Lista<Pelicula*>* recomendadas);
-
     void inicializar(string vistas, string noVistas);
     int comenzar();
     
@@ -53,7 +51,13 @@ public:
     //void armarListitas(Lista<string>* ptrGeneros, Lista<string>* ptrDirectores, Lista<string>* ptrActores);
     //void llenarListita(Lista<string>* listita, string comparado);
 
+
+    //PRE: -
+    //POST: Retorna verdadero o falso si la apertura de archivos fue correcta
     bool obtenerArranque() const;
+
+    //PRE: -
+    //POST: Define un atributo booleano que se encarga del inicio del programa
     void definirArranque(bool estado);
 
     void salir();

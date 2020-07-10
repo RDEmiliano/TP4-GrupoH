@@ -8,15 +8,6 @@ Menu::Menu(){
 
 }
 
-Menu::Menu(Lista<Pelicula*>* vistas, Lista<Pelicula*>* noVistas,Lista<Pelicula*>* recomendadas){
-
-    if (MOSTRAR_MEMORIA) cout << "Constructor MENU <con parametros> (" << this << ")" << endl;
-    pelisVistas = vistas;
-    pelisNoVistas = noVistas;
-    pelisRecomendadas = recomendadas;
-
-}
-
 void Menu::inicializar(string vistas, string noVistas){
 
     ifstream archivoNoVistas;
@@ -63,7 +54,7 @@ void Menu::inicializar(string vistas, string noVistas){
 
 int Menu::comenzar() {
     if (obtenerArranque()) {
-        char eleccion;
+        unsigned char eleccion;
         do{
             limpiarPantalla();
             cabecera();         //en pantalla
