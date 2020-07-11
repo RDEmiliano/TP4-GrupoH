@@ -1,8 +1,7 @@
-#ifndef TP4_GRUPOH_PELICULA_H
-#define TP4_GRUPOH_PELICULA_H
+#ifndef PELICULA_H_INCLUDED
+#define PELICULA_H_INCLUDED
 
 #include "Lista.h"
-#include "iostream"
 
 using namespace std;
 
@@ -71,16 +70,8 @@ class Pelicula {
         double obtenerPuntaje();
 
         //PRE: Debe estar creado el objeto Pelicula
-        //POST: Se devueve el puntero a la lista de actores del atributo actores de la clase.
-        Lista<string> * obtenerListaActores();
-
-        //PRE: Debe estar creado el objeto Pelicula
         //POST: Se devueve el tamaño de la lista de actores del atributo actores de la clase.
-        int obtenerCantActores();
-
-        //PRE: Debe existir la lista de actores.
-        //POST: Muestra por pantalla el listado de actores contenido en el atributo actores de la clase.
-        void mostrarActores();
+        unsigned int obtenerCantActores();
 
 };
 

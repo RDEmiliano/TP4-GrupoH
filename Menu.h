@@ -3,7 +3,8 @@
 
 #include "Lista.h"
 #include "Pelicula.h"
-#include "utilidades.h"
+#include "Utilidades.h"
+
 using namespace std;
 
 class Menu : public Utilidades{
@@ -15,13 +16,12 @@ private:
     Lista<Pelicula*>* pelisRecomendadas;
 
 public:
-    // Constructor sin parámetros de la clase Menu.
+    // Constructor sin parï¿½metros de la clase Menu.
     //PRE: Ninguna
-    //POST: Se crea un objeto de Clase Menu. Se solicita memoria dinámica para los tres atributos de la clase.
+    //POST: Se crea un objeto de Clase Menu. Se solicita memoria dinï¿½mica para los tres atributos de la clase.
     Menu();
 
-    //PRE:  vistas y noVistas son los nombres (y ruta de acceso) de los archivos que contienen los datos
-    //      con los cuales se llenaran las listas con que se trabajara en la clase.
+    //PRE: --
     //POST: Si existen ambos archivos se cargan a las listas, ademas carga lista de recomendados.
     //      Si solo existe archivo de peliculas no vistas, solo carga esa lista, ademas carga
     //      lista de recomendados.
@@ -30,24 +30,23 @@ public:
     void inicializar(string vistas, string noVistas);
 
     //PRE:  Listas correctamente cargadas.
-    //      Opcion elegida debe ser mayor que 0.
     //POST: Inicio de interfaz con usuario.
     //      Se muestra una lista de opciones disponibles y se le pide que ingrese una.
     int comenzar();
 
     //PRE: Debe estar creado e inicializado el objeto de clase Menu.
-    //POST: Muestra por pantalla el contenido de la lista peliculasVistas, detallando título, género, puntaje, director y actores.
-    //      Si la lista está vacía muestra un cartel comunicando que no hay nada que mostrar.
+    //POST: Muestra por pantalla el contenido de la lista peliculasVistas, detallando tï¿½tulo, gï¿½nero, puntaje, director y actores.
+    //      Si la lista estï¿½ vacï¿½a muestra un cartel comunicando que no hay nada que mostrar.
     void peliculasVistas();
 
     //PRE: Debe estar creado e inicializado el objeto de clase Menu.
-    //POST: Muestra por pantalla el contenido de la lista peliculasNoVistas, detallando título, género, puntaje, director y actores.
-    //      Si la lista está vacía muestra un cartel comunicando que no hay nada que mostrar.
+    //POST: Muestra por pantalla el contenido de la lista peliculasNoVistas, detallando tï¿½tulo, gï¿½nero, puntaje, director y actores.
+    //      Si la lista estï¿½ vacï¿½a muestra un cartel comunicando que no hay nada que mostrar.
     void peliculasNoVistas();
 
     //PRE: Debe estar creado e inicializado el objeto de clase Menu.
-    //POST: Muestra por pantalla el contenido de la lista peliculasRecomendadas, detallando título, género, puntaje, director y actores.
-    //      Si la lista está vacía muestra un cartel comunicando que no hay nada que mostrar.
+    //POST: Muestra por pantalla el contenido de la lista peliculasRecomendadas, detallando tï¿½tulo, gï¿½nero, puntaje, director y actores.
+    //      Si la lista estï¿½ vacï¿½a muestra un cartel comunicando que no hay nada que mostrar.
     void peliculasRecomendadas();
 
     //PRE: Deben existir los archivo de texto "peliculas_vistas.txt" y "peliculas_no_vistas.txt".
@@ -56,7 +55,7 @@ public:
 
     //PRE: Debe existir el archivo de texto "peliculas_no_vistas.txt".
     //POST: Se carga la lista pelisRecomendadas en base al archivo de peliculas no vistas, tomando en cuenta solamente el puntaje mayor
-    //      al mínimo aceptado (constante: PUNTAJE_MINIMO, heredada de la clase Utilidades).
+    //      al mï¿½nimo aceptado (constante: PUNTAJE_MINIMO, heredada de la clase Utilidades).
     void recomendar(Lista<Pelicula*>* noVistas);
 
     //PRE: -
@@ -71,6 +70,7 @@ public:
     //POST: Secuencia a seguir antes de finalizar el programa.
     void salir();
 
+    //Destructor
     //PRE:  --
     //POST: Libera memoria pedida.
     //      Si se cargo la lista de peliculas vistas, primero libera memoria asignada a cada pelicula,

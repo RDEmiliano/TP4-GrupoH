@@ -1,4 +1,4 @@
-#include "pantalla.h"
+#include "Pantalla.h"
 using namespace std;
 Pantalla::Pantalla(){
 }
@@ -151,14 +151,7 @@ void Pantalla::marcoArriba(){
     }
     cout << (char)187 << endl;
 }
-void Pantalla::marcoVacio(){
-    cout << " ";
-    cout << (char)186;
-    for(int i = 0; i < ANCHO_PANTALLA - 2; i++){
-        cout << " ";
-    }
-    cout << (char)186 << SOMBRA  << endl;
-}
+
 void Pantalla::marcoAbajo(){
     cout << " ";
     cout << (char)200;

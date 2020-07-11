@@ -1,5 +1,5 @@
-#ifndef TP4_GRUPOH__LISTA_H
-#define TP4_GRUPOH__LISTA_H
+#ifndef LISTA_H_INCLUDED
+#define LISTA_H_INCLUDED
 #include "Nodo.h"
 
 template<class T>
@@ -120,4 +120,4 @@ Nodo<T> * Lista<T>::obtenerNodo(unsigned int pos) {
     return aux;
 }
 
-#endif //TP4_GRUPOH__LISTA_H
+#endif //LISTA_H

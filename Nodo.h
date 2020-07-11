@@ -1,5 +1,5 @@
-#ifndef TP4_GRUPOH__NODO_H
-#define TP4_GRUPOH__NODO_H
+#ifndef NODO_H_INCLUDED
+#define NODO_H_INCLUDED
 
 #include<iostream>
 

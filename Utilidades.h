@@ -1,9 +1,8 @@
 #ifndef UTILIDADES_H_INCLUDED
 #define UTILIDADES_H_INCLUDED
-#include<iostream>
-#include<stdlib.h>
-#include<fstream>
-#include "pantalla.h"
+
+#include <fstream>
+#include "Pantalla.h"
 #include "Lista.h"
 #include "Pelicula.h"
 
@@ -21,15 +20,15 @@ class Utilidades : public Pantalla{
         //POST: Destructor de la clase
         ~Utilidades();
 
-        //PRE:  --
+        //PRE: --
         //POST: Si hay peliculas dentro de la lista, las muestra con formato, indicando nombre de la pelicula,
         //      director, genero, puntuacion y actores.
         //      Si la lista esta vacia, muestra un cartel dando aviso del suceso.
         void mostrarListadoPeliculas(Lista<Pelicula*>* aMostrar);
 
-        //PRE: El archivo txt debe finalizar con el ultimo caracter del ultimo nombre de actor, sin una linea vacía a continuación.
+        //PRE:  El archivo txt debe finalizar con el ultimo caracter del ultimo nombre de actor, sin una linea vacï¿½a a continuaciï¿½n.
         //POST: Se carga la lista apuntada por el puntero listAllenar en base al archivo txt cuyo nombre o direccion ingresa por
-        //      el parámetro nombreArchivo, en el caso de que este sea válido.
+        //      el parï¿½metro nombreArchivo, en el caso de que este sea vï¿½lido.
         void llenarLista(Lista<Pelicula*>* listaAllenar, string nombreArchivo);
 
         //PRE: Ninguna
@@ -43,7 +42,7 @@ class Utilidades : public Pantalla{
         bool coincideDirector(Pelicula* noVista, Pelicula* vista);
 
         //PRE: Ninguna
-        //POST: Devuelve TRUE en caso de que el atributo puntaje del objeto clase Pelicula apuntado por el parámetro ingresado sea
+        //POST: Devuelve TRUE en caso de que el atributo puntaje del objeto clase Pelicula apuntado por el parï¿½metro ingresado sea
         //      mayor o igual a la constante PUNTAJE_MINIMO. Devuelve FALSE en caso contrario.
         bool tienePuntajeAdecuado(Pelicula* pelicula);
 
@@ -51,10 +50,6 @@ class Utilidades : public Pantalla{
         //POST: Devuelve TRUE si por lo menos un actor perteneciente al atributo actores del objeto Pelicula apuntado por noVista,
         //      tambien se encuentra en el atributo actores del objeto Pelicula apuntado por vista. Devuelve FALSE en caso contrario.
         bool coincideAlMenosUnActor(Pelicula* noVista, Pelicula* vista);
-
-        //PRE: Debe existir la lista apuntada por el parámetro pelisRecomendadas.
-        //POST: Inserta el parámetro pelicula a la lista apuntada por pelisRecomendadas.
-        void agregarRecomendada(Lista<Pelicula*>* pelisRecomendadas, Pelicula * pelicula);
 
 };
 

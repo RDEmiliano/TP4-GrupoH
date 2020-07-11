@@ -1,8 +1,8 @@
 #ifndef PANTALLA_H_INCLUDED
 #define PANTALLA_H_INCLUDED
 
-#include<stdlib.h>
-#include<iostream>
+#include <cstdlib>
+#include <iostream>
 #include <sstream>
 
 #include "Pelicula.h"
@@ -41,7 +41,7 @@ class Pantalla{
         //POST: Cartel de presentacion.
         void cabecera();
 
-        //PRE:  aEnmarcar debe estar creada correctamente.
+        //PRE:  Enmarcar debe estar creada correctamente.
         //POST: Muestra los datos de la pelicula en un marco.
         void enmarcar(Pelicula* aEnmarcar);
 
@@ -62,10 +62,6 @@ class Pantalla{
         //PRE:  --
         //POST: Crea una separacion en el marco.
         void marcoMedio();
-
-        //PRE:  --
-        //POST: Deja una linea llena de espacios dentro del marco.
-        void marcoVacio();
 
         //PRE:  --
         //POST: Parte inferior del marco.
