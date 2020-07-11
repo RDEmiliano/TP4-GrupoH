@@ -37,17 +37,17 @@ public:
 
     //PRE: Debe estar creado e inicializado el objeto de clase Menu.
     //POST: Muestra por pantalla el contenido de la lista peliculasVistas, detallando título, género, puntaje, director y actores.
-    //      Si la lista está vacía no muestra nada.
+    //      Si la lista está vacía muestra un cartel comunicando que no hay nada que mostrar.
     void peliculasVistas();
 
     //PRE: Debe estar creado e inicializado el objeto de clase Menu.
     //POST: Muestra por pantalla el contenido de la lista peliculasNoVistas, detallando título, género, puntaje, director y actores.
-    //      Si la lista está vacía no muestra nada.
+    //      Si la lista está vacía muestra un cartel comunicando que no hay nada que mostrar.
     void peliculasNoVistas();
 
     //PRE: Debe estar creado e inicializado el objeto de clase Menu.
     //POST: Muestra por pantalla el contenido de la lista peliculasRecomendadas, detallando título, género, puntaje, director y actores.
-    //      Si la lista está vacía no muestra nada.
+    //      Si la lista está vacía muestra un cartel comunicando que no hay nada que mostrar.
     void peliculasRecomendadas();
 
     //PRE: Deben existir los archivo de texto "peliculas_vistas.txt" y "peliculas_no_vistas.txt".
@@ -59,11 +59,6 @@ public:
     //      al mínimo aceptado (constante: PUNTAJE_MINIMO, heredada de la clase Utilidades).
     void recomendar(Lista<Pelicula*>* noVistas);
 
-    //void recomendar_version_con_listas_auxiliares();
-    //void armarListitas(Lista<string>* ptrGeneros, Lista<string>* ptrDirectores, Lista<string>* ptrActores);
-    //void llenarListita(Lista<string>* listita, string comparado);
-
-
     //PRE: -
     //POST: Retorna verdadero o falso si la apertura de archivos fue correcta
     bool obtenerArranque() const;
@@ -72,7 +67,17 @@ public:
     //POST: Define un atributo booleano que se encarga del inicio del programa
     void definirArranque(bool estado);
 
+    //PRE:  --
+    //POST: Secuencia a seguir antes de finalizar el programa.
     void salir();
+
+    //PRE:  --
+    //POST: Libera memoria pedida.
+    //      Si se cargo la lista de peliculas vistas, primero libera memoria asignada a cada pelicula,
+    //      luego libera memoria asignada la lista.
+    //      Si se cargo la lista de peliculas NO vistas, primero libera memoria asignada a cada pelicula,
+    //      luego libera memoria asignada la lista.
+    //      Libera memoria asignada a la lista peliculas recomendadas.
     ~Menu();
 
 };

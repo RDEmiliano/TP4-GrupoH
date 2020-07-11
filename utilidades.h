@@ -15,18 +15,18 @@ class Utilidades : public Pantalla{
     public:
         //PRE: Ninguna
         //POST: Constructor de la clase.
-        Utilidades(); //Constructor
-        ~Utilidades(); //Destructor
-        /*
-        void limpiarPantalla();
-        void menuPrincipal();
-        void despedida();
-        void subrayar();
-        void pausa();
-        void cabecera();
-        */
+        Utilidades();
+
+        //PRE:  --
+        //POST: Destructor de la clase
+        ~Utilidades();
+
+        //PRE:  --
+        //POST: Si hay peliculas dentro de la lista, las muestra con formato, indicando nombre de la pelicula,
+        //      director, genero, puntuacion y actores.
+        //      Si la lista esta vacia, muestra un cartel dando aviso del suceso.
         void mostrarListadoPeliculas(Lista<Pelicula*>* aMostrar);
-        
+
         //PRE: El archivo txt debe finalizar con el ultimo caracter del ultimo nombre de actor, sin una linea vacía a continuación.
         //POST: Se carga la lista apuntada por el puntero listAllenar en base al archivo txt cuyo nombre o direccion ingresa por
         //      el parámetro nombreArchivo, en el caso de que este sea válido.
