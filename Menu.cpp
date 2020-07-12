@@ -48,13 +48,13 @@ void Menu::inicializar(string vistas, string noVistas){
                 definirArranque(true);
                 llenarLista(pelisNoVistas, noVistas);
                 llenarLista(pelisVistas, vistas);
-                recomendar(pelisVistas, pelisNoVistas);
+                recomendar();
                 break;
 
             case 2: //No existe peliculas vistas
                 definirArranque(true);
                 llenarLista(pelisNoVistas, noVistas);
-                recomendar(pelisNoVistas); // Solo recomienda por puntaje
+                recomendarSoloPuntaje(); // Solo recomienda por puntaje
                 break;
 
             default:
@@ -147,21 +147,21 @@ void Menu::peliculasRecomendadas(){
     pausa();
 }
 
-void Menu::recomendar(Lista<Pelicula*>* vistas, Lista<Pelicula*>* noVistas){
+void Menu::recomendar(){
 
     Pelicula* vista;
     Pelicula* noVista;
-    unsigned int cantPelisNoVistas = noVistas -> obtenerTamanio();
-    unsigned int cantPelisVistas = vistas -> obtenerTamanio();
+    unsigned int cantPelisNoVistas = pelisNoVistas -> obtenerTamanio();
+    unsigned int cantPelisVistas = pelisVistas -> obtenerTamanio();
 
     for (int i = 1; i < cantPelisNoVistas + 1; i++){
-            noVista = noVistas -> obtenerDato (i);
+            noVista = pelisNoVistas -> obtenerDato (i);
             if (tienePuntajeAdecuado(noVista)){
                 pelisRecomendadas->insertar(noVista, 1);
                 //agregarRecomendada (pelisRecomendadas,noVista);
             } else {
                 for (int j = 1; j < cantPelisVistas + 1; j++) {
-                    vista = vistas -> obtenerDato(j);
+                    vista = pelisVistas -> obtenerDato(j);
                     if ((coincideGenero(noVista, vista) && ((coincideDirector(noVista, vista)) || coincideAlMenosUnActor(noVista, vista)))) {
                         pelisRecomendadas -> insertar(noVista, 1);
                         //agregarRecomendada(pelisRecomendadas, noVista);
@@ -171,11 +171,11 @@ void Menu::recomendar(Lista<Pelicula*>* vistas, Lista<Pelicula*>* noVistas){
     }
 }
 
-void Menu::recomendar(Lista<Pelicula*>* noVistas){
-    unsigned int cantPelisNoVistas = noVistas -> obtenerTamanio();
+void Menu::recomendarSoloPuntaje(){
+    unsigned int cantPelisNoVistas = pelisNoVistas -> obtenerTamanio();
     for (int i = 1; i < cantPelisNoVistas + 1; i++){
-        if (tienePuntajeAdecuado(noVistas -> obtenerDato(i))){  //noVistas -> obtenerDato(i) -> obtenerPuntaje() > PUNTAJE_MINIMO - 1
-            pelisRecomendadas -> insertar(noVistas -> obtenerDato(i),1);
+        if (tienePuntajeAdecuado(pelisNoVistas -> obtenerDato(i))){  //noVistas -> obtenerDato(i) -> obtenerPuntaje() > PUNTAJE_MINIMO - 1
+            pelisRecomendadas -> insertar(pelisNoVistas -> obtenerDato(i),1);
         }
     }
 }

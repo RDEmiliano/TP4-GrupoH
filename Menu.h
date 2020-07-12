@@ -51,12 +51,12 @@ public:
 
     //PRE: Deben existir los archivo de texto "peliculas_vistas.txt" y "peliculas_no_vistas.txt".
     //POST: Se carga la lista pelisRecomendadas en base al archivo de peliculas vistas, tomando en cuenta las condiciones solicitadas.
-    void recomendar(Lista<Pelicula*>* vistas, Lista<Pelicula*>* noVistas);
+    void recomendar();
 
     //PRE: Debe existir el archivo de texto "peliculas_no_vistas.txt".
     //POST: Se carga la lista pelisRecomendadas en base al archivo de peliculas no vistas, tomando en cuenta solamente el puntaje mayor
     //      al m�nimo aceptado (constante: PUNTAJE_MINIMO, heredada de la clase Utilidades).
-    void recomendar(Lista<Pelicula*>* noVistas);
+    void recomendarSoloPuntaje();
 
     //PRE: -
     //POST: Retorna verdadero o falso si la apertura de archivos fue correcta
