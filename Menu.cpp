@@ -31,7 +31,16 @@ void Menu::inicializar(string vistas, string noVistas){
                 definirArranque(false);
                 archivoNoVistas.close();
                 archivoVistas.close();
-                cout << "ERROR: No existe el archivo: " << noVistas << endl << endl;
+                cabecera();
+                cout << "\n\n\n\n";
+                enmarcar("ERROR!");
+                enmarcar("No existe el archivo de peliculas no vistas");
+                enmarcar("Nombre archivo: " + noVistas);
+                cout << "\n\n\n\n\n\n";
+                enmarcar("Pulse Enter para finalizar programa");
+                cout << endl;
+                //cout << "ERROR: No existe el archivo: " << noVistas << endl << endl;
+                pausa();
                 salir();
                 break;
 
@@ -58,12 +67,13 @@ int Menu::comenzar() {
 
     if (obtenerArranque()) {
         unsigned char eleccion;
-
+        string aux;
         do{
             limpiarPantalla();
             cabecera();         //en pantalla
             menuPrincipal();    //en pantalla
-            cin >> eleccion;
+            cin >> aux;
+            eleccion = aux[0];
         }while(eleccion < 48 || eleccion > 51);
 
         cin.get();
@@ -90,7 +100,7 @@ int Menu::comenzar() {
         }
         return eleccion;
     } else
-        return 0;
+        return 48;
 }
 
 void Menu::salir(){

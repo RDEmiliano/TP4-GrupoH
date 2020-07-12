@@ -16,7 +16,7 @@ Pelicula::Pelicula() {
 
 //Destructor
 Pelicula::~Pelicula() {
-    delete actores; //AGREGUE
+    delete actores; //LIBERA LISTA ACTORES
     if (MOSTRAR_MEMORIA) cout << "Destructor PELICULA (" << this << ")" << endl;
 }
 

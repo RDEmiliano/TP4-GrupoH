@@ -62,7 +62,7 @@ bool Utilidades::coincideAlMenosUnActor(Pelicula* noVista, Pelicula* vista){
     int cantActoresEnVista = vista -> obtenerCantActores();
     int i = 0;
     int j = 0;
-\
+
     bool hayCoincidencia = false;
 
     while(i < cantActoresEnNoVista && !hayCoincidencia){
@@ -81,7 +81,7 @@ bool Utilidades::coincideAlMenosUnActor(Pelicula* noVista, Pelicula* vista){
 void Utilidades::mostrarListadoPeliculas(Lista<Pelicula*>* aMostrar){
     ostringstream cantidad;
 
-    for (int i = 0; i < aMostrar -> obtenerTamanio(); i++){
+    for (unsigned i = 0; i < aMostrar -> obtenerTamanio(); i++){
         enmarcar(aMostrar -> obtenerDato(i + 1));
         cout << endl;
     }
