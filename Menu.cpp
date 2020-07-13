@@ -1,11 +1,9 @@
 #include "Menu.h"
 Menu::Menu(){
 
-    if (MOSTRAR_MEMORIA) cout << "Constructor MENU (" << this << ")" << endl;
     pelisVistas = new Lista<Pelicula*>;
     pelisNoVistas = new Lista<Pelicula*>;
     pelisRecomendadas = new Lista<Pelicula*>;
-
 }
 
 void Menu::inicializar(string vistas, string noVistas){
@@ -39,7 +37,6 @@ void Menu::inicializar(string vistas, string noVistas){
                 cout << "\n\n\n\n\n\n";
                 enmarcar("Pulse Enter para finalizar programa");
                 cout << endl;
-                //cout << "ERROR: No existe el archivo: " << noVistas << endl << endl;
                 pausa();
                 salir();
                 break;
@@ -54,7 +51,7 @@ void Menu::inicializar(string vistas, string noVistas){
             case 2: //No existe peliculas vistas
                 definirArranque(true);
                 llenarLista(pelisNoVistas, noVistas);
-                recomendarSoloPuntaje(); // Solo recomienda por puntaje
+                recomendarSoloPuntaje();
                 break;
 
             default:
@@ -70,8 +67,8 @@ char Menu::comenzar() {
         string aux;
         do{
             limpiarPantalla();
-            cabecera();         //en pantalla
-            menuPrincipal();    //en pantalla
+            cabecera();         //en clase Pantalla
+            menuPrincipal();    //en clase Pantalla
             cin >> aux;
             eleccion = aux[0];
         }while(eleccion < 48 || eleccion > 51);
@@ -155,26 +152,24 @@ void Menu::recomendar(){
     unsigned int cantPelisVistas = pelisVistas -> obtenerTamanio();
 
     for (unsigned i = 1; i < cantPelisNoVistas + 1; i++){
-            noVista = pelisNoVistas -> obtenerDato (i);
-            if (tienePuntajeAdecuado(noVista)){
-                pelisRecomendadas->insertar(noVista, 1);
-                //agregarRecomendada (pelisRecomendadas,noVista);
-            } else {
-                for (unsigned j = 1; j < cantPelisVistas + 1; j++) {
-                    vista = pelisVistas -> obtenerDato(j);
-                    if ((coincideGenero(noVista, vista) && ((coincideDirector(noVista, vista)) || coincideAlMenosUnActor(noVista, vista)))) {
-                        pelisRecomendadas -> insertar(noVista, 1);
-                        //agregarRecomendada(pelisRecomendadas, noVista);
-                    }
+        noVista = pelisNoVistas -> obtenerDato (i);
+        if (tienePuntajeAdecuado(noVista)){
+            pelisRecomendadas->insertar(noVista, 1);
+        } else {
+            for (unsigned j = 1; j < cantPelisVistas + 1; j++) {
+                vista = pelisVistas -> obtenerDato(j);
+                if ((coincideGenero(noVista, vista) && ((coincideDirector(noVista, vista)) || coincideAlMenosUnActor(noVista, vista)))) {
+                    pelisRecomendadas -> insertar(noVista, 1);
                 }
             }
+        }
     }
 }
 
 void Menu::recomendarSoloPuntaje(){
     unsigned int cantPelisNoVistas = pelisNoVistas -> obtenerTamanio();
     for (unsigned i = 1; i < cantPelisNoVistas + 1; i++){
-        if (tienePuntajeAdecuado(pelisNoVistas -> obtenerDato(i))){  //noVistas -> obtenerDato(i) -> obtenerPuntaje() > PUNTAJE_MINIMO - 1
+        if (tienePuntajeAdecuado(pelisNoVistas -> obtenerDato(i))){ 
             pelisRecomendadas -> insertar(pelisNoVistas -> obtenerDato(i),1);
         }
     }
@@ -201,6 +196,4 @@ Menu::~Menu(){
     delete pelisNoVistas;
 
     delete pelisRecomendadas;
-
-    if (MOSTRAR_MEMORIA) cout << "Destructor MENU (" << this << ")" <<endl;
 }

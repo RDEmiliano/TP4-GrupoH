@@ -4,20 +4,16 @@
 
 //Constructor
 Pelicula::Pelicula() {
-
-    if (MOSTRAR_MEMORIA) cout << "Constructor PELICULA (" << this << ")" << endl;
     nombre = "";
     genero = "";
     director = "";
     puntaje = 0.0;
-    actores = new Lista<string>; //recibe puntero
-
+    actores = new Lista<string>;
 }
 
 //Destructor
 Pelicula::~Pelicula() {
     delete actores; //LIBERA LISTA ACTORES
-    if (MOSTRAR_MEMORIA) cout << "Destructor PELICULA (" << this << ")" << endl;
 }
 
 void Pelicula::asignarNombre(string nombre) {

@@ -1,7 +1,6 @@
 #include "Utilidades.h"
 
-Utilidades::Utilidades(){
-    if (MOSTRAR_MEMORIA) cout << "Constructor UTILIDADES (" << this << ")" << endl;
+Utilidades::Utilidades(){ // Constructor de la clase Utilidades
 }
 
 void Utilidades::llenarLista(Lista<Pelicula*>* listaAllenar, string nombreArchivo){
@@ -13,7 +12,6 @@ void Utilidades::llenarLista(Lista<Pelicula*>* listaAllenar, string nombreArchiv
         while(!archivo.eof()) {
 
             Pelicula* ptrPelicula = new Pelicula;
-
             numLinea = 0;
 
             do{
@@ -101,6 +99,5 @@ void Utilidades::mostrarListadoPeliculas(Lista<Pelicula*>* aMostrar){
     cout << endl;
 }
 
-Utilidades::~Utilidades(){
-    if (MOSTRAR_MEMORIA) cout << "Destructor UTILIDADES (" << this << ")" << endl;
+Utilidades::~Utilidades(){ // Destructor de la clase Utilidades
 }

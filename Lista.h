@@ -53,7 +53,6 @@ class Lista{
 
 template<class T>
 Lista<T>::Lista() {
-    if (MOSTRAR_MEMORIA) std::cout << "Constructor LISTA (" << this << ")" << std::endl;
     primero = 0;
     tam = 0;
 }
@@ -62,7 +61,6 @@ template<class T>
 Lista<T>::~Lista<T>() {
     while (!(listaVacia()))
         eliminarDato(1);
-    if (MOSTRAR_MEMORIA) std::cout << "Destructor LISTA (" << this << ")" << std::endl;
 }
 
 template<class T>

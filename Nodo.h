@@ -38,7 +38,6 @@ class Nodo{
 
 template<class T>
 Nodo<T>::Nodo(T datoNuevo) {
-    if (MOSTRAR_MEMORIA) std::cout << "Constructor NODO (" << this << ")" << std::endl;
     siguiente = 0;
     dato = datoNuevo;
 }
@@ -46,7 +45,6 @@ Nodo<T>::Nodo(T datoNuevo) {
 template<class T>
 Nodo<T>::~Nodo() {
     siguiente = 0;
-    if (MOSTRAR_MEMORIA) std::cout << "Destructor NODO (" << this << ")" << std::endl;
 }
 
 template<class T>

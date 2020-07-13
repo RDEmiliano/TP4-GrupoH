@@ -22,13 +22,13 @@ class Utilidades : public Pantalla{
 
         //PRE: --
         //POST: Si hay peliculas dentro de la lista, las muestra con formato, indicando nombre de la pelicula,
-        //      director, genero, puntuacion y actores.
-        //      Si la lista esta vacia, muestra un cartel dando aviso del suceso.
+        //      director, genero, puntuacion y actores. Se muestran en tandas de a tres peliculas máximo, solicitando precionar Enter para ver 
+        //      el resto. Si la lista esta vacia, muestra un cartel dando aviso del suceso.
         void mostrarListadoPeliculas(Lista<Pelicula*>* aMostrar);
 
         //PRE:  El archivo txt debe finalizar con el ultimo caracter del ultimo nombre de actor, sin una linea vac�a a continuaci�n.
         //POST: Se carga la lista apuntada por el puntero listAllenar en base al archivo txt cuyo nombre o direccion ingresa por
-        //      el par�metro nombreArchivo, en el caso de que este sea v�lido.
+        //      el par�metro nombreArchivo, en el caso de que este sea v�lido. La lista se va cargando insertando en la primera posicion.
         void llenarLista(Lista<Pelicula*>* listaAllenar, string nombreArchivo);
 
         //PRE: Ninguna
