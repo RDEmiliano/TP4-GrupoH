@@ -84,6 +84,10 @@ void Utilidades::mostrarListadoPeliculas(Lista<Pelicula*>* aMostrar){
     for (unsigned i = 0; i < aMostrar -> obtenerTamanio(); i++){
         enmarcar(aMostrar -> obtenerDato(i + 1));
         cout << endl;
+        if( i && ((i + 1) < aMostrar -> obtenerTamanio() && (i + 1) % 3 == 0)){
+            cout << "  Resta(n) " << aMostrar -> obtenerTamanio() - (i + 1) << " pelicula(s). ";
+            pausa();
+        }
     }
 
     cantidad << aMostrar -> obtenerTamanio();

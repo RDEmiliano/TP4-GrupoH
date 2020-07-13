@@ -63,7 +63,7 @@ void Menu::inicializar(string vistas, string noVistas){
     }
 }
 
-int Menu::comenzar() {
+char Menu::comenzar() {
 
     if (obtenerArranque()) {
         unsigned char eleccion;
@@ -154,13 +154,13 @@ void Menu::recomendar(){
     unsigned int cantPelisNoVistas = pelisNoVistas -> obtenerTamanio();
     unsigned int cantPelisVistas = pelisVistas -> obtenerTamanio();
 
-    for (int i = 1; i < cantPelisNoVistas + 1; i++){
+    for (unsigned i = 1; i < cantPelisNoVistas + 1; i++){
             noVista = pelisNoVistas -> obtenerDato (i);
             if (tienePuntajeAdecuado(noVista)){
                 pelisRecomendadas->insertar(noVista, 1);
                 //agregarRecomendada (pelisRecomendadas,noVista);
             } else {
-                for (int j = 1; j < cantPelisVistas + 1; j++) {
+                for (unsigned j = 1; j < cantPelisVistas + 1; j++) {
                     vista = pelisVistas -> obtenerDato(j);
                     if ((coincideGenero(noVista, vista) && ((coincideDirector(noVista, vista)) || coincideAlMenosUnActor(noVista, vista)))) {
                         pelisRecomendadas -> insertar(noVista, 1);
@@ -173,7 +173,7 @@ void Menu::recomendar(){
 
 void Menu::recomendarSoloPuntaje(){
     unsigned int cantPelisNoVistas = pelisNoVistas -> obtenerTamanio();
-    for (int i = 1; i < cantPelisNoVistas + 1; i++){
+    for (unsigned i = 1; i < cantPelisNoVistas + 1; i++){
         if (tienePuntajeAdecuado(pelisNoVistas -> obtenerDato(i))){  //noVistas -> obtenerDato(i) -> obtenerPuntaje() > PUNTAJE_MINIMO - 1
             pelisRecomendadas -> insertar(pelisNoVistas -> obtenerDato(i),1);
         }

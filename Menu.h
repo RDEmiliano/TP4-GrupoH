@@ -32,7 +32,7 @@ public:
     //PRE:  Listas correctamente cargadas.
     //POST: Inicio de interfaz con usuario.
     //      Se muestra una lista de opciones disponibles y se le pide que ingrese una.
-    int comenzar();
+    char comenzar();
 
     //PRE: Debe estar creado e inicializado el objeto de clase Menu.
     //POST: Muestra por pantalla el contenido de la lista peliculasVistas, detallando t�tulo, g�nero, puntaje, director y actores.

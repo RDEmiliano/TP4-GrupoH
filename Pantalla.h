@@ -7,7 +7,7 @@
 
 #include "Pelicula.h"
 
-const int ANCHO_PANTALLA = 50;
+const int ANCHO_PANTALLA = 60;
 const unsigned char SOMBRA = 219;//[176, 177, 178, 219]
 
 class Pantalla{
